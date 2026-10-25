@@ -1,10 +1,10 @@
-# CCMS — Home
+# CCMS website
 
 Static site served with GitHub Pages.
 
-- `index.html` — the page (exported design component)
-- `assets/` — images
-- `support.js`, `vendor/` — runtime that renders the page
+- `index.html`: the page (exported design component)
+- `assets/`: images
+- `support.js`, `vendor/`: runtime that renders the page
 
 ## Local preview
 
