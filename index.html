@@ -614,6 +614,11 @@ font-family:'Plus Jakarta Sans',system-ui,sans-serif;color:var(--ink);background
 .hr-b{width:28px;height:28px;border-radius:999px;border:1px solid var(--line2);background:#FFFFFF;color:var(--ink);font:inherit;font-size:15px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform 140ms var(--ease)}
 .hr-b.plus{background:#2F4BFF;border-color:#2F4BFF;color:#FFFFFF}
 .hr-b:active{transform:scale(.92)}
+.hr-b,.step-btn{position:relative;font-size:0;padding:0}
+.hr-b::before,.step-btn::before,.hr-b.plus::after,.step-btn.plus::after{content:"";position:absolute;inset:0;margin:auto;width:10px;height:2px;border-radius:1px;background:currentColor}
+.step-btn::before,.step-btn.plus::after{width:12px}
+.hr-b.plus::after{width:2px;height:10px}
+.step-btn.plus::after{width:2px;height:12px}
 .hr-res{display:grid;grid-template-columns:1fr 1.2fr;margin-top:12px;border-radius:14px;background:#0A0F2C;color:#FFFFFF;overflow:hidden}
 .hr-res>div{padding:12px 14px}
 .hr-res>div+div{border-left:1px solid rgba(255,255,255,.1)}
