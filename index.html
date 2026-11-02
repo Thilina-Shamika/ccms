@@ -527,12 +527,119 @@ font-family:'Plus Jakarta Sans',system-ui,sans-serif;color:var(--ink);background
 .cs-steps li{display:flex;gap:10px;color:var(--ink2)}
 .cs-steps li b{flex-shrink:0;width:78px;color:var(--ink);font-weight:700}
 .pimg.pimg-ph{width:2.3em;height:.9em;transform:translateY(-.08em);box-shadow:inset 0 0 0 1px rgba(11,13,18,.08),0 6px 16px -8px rgba(10,15,44,.45)}
+
+/* ===== lead capture ===== */
+.vh{position:absolute !important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.inl{display:flex;gap:8px;flex-wrap:wrap}
+.inl input{flex:1 1 220px;min-width:0;min-height:52px;border-radius:999px;border:1px solid rgba(14,17,22,.18);padding:0 20px;font:inherit;font-size:16px;color:var(--ink);background:#FFFFFF;transition:border-color 200ms ease,box-shadow 200ms ease}
+.inl input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(47,75,255,.18)}
+.inl .btn{min-height:52px}
+.inl.dk input{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.22);color:#FFFFFF}
+.inl.dk input::placeholder{color:#AEB6D8}
+.inl.dk input:focus{border-color:#AEB8FF;box-shadow:0 0 0 3px rgba(174,184,255,.25)}
+.lead-ok{display:flex;align-items:center;gap:12px;font-weight:700;animation:ccms-in 260ms var(--ease) both}
+.lead-ok i{width:32px;height:32px;border-radius:50%;background:#16A34A;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.guide{display:grid;grid-template-columns:auto 1fr minmax(320px,440px);gap:24px;align-items:center;margin-top:28px;padding:20px 22px;border-radius:22px;background:var(--s1);border:1px solid var(--line)}
+@media (max-width:980px){.guide{grid-template-columns:auto 1fr}.guide>:last-child{grid-column:1 / -1}}
+.gcov{width:96px;height:124px;border-radius:14px;background:#000;overflow:hidden;flex-shrink:0;box-shadow:0 16px 30px -14px rgba(10,15,44,.7);transform:rotate(-3deg);transition:transform 300ms var(--ease)}
+.gcov img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 40%}
+@media (hover:hover) and (pointer:fine){.guide:hover .gcov{transform:rotate(0) scale(1.04)}}
+.gbook{position:relative;width:64px;height:82px;border-radius:6px 10px 10px 6px;background:linear-gradient(150deg,#2F4BFF,#0A0F2C);box-shadow:inset 6px 0 0 rgba(255,255,255,.12),0 14px 26px -12px rgba(16,24,64,.6);color:#FFFFFF;font-size:9px;font-weight:800;line-height:1.15;padding:10px 8px 8px 12px;transform:rotate(-4deg)}
+.gbook b{display:block;font-size:20px;letter-spacing:-.04em}
+.fstep{display:flex;align-items:center;gap:12px;margin:-4px 0 18px;font-size:13px;font-weight:700;color:#5B6270}
+.fbar{flex:1;height:6px;border-radius:999px;background:#EEF0F4;overflow:hidden}
+.fbar i{display:block;height:100%;border-radius:999px;background:#2F4BFF;transition:width 420ms var(--ease)}
+.fback{border:0;background:none;font:inherit;font-weight:700;color:#2238D6;cursor:pointer;min-height:44px;padding:0 6px}
+.slots{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px}
+@media (max-width:520px){.slots{grid-template-columns:1fr}}
+.slot-d{font-size:13px;font-weight:800;color:#0E1116;margin-bottom:6px}
+.slot{display:flex;align-items:center;justify-content:center;min-height:44px;border-radius:12px;border:1px solid rgba(47,75,255,.28);color:#2238D6;font-weight:700;font-size:15px;text-decoration:none;margin-bottom:6px;transition:background-color 160ms ease,color 160ms ease,transform 160ms var(--ease)}
+.slot:hover{background:#2F4BFF;color:#FFFFFF}
+.slot:active{transform:scale(.97)}
+.trust{margin-top:32px;display:grid;gap:14px;max-width:46ch}
+.trust-p{display:flex;align-items:center;gap:14px;padding:14px 16px;border-radius:18px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12)}
+.trust ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px 18px;font-size:15px;color:#C9D0EE}
+.trust li{display:inline-flex;align-items:center;gap:8px}
+.trust li span{width:20px;height:20px;border-radius:50%;background:rgba(134,239,172,.16);color:#86EFAC;display:inline-flex;align-items:center;justify-content:center}
+.stick{position:fixed;left:50%;top:14px;z-index:60;display:flex;align-items:center;gap:20px;padding:7px 7px 7px 18px;border-radius:999px;background:rgba(10,15,44,.84);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.14);box-shadow:0 18px 40px -18px rgba(0,0,0,.6);transform:translate(-50%,-160%);opacity:0;pointer-events:none;transition:transform 420ms var(--ease),opacity 260ms ease}
+.stick.on{transform:translate(-50%,0);opacity:1;pointer-events:auto}
+.stick a.sl{color:#C9D0EE;text-decoration:none;font-size:14px;font-weight:600}
+.stick a.sl:hover{color:#FFFFFF}
+.mbar{position:fixed;left:12px;right:12px;bottom:12px;z-index:60;display:none;gap:8px;padding:8px;border-radius:20px;background:rgba(10,15,44,.9);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.14);box-shadow:0 18px 40px -14px rgba(0,0,0,.6);transform:translateY(160%);transition:transform 420ms var(--ease)}
+.mbar.on{transform:none}
+.mbar .btn{flex:1;min-height:48px;padding:0 12px;font-size:15px}
+@media (max-width:760px){.stick{display:none}.mbar{display:flex}}
+@media (max-width:900px){.stick .sl{display:none}}
+@keyframes lv{0%,100%{opacity:1}50%{opacity:.35}}
+
+/* ===== hero hook ===== */
+.hero-hook{position:relative;display:grid;grid-template-columns:1fr minmax(340px,440px);gap:clamp(24px,4vw,56px);align-items:center;padding:clamp(22px,3.4vw,44px);border-radius:28px;color:#FFFFFF;background:radial-gradient(90% 120% at 50% 0%,#22306E 0%,#121A45 55%,#0C1233 100%);box-shadow:inset 0 1px 0 rgba(255,255,255,.1),0 40px 100px -40px rgba(47,75,255,.55);border:1px solid rgba(174,184,255,.18)}
+@media (max-width:900px){.hero-hook{grid-template-columns:1fr}}
+.hh-pill{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:999px;background:rgba(134,239,172,.12);border:1px solid rgba(134,239,172,.25);color:#BBF7D0;font-size:13px;font-weight:700}
+.hh-pill>span{width:7px;height:7px;border-radius:50%;background:#4ADE80;box-shadow:0 0 0 4px rgba(74,222,128,.18)}
+.hh-prev{margin-top:24px;max-width:420px;padding:16px;border-radius:18px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12)}
+.hh-r{display:flex;align-items:center;gap:10px;margin-top:10px;font-size:15px;color:#E4E8FA}
+.hh-r b{font-weight:800;color:#FFFFFF}
+.hh-av{width:26px;height:26px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:#FFFFFF}
+.hh-card{background:#FFFFFF;color:#0E1116;border-radius:22px;padding:clamp(20px,2.6vw,28px);box-shadow:0 30px 60px -30px rgba(0,0,0,.6)}
+
+.hh-inc{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:10px;font-size:15px;color:#E4E8FA}
+.hh-inc li{display:flex;align-items:center;gap:10px}
+.hh-inc li span{width:22px;height:22px;border-radius:50%;background:rgba(134,239,172,.16);color:#86EFAC;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+.cc-f{margin-top:14px}
+
+.cc-l{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-size:14px;font-weight:600}
+.cc-l output{font-size:15px;font-weight:800;color:#2238D6;font-variant-numeric:tabular-nums}
+.cc-r{-webkit-appearance:none;appearance:none;width:100%;height:6px;margin:10px 0 2px;border-radius:999px;background:linear-gradient(90deg,#2F4BFF 0,#2F4BFF var(--p,50%),#E5E8F0 var(--p,50%));outline:none;cursor:pointer}
+.cc-r::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:#FFFFFF;border:2px solid #2F4BFF;box-shadow:0 2px 8px rgba(47,75,255,.35);transition:transform 160ms var(--ease)}
+.cc-r::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:#FFFFFF;border:2px solid #2F4BFF;box-shadow:0 2px 8px rgba(47,75,255,.35)}
+.cc-r:active::-webkit-slider-thumb{transform:scale(1.15)}
+.cc-r:focus-visible{box-shadow:0 0 0 3px rgba(47,75,255,.25)}
+.cc-res{margin-top:18px;padding:16px 18px;border-radius:16px;background:#0A0F2C;color:#FFFFFF}
+.cc-big{margin-top:2px;font-size:clamp(34px,3.4vw,44px);font-weight:800;letter-spacing:-.05em;line-height:1.05;font-variant-numeric:tabular-nums}
+.cc-rows{margin-top:10px;display:grid;gap:6px;font-size:14px;color:#C9D0EE}
+.cc-rows>div{display:flex;justify-content:space-between;gap:10px;padding-top:6px;border-top:1px solid rgba(255,255,255,.1)}
+.cc-rows b{color:#FFFFFF;font-variant-numeric:tabular-nums}
+
+.hh-card{padding:clamp(18px,2.2vw,24px) !important}
+.hh-card .inl input{flex:1 1 140px}.hh-card .inl .btn{min-height:52px;padding:0 20px}
+.hh-sel{width:100%;min-height:46px;appearance:none;-webkit-appearance:none;border:1px solid rgba(14,17,22,.18);border-radius:12px;background:#F6F7FB;padding:0 40px 0 14px;font:inherit;font-size:15px;font-weight:700;color:var(--ink);cursor:pointer}
+.hh-sel:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(47,75,255,.18)}
+.hr-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px 14px;margin-top:10px}
+@media (max-width:420px){.hr-grid{grid-template-columns:1fr}}
+.hr-row{display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:40px;border-bottom:1px solid var(--line);font-size:14px;font-weight:600}
+.hr-row>span:first-child{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.hr-st{display:inline-flex;align-items:center;gap:2px;flex-shrink:0}
+.hr-st b{width:22px;text-align:center;font-size:15px;font-variant-numeric:tabular-nums}
+.hr-b{width:28px;height:28px;border-radius:999px;border:1px solid var(--line2);background:#FFFFFF;color:var(--ink);font:inherit;font-size:15px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform 140ms var(--ease)}
+.hr-b.plus{background:#2F4BFF;border-color:#2F4BFF;color:#FFFFFF}
+.hr-b:active{transform:scale(.92)}
+.hr-res{display:grid;grid-template-columns:1fr 1.2fr;margin-top:12px;border-radius:14px;background:#0A0F2C;color:#FFFFFF;overflow:hidden}
+.hr-res>div{padding:12px 14px}
+.hr-res>div+div{border-left:1px solid rgba(255,255,255,.1)}
+.hr-k{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#AEB8FF}
+.hr-v{margin-top:2px;font-size:clamp(24px,2.2vw,30px);font-weight:800;letter-spacing:-.04em;line-height:1.1;font-variant-numeric:tabular-nums}
+.hr-v small{font-size:13px;font-weight:600;letter-spacing:0;color:#C9D0EE}
+.hr-s{margin-top:2px;font-size:12px;color:#86EFAC}
+.hr-res>div+div .hr-s{color:#AEB6D8}
+.hh-eye{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#AEB8FF}
+.hh-eye span{margin:0 6px;color:rgba(174,184,255,.45)}
+.hh-proof{display:grid;grid-template-columns:repeat(3,1fr);margin:30px 0 0;padding-top:22px;border-top:1px solid rgba(255,255,255,.12);max-width:520px}
+.hh-proof>div{padding-right:16px}
+.hh-proof>div+div{padding-left:16px;border-left:1px solid rgba(255,255,255,.12)}
+.hh-proof dt{font-size:clamp(20px,1.9vw,26px);font-weight:800;letter-spacing:-.04em;line-height:1.1;color:#FFFFFF;white-space:nowrap}
+.hh-proof dd{margin:6px 0 0;font-size:13px;line-height:1.4;color:#AEB6D8}
+@media (max-width:520px){.hh-proof{grid-template-columns:1fr;gap:14px}.hh-proof>div+div{padding-left:0;border-left:0}}
+.hero-hook{border-bottom:0 !important;border-radius:28px 28px 0 0 !important;box-shadow:inset 0 1px 0 rgba(255,255,255,.1) !important;padding-bottom:clamp(28px,3.6vw,48px) !important}
+.hr-w{margin-top:4px;font-size:15px;font-weight:700;line-height:1.3;color:#FFFFFF}
 </style>
 </helmet>
 <div class="c">
 <!-- ============ HERO ============ -->
 <section id="top" data-ccms="hero" style="position: relative; overflow: hidden; background: #0A0F2C; color: #FFFFFF">
 <canvas data-ccms="hero-canvas" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; display: block; pointer-events: none; z-index: 0"></canvas>
+<div class="{{stickCls}}" aria-label="Quick links"><a href="#top" aria-label="CCMS home" style="display: inline-flex"><img src="./assets/d7fee95ddd0788962b6253f583f3de89.png" alt="CCMS" width="87" height="21" style="height: 21px; width: auto; display: block"></a><a class="sl" href="#rpo">Services</a><a class="sl" href="#how">How it works</a><a class="sl" href="#build">Team plan</a><a class="btn btn-white" href="#contact" style="min-height: 42px; padding: 0 18px; font-size: 15px">Book a call</a></div>
+<div class="{{mbarCls}}" aria-label="Quick actions"><a class="btn" href="#build" style="background: rgba(255,255,255,.1); color: #FFFFFF; border: 1px solid rgba(255,255,255,.2)">Get a team plan</a><a class="btn btn-white" href="#contact">Book a call</a></div>
 <header style="position: relative; z-index: 4">
 <nav aria-label="Main" class="wrap" style="height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px">
 <a href="#top" aria-label="CCMS home" style="text-decoration: none; min-height: 44px; display: inline-flex; align-items: center"><img src="./assets/d7fee95ddd0788962b6253f583f3de89.png" alt="CCMS" width="103" height="25" style="display: block; height: 25px; width: auto"></a>
@@ -570,17 +677,33 @@ font-family:'Plus Jakarta Sans',system-ui,sans-serif;color:var(--ink);background
 </div>
 </div>
 </div>
-<div class="wrap" style="position: relative; z-index: 1; margin-top: 88px; padding-bottom: 96px">
-<a href="[TEAM-VIDEO-URL]" data-ccms="hero-surface" class="hero-in" aria-label="Play a short video of the CCMS team in Kandy" style="position: relative; display: block; aspect-ratio: 16 / 9; max-height: 640px; width: 100%; border-radius: 24px; overflow: hidden; text-decoration: none; color: #FFFFFF; background: radial-gradient(90% 120% at 50% 0%, #22306E 0%, #121A45 55%, #0C1233 100%); box-shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 40px 100px -40px rgba(47,75,255,.55); border: 1px solid rgba(174,184,255,.18); animation-delay: 220ms">
-<img class="hero-ph" src="./assets/3a8588b7bbac82e2d9ebb61a43a69d60.jpg" alt="" aria-hidden="true"><span aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,15,44,.25) 0%, rgba(10,15,44,.1) 45%, rgba(10,15,44,.7) 100%)"></span>
-<span style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center">
-<span class="play" style="width: 88px; height: 88px; border-radius: 50%; background: #FFFFFF; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 0 12px rgba(255,255,255,.08), 0 20px 40px -10px rgba(0,0,0,.5)"><svg width="24" height="24" viewBox="0 0 24 24" fill="#0A0F2C" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"></path></svg></span>
-</span>
-<span style="position: absolute; left: 24px; right: 24px; bottom: 22px; display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; flex-wrap: wrap">
-<span><span style="display: block; font-size: 18px; font-weight: 700">Meet your team in Kandy</span></span>
-
-</span>
-</a>
+<div class="wrap" style="position: relative; z-index: 1; margin-top: 88px; padding-bottom: 0">
+<div data-ccms="hero-surface" class="hero-in hero-hook" style="animation-delay: 220ms">
+<div class="hh-left">
+<div class="hh-eye">Free team plan <span aria-hidden="true">/</span> 30 seconds</div>
+<h2 style="margin: 14px 0 0; font-size: clamp(30px, 3.2vw, 44px); line-height: 1.05; letter-spacing: -.04em; font-weight: 800">Build your team. <span style="color: #AEB8FF">Get the plan in your inbox.</span></h2>
+<p style="margin: 14px 0 0; font-size: 17px; line-height: 1.6; color: #C9D0EE; max-width: 42ch">Pick your industry and the roles you need. We'll email you a team plan with the roles, the set-up and a timeline, ready to talk through.</p>
+<dl class="hh-proof">
+<div><dt>4 to 6 weeks</dt><dd>from first call to a working team</dd></div>
+<div><dt>1 in 20</dt><dd>candidates we interview are hired</dd></div>
+<div><dt>8 of 10</dt><dd>of our first hires are still with us</dd></div>
+</dl>
+</div>
+<div class="hh-card">
+<div style="position: relative"><label class="vh" for="hh-ind">Your industry</label><select id="hh-ind" class="hh-sel" value="{{industryValue}}" onChange="{{pickIndustry}}"><sc-for list="{{industryOptions}}" as="o" hint-placeholder-count="12"><option value="{{o.value}}">{{o.label}}</option></sc-for></select><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0B0D12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="position: absolute; right: 12px; top: 13px; pointer-events: none"><path d="m6 9 6 6 6-6"></path></svg></div>
+<div class="hr-grid"><sc-for list="{{roles}}" as="r" hint-placeholder-count="5"><div class="hr-row"><span>{{r.name}}</span><span class="hr-st"><button class="hr-b" type="button" onClick="{{r.dec}}" aria-label="{{r.decLabel}}">−</button><b aria-live="polite">{{r.count}}</b><button class="hr-b plus" type="button" onClick="{{r.inc}}" aria-label="{{r.incLabel}}">+</button></span></div></sc-for></div>
+<div class="hr-res">
+<div><div class="hr-k">Your team</div><div class="hr-v">{{total}} <small>{{totalLabel}}</small></div><div class="hr-s">Live in 4 to 6 weeks</div></div>
+<div><div class="hr-k">How they work</div><div class="hr-w">Only for you, in your systems, on UK hours</div><div class="hr-s">Managed by CCMS, every day</div></div>
+</div>
+<sc-if value="{{heroNotSent}}" hint-placeholder-val="{{true}}">
+<form onSubmit="{{heroSend}}" novalidate="" class="inl" style="margin-top: 12px"><label class="vh" for="h-email">Work email</label><input id="h-email" name="email" type="email" autocomplete="email" placeholder="Your work email" required=""><button class="btn btn-accent" type="button" onClick="{{heroSend}}">Email me the plan</button></form>
+</sc-if>
+<sc-if value="{{heroSent}}" hint-placeholder-val="{{false}}">
+<div role="status" style="margin-top: 12px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; animation: ccms-in 260ms var(--ease) both"><span class="lead-ok"><i><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg></i>Your plan is on its way.</span><a class="btn btn-accent" href="#contact" style="min-height: 46px">Talk it through <svg class="arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"></path></svg></a></div>
+</sc-if>
+</div>
+</div>
 </div>
 </section>
 
@@ -774,6 +897,11 @@ font-family:'Plus Jakarta Sans',system-ui,sans-serif;color:var(--ink);background
 </table>
 </div>
 <div style="margin-top: 18px; display: flex; gap: 20px; flex-wrap: wrap; align-items: center; font-size: 14px; color: var(--ink3)"><span style="display: inline-flex; align-items: center; gap: 8px"><span class="dot6 y" aria-label="Yes"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg></span>Usually</span><span style="display: inline-flex; align-items: center; gap: 8px"><span class="dot6 p" aria-label="Sometimes"></span>Sometimes</span><span style="display: inline-flex; align-items: center; gap: 8px"><span class="dot6 n" aria-label="Rarely"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#8A909C" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M6 12h12"></path></svg></span>Rarely</span><span>Based on what UK agencies tell us about their options. Every provider is different.</span></div>
+<div class="guide" data-a="up" data-d="0">
+<div class="gcov" aria-hidden="true"><img src="./assets/fb53e42b0908fb83c1c2ab85d03767e0.jpg" alt="" width="96" height="142" loading="lazy"></div>
+<div><div style="font-size: 13px; font-weight: 800; color: #2238D6">Free guide</div><div style="margin-top: 2px; font-size: clamp(18px, 1.6vw, 21px); font-weight: 800; letter-spacing: -.02em; line-height: 1.25">Comparing offshore providers? 12 questions to ask before you sign.</div></div>
+<div><sc-if value="{{guideNotSent}}" hint-placeholder-val="{{true}}"><form onSubmit="{{sendGuide}}" class="inl"><label class="vh" for="guide-email">Work email</label><input id="guide-email" name="email" type="email" autocomplete="email" placeholder="Your work email" required=""><button class="btn btn-accent" type="button" onClick="{{sendGuide}}">Send me the guide</button></form></sc-if><sc-if value="{{guideSent}}" hint-placeholder-val="{{false}}"><div role="status" class="lead-ok"><i><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg></i>Sent. Check your inbox for the guide.</div></sc-if></div>
+</div>
 <div class="cta-band" data-a="up" data-d="0" style="margin-top: 56px; background-color: #0A0F2C; background-image: radial-gradient(60% 120% at 85% 50%, rgba(47,75,255,.35), rgba(47,75,255,0) 70%), radial-gradient(rgba(255,255,255,.07) 1px, transparent 1.2px); background-size: auto, 18px 18px">
 <div style="position: relative; flex: 1 1 380px">
 <div style="font-size: clamp(24px, 2.6vw, 34px); font-weight: 800; letter-spacing: -.03em; line-height: 1.1">See what your team could look like.</div>
@@ -916,7 +1044,7 @@ font-family:'Plus Jakarta Sans',system-ui,sans-serif;color:var(--ink);background
 <section id="build" class="sec" style="background: var(--s1)">
 <div class="wrap gplan">
 <div>
-<div class=""><p class="k" data-a="up" data-d="0">Build your team</p><h2 class="H" data-a="up" data-d="60" style="font-size: clamp(32px, 3.4vw, 46px)">See what your team could look like.</h2><p class="sub" data-a="up" data-d="120">Pick your industry and the roles you need. We'll show you a suggested team and timeline, then talk it through on a call.</p></div>
+<div class=""><p class="k" data-a="up" data-d="0">Build your team</p><h2 class="H" data-a="up" data-d="60" style="font-size: clamp(32px, 3.4vw, 46px)">See what your team could look like.</h2><p class="sub" data-a="up" data-d="120">Pick your industry and the roles you need. We'll show you a suggested team and timeline, and email you the plan.</p></div>
 <ul style="list-style: none; margin: 28px 0 0; padding: 0; display: flex; flex-direction: column; gap: 12px; font-weight: 600"><li data-a="up" data-d="0" style="display: flex; gap: 12px; align-items: center"><span style="width: 24px; height: 24px; border-radius: 50%; background: #FFFFFF; border: 1px solid rgba(47,75,255,.25); display: flex; align-items: center; justify-content: center"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#2238D6" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg></span>Roles tailored to 12 UK industries</li><li data-a="up" data-d="80" style="display: flex; gap: 12px; align-items: center"><span style="width: 24px; height: 24px; border-radius: 50%; background: #FFFFFF; border: 1px solid rgba(47,75,255,.25); display: flex; align-items: center; justify-content: center"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#2238D6" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg></span>Typical time to go live: 4 to 6 weeks</li><li data-a="up" data-d="160" style="display: flex; gap: 12px; align-items: center"><span style="width: 24px; height: 24px; border-radius: 50%; background: #FFFFFF; border: 1px solid rgba(47,75,255,.25); display: flex; align-items: center; justify-content: center"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#2238D6" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg></span>Managed by CCMS, every day</li></ul>
 </div>
 <div class="box" data-a="up" data-d="100" style="box-shadow: 0 1px 2px rgba(11,13,18,.04), 0 34px 70px -40px rgba(34,56,214,.45)">
@@ -944,9 +1072,14 @@ font-family:'Plus Jakarta Sans',system-ui,sans-serif;color:var(--ink);background
 <div style="margin-top: 16px; padding: 20px 24px 22px; background: #0A0F2C; color: #FFFFFF">
 <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap">
 <div><div style="font-size: 13px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #AEB8FF">Your suggested team</div><div style="margin-top: 4px; display: flex; align-items: baseline; gap: 8px"><span style="font-size: 40px; font-weight: 800; letter-spacing: -.05em; line-height: 1">{{total}}</span><span style="font-size: 16px; color: #D3D9F2">{{totalLabel}} · 4 to 6 weeks</span></div></div>
-<a class="btn btn-white" href="#contact">Book a call to discuss this team</a>
 </div>
-<p style="margin: 12px 0 0; font-size: 14px; color: #C9D0EE">We'll ask for your name and email to send you this summary.</p>
+<sc-if value="{{planNotSent}}" hint-placeholder-val="{{true}}">
+<form onSubmit="{{sendPlan}}" class="inl dk" style="margin-top: 16px"><label class="vh" for="plan-email">Work email</label><input id="plan-email" name="email" type="email" autocomplete="email" placeholder="Your work email" required=""><button class="btn btn-white" type="button" onClick="{{sendPlan}}">Email me this plan <svg class="arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"></path></svg></button></form>
+<p style="margin: 10px 0 0; font-size: 14px; color: #C9D0EE">One email with your team plan. No spam. Or <a href="#contact" style="color: #FFFFFF; font-weight: 700">book a call to talk it through</a>.</p>
+</sc-if>
+<sc-if value="{{planSent}}" hint-placeholder-val="{{false}}">
+<div role="status" style="margin-top: 16px; display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap"><span class="lead-ok"><i><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg></i>Your {{total}}-person plan is on its way.</span><a class="btn btn-white" href="#contact">Book a call to discuss it <svg class="arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"></path></svg></a></div>
+</sc-if>
 </div>
 </div>
 </div>
@@ -1150,6 +1283,12 @@ font-family:'Plus Jakarta Sans',system-ui,sans-serif;color:var(--ink);background
 </sc-for>
 <div style="border-top: 1px solid var(--line2)"></div>
 </div>
+<div data-a="up" data-d="0" style="margin-top: 48px; border-radius: 24px; padding: clamp(22px, 3vw, 32px); background: #FFFFFF; border: 1px solid var(--line); box-shadow: 0 1px 2px rgba(11,13,18,.04), 0 24px 50px -34px rgba(16,24,64,.35); text-align: left">
+<div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap"><span style="display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: 999px; background: #F5F3FF; color: #6D28D9; font-size: 13px; font-weight: 800"><span style="width: 8px; height: 8px; border-radius: 50%; background: #F43F5E; animation: lv 1.6s ease-in-out infinite"></span>Live online · Monthly</span><span style="font-size: 14px; color: var(--ink3); font-weight: 600">30 minutes · Next date: [EXPLAINER-DATE]</span></div>
+<div style="margin-top: 14px; font-size: clamp(22px, 2.2vw, 28px); font-weight: 800; letter-spacing: -.03em; line-height: 1.15">Prefer to see it first? Join our monthly explainer.</div>
+<p style="margin: 8px 0 0; color: var(--ink2)">See how a UK team runs from Kandy, day to day, and ask anything in the live Q&amp;A.</p>
+<div style="margin-top: 18px"><sc-if value="{{explNotSent}}" hint-placeholder-val="{{true}}"><form onSubmit="{{sendExpl}}" class="inl"><label class="vh" for="expl-email">Work email</label><input id="expl-email" name="email" type="email" autocomplete="email" placeholder="Your work email" required=""><button class="btn btn-accent" type="button" onClick="{{sendExpl}}">Save my seat</button></form></sc-if><sc-if value="{{explSent}}" hint-placeholder-val="{{false}}"><div role="status" class="lead-ok"><i><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg></i>You're in. We'll email the joining link.</div></sc-if></div>
+</div>
 </div>
 </section>
 <!-- ============ CTA + FOOTER ============ -->
@@ -1160,18 +1299,30 @@ font-family:'Plus Jakarta Sans',system-ui,sans-serif;color:var(--ink);background
 <h2 style="margin: 0; font-size: clamp(38px, 4.6vw, 62px); line-height: 1.02; letter-spacing: -.045em; font-weight: 800">Tell us what you need. We'll show you your team.</h2>
 <p style="margin: 20px 0 0; font-size: 18px; color: #C9D0EE; max-width: 46ch">A 30-minute call, no obligation. You leave with a suggested team, a timeline and clear next steps.</p>
 <a class="tlink" href="[CONTACT-URL]" style="margin-top: 16px; color: #FFFFFF">Send us a message <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+<div class="trust">
+<div class="trust-p"><img src="./assets/59b98896f1cac2dfb834893c68462962.png" alt="" width="48" height="48" style="width: 48px; height: 48px; border-radius: 50%; object-fit: cover; object-position: top; flex-shrink: 0"><div><div style="font-weight: 800">A real person replies within one UK working day.</div><div style="font-size: 14px; color: #AEB6D8">Founder-led, from the very first call.</div></div></div>
+<ul><li><span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg></span>No obligation</li><li><span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg></span>You leave with a team plan</li><li><span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg></span>UK GDPR protected</li></ul>
 </div>
-<form data-ccms="cta-surface" onSubmit="{{submitForm}}" style="background: #FFFFFF; color: #0E1116; border-radius: 24px; padding: clamp(22px, 3vw, 32px); box-shadow: 0 40px 80px -40px rgba(0,0,0,.6)">
+</div>
+<form data-ccms="cta-surface" novalidate="" onSubmit="{{submitForm}}" style="background: #FFFFFF; color: #0E1116; border-radius: 24px; padding: clamp(22px, 3vw, 32px); box-shadow: 0 40px 80px -40px rgba(0,0,0,.6)">
 <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; flex-wrap: wrap; margin-bottom: 18px">
 <div><div style="font-size: 20px; font-weight: 800; letter-spacing: -.02em">Book your 30-minute call</div><div style="margin-top: 2px; font-size: 14px; color: #5B6270">Tell us a little about your business. It takes a minute.</div></div>
 <span style="display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 700; color: #15803D; background: #DCFCE7; padding: 5px 10px; border-radius: 999px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#15803D" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11h14v10H5zM8 11V7a4 4 0 0 1 8 0v4"></path></svg>UK GDPR protected</span>
 </div>
+<div class="fstep"><span>Step {{stepNum}} of 2</span><span class="fbar" aria-hidden="true"><i style="width: {{stepPct}}"></i></span><span style="font-weight: 600">{{stepName}}</span></div>
+<div style="display: {{formBody}}">
+<div data-step1="" style="display: {{s1}}">
 <div class="f2">
 <div class="field"><label for="f-name">Full name</label><input id="f-name" name="name" type="text" autocomplete="name" placeholder="Your name" required=""></div>
 <div class="field"><label for="f-email">Work email</label><input id="f-email" name="email" type="email" autocomplete="email" placeholder="you@company.co.uk" required=""></div>
 <div class="field"><label for="f-co">Company</label><input id="f-co" name="company" type="text" autocomplete="organization" placeholder="Company name" required=""></div>
 <div class="field"><label for="f-phone">Phone <span class="opt">(optional)</span></label><input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="07700 900000"></div>
-<div class="field"><label for="f-industry">Industry</label><div style="position: relative"><select id="f-industry" name="industry"><option value="">Choose your industry</option><option value="Healthcare recruitment">Healthcare recruitment</option><option value="Education recruitment">Education recruitment</option><option value="Construction recruitment">Construction recruitment</option><option value="Care provider">Care provider</option><option value="Dental or private clinic">Dental or private clinic</option><option value="Nursery or childcare">Nursery or childcare</option><option value="Property and block management">Property and block management</option><option value="Construction subcontractor">Construction subcontractor</option><option value="Cleaning and facilities">Cleaning and facilities</option><option value="Security company">Security company</option><option value="Payroll bureau or umbrella company">Payroll bureau or umbrella company</option><option value="Accountancy practice">Accountancy practice</option><option value="Something else">Something else</option></select><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0B0D12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="position: absolute; right: 14px; top: 17px; pointer-events: none"><path d="m6 9 6 6 6-6"></path></svg></div></div><div class="field"><label for="f-size">Team size you have in mind</label><div style="position: relative"><select id="f-size" name="size"><option value="">Choose a size</option><option value="1-2">1 to 2 people</option><option value="3-5">3 to 5 people</option><option value="6-10">6 to 10 people</option><option value="10+">More than 10</option><option value="unsure">Not sure yet</option></select><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0B0D12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="position: absolute; right: 14px; top: 17px; pointer-events: none"><path d="m6 9 6 6 6-6"></path></svg></div></div>
+</div>
+<button class="btn btn-accent" type="button" onClick="{{nextStep}}" style="width: 100%; margin-top: 18px; min-height: 56px; font-size: 17px">Continue <svg class="arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></button>
+<p style="margin: 10px 0 0; font-size: 13px; color: #5B6270; text-align: center">Step 2 is a few quick choices about your team.</p>
+</div>
+<div style="display: {{s2}}">
+<div class="f2"><div class="field"><label for="f-industry">Industry</label><div style="position: relative"><select id="f-industry" name="industry"><option value="">Choose your industry</option><option value="Healthcare recruitment">Healthcare recruitment</option><option value="Education recruitment">Education recruitment</option><option value="Construction recruitment">Construction recruitment</option><option value="Care provider">Care provider</option><option value="Dental or private clinic">Dental or private clinic</option><option value="Nursery or childcare">Nursery or childcare</option><option value="Property and block management">Property and block management</option><option value="Construction subcontractor">Construction subcontractor</option><option value="Cleaning and facilities">Cleaning and facilities</option><option value="Security company">Security company</option><option value="Payroll bureau or umbrella company">Payroll bureau or umbrella company</option><option value="Accountancy practice">Accountancy practice</option><option value="Something else">Something else</option></select><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0B0D12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="position: absolute; right: 14px; top: 17px; pointer-events: none"><path d="m6 9 6 6 6-6"></path></svg></div></div><div class="field"><label for="f-size">Team size you have in mind</label><div style="position: relative"><select id="f-size" name="size"><option value="">Choose a size</option><option value="1-2">1 to 2 people</option><option value="3-5">3 to 5 people</option><option value="6-10">6 to 10 people</option><option value="10+">More than 10</option><option value="unsure">Not sure yet</option></select><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0B0D12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="position: absolute; right: 14px; top: 17px; pointer-events: none"><path d="m6 9 6 6 6-6"></path></svg></div></div>
 </div>
 <fieldset style="border: 0; margin: 18px 0 0; padding: 0">
 <legend style="font-size: 14px; font-weight: 600; margin-bottom: 8px; padding: 0">What do you need help with? <span class="opt">Choose any</span></legend>
@@ -1181,9 +1332,18 @@ font-family:'Plus Jakarta Sans',system-ui,sans-serif;color:var(--ink);background
 <div class="field"><label for="f-start">When would you like to start?</label><div style="position: relative"><select id="f-start" name="start"><option value="">Choose a timeframe</option><option value="asap">As soon as possible</option><option value="1-3">In 1 to 3 months</option><option value="3+">In 3 months or more</option><option value="exploring">Just exploring</option></select><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0B0D12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="position: absolute; right: 14px; top: 17px; pointer-events: none"><path d="m6 9 6 6 6-6"></path></svg></div></div><div class="field"><label for="f-heard">How did you hear about us? <span class="opt">(optional)</span></label><div style="position: relative"><select id="f-heard" name="heard"><option value="">Choose one</option><option value="referral">Referral</option><option value="linkedin">LinkedIn</option><option value="search">Google search</option><option value="event">Event</option><option value="other">Other</option></select><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0B0D12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="position: absolute; right: 14px; top: 17px; pointer-events: none"><path d="m6 9 6 6 6-6"></path></svg></div></div>
 </div>
 <div class="field" style="margin-top: 16px"><label for="f-msg">Anything else we should know? <span class="opt">(optional)</span></label><textarea id="f-msg" name="message" placeholder="For example: the systems you use, your hours, or what is not working today"></textarea></div>
-<button class="btn btn-accent" type="submit" style="width: 100%; margin-top: 18px; min-height: 56px; font-size: 17px">Book my call <svg class="arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"></path></svg></button>
-<sc-if value="{{sent}}" hint-placeholder-val="{{false}}"><p role="status" style="margin: 12px 0 0; font-size: 15px; font-weight: 600; color: #1B7A4A; animation: ccms-in 260ms var(--ease) both">Thanks. We'll be in touch to arrange your call.</p></sc-if>
-<sc-if value="{{notSent}}" hint-placeholder-val="{{true}}"><p style="margin: 12px 0 0; font-size: 13px; color: #5B6270; text-align: center">No obligation. We only use your details to arrange the call. <a href="[PRIVACY-URL]" style="color: #2238D6">Privacy policy</a></p></sc-if>
+<div style="display: flex; gap: 10px; align-items: center; margin-top: 18px"><button class="fback" type="button" onClick="{{prevStep}}">Back</button><button class="btn btn-accent" type="button" onClick="{{finishForm}}" style="flex: 1; min-height: 56px; font-size: 17px">Book my call <svg class="arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"></path></svg></button>
+</div>
+</div>
+<p style="margin: 12px 0 0; font-size: 13px; color: #5B6270; text-align: center">No obligation. We only use your details to arrange the call. <a href="[PRIVACY-URL]" style="color: #2238D6">Privacy policy</a></p>
+</div>
+<sc-if value="{{sent}}" hint-placeholder-val="{{false}}">
+<div role="status" style="animation: ccms-in 260ms var(--ease) both">
+<div style="display: flex; align-items: center; gap: 12px"><span style="width: 40px; height: 40px; border-radius: 50%; background: #16A34A; display: flex; align-items: center; justify-content: center; flex-shrink: 0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg></span><div><div style="font-size: 20px; font-weight: 800; letter-spacing: -.02em">Thanks. Now pick a time.</div><div style="font-size: 14px; color: #5B6270">All times are UK time. Your call takes 30 minutes.</div></div></div>
+<div class="slots"><sc-for list="{{bookDays}}" as="d" hint-placeholder-count="3"><div><div class="slot-d">{{d.label}}</div><a class="slot" href="[BOOKING-URL]">{{d.t1}}</a><a class="slot" href="[BOOKING-URL]">{{d.t2}}</a><a class="slot" href="[BOOKING-URL]">{{d.t3}}</a></div></sc-for></div>
+<p style="margin: 14px 0 0; font-size: 14px; color: #5B6270">No time that suits? We'll email you within one UK working day to find one.</p>
+</div>
+</sc-if>
 </form>
 </div>
 <footer class="wrap" style="position: relative; z-index: 1; margin-top: 120px; padding-top: 56px; padding-bottom: 40px; border-top: 1px solid rgba(255,255,255,.1)">
@@ -1786,10 +1946,20 @@ var CCMS_GROUPS6 = [
   { num: '04', name: 'Payroll and Finance', photo: 'Finance team', img: './assets/1cb1da7470562d009acabbf10e59b8b0.jpg', tint: 'linear-gradient(160deg,#E2EFF7,#CAE1EF)', sectors: ['Payroll bureaus and umbrella companies', 'Accountancy practices'] }
 ];
 
+function ccmsBookDays() {
+  var out = [], d = new Date(), names = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'], mons = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var times = [['09:30','11:00','14:30'],['10:00','13:30','15:30'],['09:00','12:00','16:00']];
+  while (out.length < 3) {
+    d.setDate(d.getDate() + 1);
+    var w = d.getDay(); if (w === 0 || w === 6) continue;
+    var tt = times[out.length]; out.push({ label: names[w] + ' ' + d.getDate() + ' ' + mons[d.getMonth()], t1: tt[0], t2: tt[1], t3: tt[2] });
+  }
+  return out;
+}
 class Component extends DCLogic {
   constructor(props) {
     super(props);
-    this.state = { open: 0, menuOpen: false, industry: 0, counts: ccmsStartMix(0), sent: false, svc: 0, picked: false, indTab: 0 };
+    this.state = { open: 0, menuOpen: false, industry: 0, counts: ccmsStartMix(0), sent: false, svc: 0, picked: false, indTab: 0, formStep: 1, planSent: false, guideSent: false, explSent: false, heroSent: false, cc: { staff: 4, sal: 28000, leave: 1, hrs: 6 }, stick: false, nearForm: false };
     this.lasers = [];
   }
   baseSettings() {
@@ -1836,6 +2006,18 @@ class Component extends DCLogic {
     this.lasers = [a, b].filter(Boolean);
     this.setupAnims();
     this.setupFloat();
+    this.setupStick(hero, cta);
+  }
+  setupStick(hero, cta) {
+    var self = this;
+    if (!('IntersectionObserver' in window)) return;
+    this.stickIO = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (e.target === hero) { var on = !e.isIntersecting; if (on !== self.state.stick) self.setState({ stick: on }); }
+        else { var nf = e.isIntersecting; if (nf !== self.state.nearForm) self.setState({ nearForm: nf }); }
+      });
+    }, { threshold: 0 });
+    this.stickIO.observe(hero); this.stickIO.observe(cta);
   }
   setupFloat() {
     var self = this;
@@ -1922,9 +2104,27 @@ class Component extends DCLogic {
   }
   componentDidUpdate() { this.lasers.forEach(function (l) { l.wake(); }); }
   componentWillUnmount() {
-    clearTimeout(this.retry); clearInterval(this.timer); if (this.io) this.io.disconnect(); (this.floatIOs || []).forEach(function (x) { x.disconnect(); }); (this.floatNodes || []).forEach(function (n) { n.remove(); });
+    clearTimeout(this.retry); clearInterval(this.timer); if (this.io) this.io.disconnect(); if (this.stickIO) this.stickIO.disconnect(); (this.floatIOs || []).forEach(function (x) { x.disconnect(); }); (this.floatNodes || []).forEach(function (n) { n.remove(); });
     this.lasers.forEach(function (l) { l.destroy(); });
     this.lasers = [];
+  }
+  leadOk(e, key) {
+    if (e && e.preventDefault) e.preventDefault();
+    var t = e && (e.currentTarget || e.target);
+    var f = t && t.closest ? t.closest('form') : null;
+    var ins = f ? f.querySelectorAll('input') : [];
+    for (var i = 0; i < ins.length; i++) { if (!ins[i].checkValidity()) { ins[i].reportValidity(); return; } }
+    var o = {}; o[key] = true; this.setState(o);
+  }
+  goStep2(e) {
+    var t = e && (e.currentTarget || e.target);
+    var f = t && t.closest ? t.closest('form') : document.querySelector('[data-ccms="cta-surface"]');
+    var box = f ? f.querySelector('[data-step1]') : null;
+    if (box) {
+      var ins = box.querySelectorAll('input');
+      for (var i = 0; i < ins.length; i++) { if (!ins[i].checkValidity()) { ins[i].reportValidity(); return; } }
+    }
+    this.setState({ formStep: 2 });
   }
   renderVals() {
     var self = this;
@@ -1932,6 +2132,14 @@ class Component extends DCLogic {
     var total = counts.reduce(function (a, b) { return a + b; }, 0);
     var svc = this.state.svc;
     var auto = !this.state.picked && this.props.autoplayServices !== false;
+    var cc = this.state.cc;
+    var gbp = function (n) { return '£' + Math.round(n).toLocaleString('en-GB'); };
+    var pct = function (v, a, b) { return ((v - a) / (b - a) * 100).toFixed(1) + '%'; };
+    var setCC = function (k) { return function (e) { var v = parseInt(e && e.target ? e.target.value : 0, 10) || 0; var o = Object.assign({}, self.state.cc); o[k] = v; self.setState({ cc: o }); }; };
+    /* UK assumptions: employer NI 15% above £5,000, 3% pension, replacing a leaver costs 20% of salary, manager time at £30 an hour over 46 working weeks */
+    var ccPeople = cc.staff * (cc.sal + Math.max(0, cc.sal - 5000) * 0.15 + cc.sal * 0.03);
+    var ccTurn = cc.leave * cc.sal * 0.2;
+    var ccMgr = cc.hrs * 46 * 30;
     return {
       menuOpen: this.state.menuOpen,
       menuExpanded: this.state.menuOpen ? 'true' : 'false',
@@ -1989,7 +2197,32 @@ class Component extends DCLogic {
       noneChosen: total === 0,
       sent: this.state.sent,
       notSent: !this.state.sent,
-      submitForm: function (e) { if (e && e.preventDefault) e.preventDefault(); self.setState({ sent: true }); },
+      formBody: this.state.sent ? 'none' : 'block',
+      s1: this.state.formStep === 1 ? 'block' : 'none',
+      s2: this.state.formStep === 2 ? 'block' : 'none',
+      stepNum: this.state.sent ? 2 : this.state.formStep,
+      stepPct: this.state.sent ? '100%' : (this.state.formStep === 1 ? '50%' : '100%'),
+      stepName: this.state.sent ? 'Done' : (this.state.formStep === 1 ? 'Your details' : 'Your team'),
+      nextStep: function (e) { self.goStep2(e); },
+      prevStep: function () { self.setState({ formStep: 1 }); },
+      bookDays: ccmsBookDays(),
+      finishForm: function () { self.setState({ sent: true }); },
+      planSent: this.state.planSent, planNotSent: !this.state.planSent,
+      sendPlan: function (e) { self.leadOk(e, 'planSent'); },
+      guideSent: this.state.guideSent, guideNotSent: !this.state.guideSent,
+      sendGuide: function (e) { self.leadOk(e, 'guideSent'); },
+      heroSent: this.state.heroSent, heroNotSent: !this.state.heroSent,
+      ccStaff: cc.staff, ccSal: cc.sal, ccLeave: cc.leave, ccHrs: cc.hrs,
+      ccStaffPct: pct(cc.staff, 1, 30), ccSalPct: pct(cc.sal, 20000, 50000), ccLeavePct: pct(cc.leave, 0, 10), ccHrsPct: pct(cc.hrs, 0, 20),
+      ccStaffTxt: cc.staff + (cc.staff === 1 ? ' person' : ' people'), ccSalTxt: gbp(cc.sal), ccLeaveTxt: String(cc.leave), ccHrsTxt: cc.hrs + ' hrs',
+      ccInhouse: gbp(total * (cc.sal + Math.max(0, cc.sal - 5000) * 0.15 + cc.sal * 0.03)), ccPeople: gbp(ccPeople), ccTurn: gbp(ccTurn), ccMgr: gbp(ccMgr), ccMgrHrs: (cc.hrs * 46).toLocaleString('en-GB'), ccTotal: gbp(ccPeople + ccTurn + ccMgr),
+      setStaff: setCC('staff'), setSal: setCC('sal'), setLeave: setCC('leave'), setHrs: setCC('hrs'),
+      heroSend: function (e) { self.leadOk(e, 'heroSent'); },
+      explSent: this.state.explSent, explNotSent: !this.state.explSent,
+      sendExpl: function (e) { self.leadOk(e, 'explSent'); },
+      stickCls: this.state.stick && !this.state.nearForm ? 'stick on' : 'stick',
+      mbarCls: this.state.stick && !this.state.nearForm ? 'mbar on' : 'mbar',
+      submitForm: function (e) { if (e && e.preventDefault) e.preventDefault(); if (self.state.formStep === 1) { self.goStep2(e); return; } self.setState({ sent: true }); },
       faqs: CCMS_FAQS.map(function (d, i) {
         var open = self.state.open === i;
         return {
