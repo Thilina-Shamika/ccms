@@ -86,7 +86,7 @@
  ]
 }
 </script>
-<script>window.CCMS_PAGE = {"industry": 0, "faqCount": 2};</script>
+<script>window.CCMS_PAGE = {"industry": 0, "faqCount": 2, "clouds": true};</script>
 <script src="../../vendor/react.js"></script>
 <script src="../../vendor/react-dom.js"></script>
 <script src="../../support.js"></script>
@@ -793,7 +793,7 @@ font-family:'Plus Jakarta Sans',system-ui,sans-serif;color:var(--ink);background
 <section id="top" data-ccms="hero" style="position: relative; overflow: hidden; background: #0A0F2C; color: #FFFFFF">
 <canvas data-ccms="hero-canvas" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; display: block; pointer-events: none; z-index: 0"></canvas>
 <div class="{{stickCls}}" aria-label="Quick links"><a href="../../" aria-label="CCMS home" style="display: inline-flex"><img src="../../assets/d7fee95ddd0788962b6253f583f3de89.png" alt="CCMS" width="87" height="21" style="height: 21px; width: auto; display: block"></a><div class="ndd"><a class="sl" href="../../recruitment-process-outsourcing/">RPO <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></a><div class="ddm"><a href="../../recruitment-process-outsourcing/">RPO overview</a><a href="../../industries/healthcare-recruitment/">Healthcare recruitment</a><a href="../../industries/education-recruitment/">Education recruitment</a><a href="../../industries/construction-recruitment/">Construction recruitment</a></div></div><div class="ndd"><a class="sl" href="../../recruitment-process-outsourcing/#services">Services <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></a><div class="ddm"><a href="../../services/compliance/">Compliance</a><a href="../../services/bookings/">Bookings</a><a href="../../services/payroll/">Payroll</a><a href="../../services/finance/">Finance</a><a href="../../services/resourcing/">Resourcing</a><a href="../../services/umbrella-checks/">Umbrella checks</a></div></div><div class="ndd"><a class="sl" href="../../#industries">Other industries <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></a><div class="ddm"><a href="../../industries/care-and-health/">Care and Health</a><a href="../../industries/property-facilities-security/">Property, Facilities and Security</a><a href="../../industries/payroll-and-finance/">Payroll and Finance</a></div></div><a class="sl" href="../../digital/">Digital</a><a class="sl" href="../../why-sri-lanka/">Why Sri Lanka</a><a class="sl" href="../../case-studies/">Case studies</a><a class="btn btn-white" href="#contact" style="min-height: 42px; padding: 0 18px; font-size: 15px">Book a call</a></div>
-<div class="{{mbarCls}}" aria-label="Quick actions"><a class="btn" href="../../#plan" style="background: rgba(255,255,255,.1); color: #FFFFFF; border: 1px solid rgba(255,255,255,.2)">Get a team plan</a><a class="btn btn-white" href="#contact">Book a call</a></div>
+<div class="{{mbarCls}}" aria-label="Quick actions"><a class="btn" href="#plan" style="background: rgba(255,255,255,.1); color: #FFFFFF; border: 1px solid rgba(255,255,255,.2)">Get a team plan</a><a class="btn btn-white" href="#contact">Book a call</a></div>
 <header style="position: relative; z-index: 4">
 <nav aria-label="Main" class="wrap" style="height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px">
 <a href="../../" aria-label="CCMS home" style="text-decoration: none; min-height: 44px; display: inline-flex; align-items: center"><img src="../../assets/d7fee95ddd0788962b6253f583f3de89.png" alt="CCMS" width="103" height="25" style="display: block; height: 25px; width: auto"><span class="tagl">Where quality matters.</span></a>
@@ -812,38 +812,75 @@ font-family:'Plus Jakarta Sans',system-ui,sans-serif;color:var(--ink);background
 </div>
 </sc-if>
 </header>
-<div class="wrap" style="position: relative; z-index: 2; padding-top: 56px">
-<nav aria-label="Breadcrumb" class="hero-in"><ol class="crumbs"><li><a href="../../">Home</a></li><li><a href="../../recruitment-process-outsourcing/#services">Services</a></li><li aria-current="page">Bookings</li></ol></nav>
+<div class="wrap" style="position: relative; z-index: 2; padding-top: 72px">
 <p class="hero-in" style="margin: 0; font-size: 13px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #AEB8FF">Services</p>
 <div class="g-hero" style="margin-top: 20px">
-<h1 class="hero-in" style="margin: 0; font-size: clamp(38px, 5vw, 66px); line-height: 1.02; letter-spacing: -.05em; font-weight: 800; animation-delay: 60ms">Outsourced bookings team for staffing agencies</h1>
+<h1 class="hero-in" style="margin: 0; font-size: clamp(42px, 5.6vw, 78px); line-height: 1; letter-spacing: -.05em; font-weight: 800; animation-delay: 60ms">Outsourced bookings team for <span style="color: #AEB8FF">staffing agencies</span></h1>
 <div class="hero-in" style="animation-delay: 140ms">
 <p style="margin: 0; font-size: 17px; line-height: 1.6; color: #C9D0EE">Unfilled shifts cost revenue and trust. Your team fills shifts, confirms staff and keeps clients informed, on UK hours.</p>
 <div style="margin-top: 26px; display: flex; gap: 10px; flex-wrap: wrap">
-<a class="btn btn-white" href="#contact">Book a call <svg class="arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"></path></svg></a><a class="btn btn-line" href="#does">What your team does</a>
+<a class="btn btn-white" href="#contact">Book a call <svg class="arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"></path></svg></a>
+<a class="btn btn-line" href="#does">What your team does</a>
+</div>
+<div class="ghero-proof" style="margin-top: 28px">
+<div aria-hidden="true" style="display: flex"><span style="width: 34px; height: 34px; border-radius: 50%; margin-left: 0; background: #E3E8FF; border: 2px solid #0A0F2C; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; color: #0A0F2C">UK</span><span style="width: 34px; height: 34px; border-radius: 50%; margin-left: -10px; background: #CFE9DC; border: 2px solid #0A0F2C; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; color: #0A0F2C"></span><span style="width: 34px; height: 34px; border-radius: 50%; margin-left: -10px; background: #F3E1C9; border: 2px solid #0A0F2C; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; color: #0A0F2C"></span><span style="width: 34px; height: 34px; border-radius: 50%; margin-left: -10px; background: #DCD6F7; border: 2px solid #0A0F2C; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; color: #0A0F2C">20+</span></div>
+<div style="line-height: 1.35"><div style="font-size: 15px; font-weight: 700; color: #FFFFFF">20+ UK clients</div><div style="font-size: 14px; color: #C9D0EE">Most came by referral</div></div>
+<span aria-hidden="true" style="width: 1px; height: 30px; background: rgba(255,255,255,.18)"></span>
+<div style="line-height: 1.35"><div style="font-size: 15px; font-weight: 700; color: #FFFFFF">200+ people</div><div style="font-size: 14px; color: #C9D0EE">in Sri Lanka</div></div>
 </div>
 </div>
 </div>
 </div>
-<div class="wrap" style="position: relative; z-index: 1; margin-top: 72px; padding-bottom: 0">
-<div data-ccms="hero-surface" class="hero-in hero-hook" style="animation-delay: 220ms">
+<div class="wrap" style="position: relative; z-index: 1; margin-top: 88px; padding-bottom: 0">
+<div data-ccms="hero-surface" id="plan" class="hero-in hero-hook" style="animation-delay: 220ms">
 <div class="hh-left">
-<div class="hh-eye">Bookings</div>
-<h2 style="margin: 14px 0 0; font-size: clamp(28px, 3vw, 40px); line-height: 1.08; letter-spacing: -.04em; font-weight: 800">Shifts filled, staff confirmed, clients updated.</h2>
-<dl class="hh-proof"><div><dt>4 to 6 weeks</dt><dd>from first call to a working team</dd></div><div><dt>1 in 20</dt><dd>candidates we interview are hired</dd></div><div><dt>8 of 10</dt><dd>of our first hires are still with us</dd></div></dl>
+<div class="hh-eye">Free team plan <span aria-hidden="true">/</span> 30 seconds</div>
+<h2 style="margin: 14px 0 0; font-size: clamp(30px, 3.2vw, 44px); line-height: 1.05; letter-spacing: -.04em; font-weight: 800">See what your team could look like.</h2>
+<p style="margin: 14px 0 0; font-size: 17px; line-height: 1.6; color: #C9D0EE; max-width: 42ch">Pick your agency type and the roles you need. We'll email you a team plan with the roles, the set-up and a timeline.</p>
+<dl class="hh-proof">
+<div><dt>4 to 6 weeks</dt><dd>from first call to a working team</dd></div>
+<div><dt>1 in 20</dt><dd>candidates we interview are hired</dd></div>
+<div><dt>8 of 10</dt><dd>of our first hires are still with us</dd></div>
+</dl>
 </div>
-<div class="hh-card"><div class="mini" style="position: relative; overflow: hidden"><div class="mrow" style="animation: c-row 6s ease-out 0.00s infinite both"><span style="width: 46px; font-weight: 700; color: var(--ink3)">07:00</span><span style="flex: 1">Ward cover</span><span class="pill ok">Filled</span></div><div class="mrow" style="animation: c-row 6s ease-out 0.35s infinite both"><span style="width: 46px; font-weight: 700; color: var(--ink3)">08:00</span><span style="flex: 1">Care assistant</span><span class="pill ok">Confirmed</span></div><div class="mrow" style="animation: c-row 6s ease-out 0.70s infinite both"><span style="width: 46px; font-weight: 700; color: var(--ink3)">14:00</span><span style="flex: 1">Night nurse</span><span class="pill info matching"></span></div><div class="mrow" style="animation: c-row 6s ease-out 1.05s infinite both"><span style="width: 46px; font-weight: 700; color: var(--ink3)">20:00</span><span style="flex: 1">Late cover</span><span class="pill info">Updated</span></div><span aria-hidden="true" style="position: absolute; top: 0; bottom: 0; left: 0; width: 40%; background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,.7), rgba(255,255,255,0)); animation: c-sweep 3.2s ease-in-out infinite"></span></div></div>
+<div class="hh-card">
+<div style="position: relative"><label class="vh" for="hh-ind">Your industry</label><select id="hh-ind" class="hh-sel" value="{{industryValue}}" onChange="{{pickIndustry}}"><sc-for list="{{industryOptions}}" as="o" hint-placeholder-count="12"><option value="{{o.value}}">{{o.label}}</option></sc-for></select><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0B0D12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="position: absolute; right: 12px; top: 13px; pointer-events: none"><path d="m6 9 6 6 6-6"></path></svg></div>
+<div class="hr-grid"><sc-for list="{{roles}}" as="r" hint-placeholder-count="5"><div class="hr-row"><span>{{r.name}}</span><span class="hr-st"><button class="hr-b" type="button" onClick="{{r.dec}}" aria-label="{{r.decLabel}}">−</button><b aria-live="polite">{{r.count}}</b><button class="hr-b plus" type="button" onClick="{{r.inc}}" aria-label="{{r.incLabel}}">+</button></span></div></sc-for></div>
+<div class="hr-res">
+<div><div class="hr-k">Your team</div><div class="hr-v">{{total}} <small>{{totalLabel}}</small></div><div class="hr-s">Live in 4 to 6 weeks</div></div>
+<div><div class="hr-k">How they work</div><div class="hr-w">Only for you, in your systems, on UK hours</div><div class="hr-s">Managed by CCMS, every day</div></div>
+</div>
+<sc-if value="{{heroNotSent}}" hint-placeholder-val="{{true}}">
+<form onSubmit="{{heroSend}}" novalidate="" class="inl" style="margin-top: 12px"><label class="vh" for="h-email">Work email</label><input id="h-email" name="email" type="email" autocomplete="email" placeholder="Your work email" required=""><button class="btn btn-accent" type="button" onClick="{{heroSend}}">Email me the plan</button></form>
+</sc-if>
+<sc-if value="{{heroSent}}" hint-placeholder-val="{{false}}">
+<div role="status" style="margin-top: 12px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; animation: ccms-in 260ms var(--ease) both"><span class="lead-ok"><i><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg></i>Your plan is on its way.</span><a class="btn btn-accent" href="#contact" style="min-height: 46px">Talk it through <svg class="arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"></path></svg></a></div>
+</sc-if>
+</div>
 </div>
 </div>
 </section>
 <section id="does" class="sec" style="background: var(--s1)">
-<div class="wrap">
-<h2 class="H" data-a="up" data-d="0" style="">What your team does</h2><div class="g-roles" style="margin-top: 44px"><div class="card6 rolec" data-a="up" data-d="0"><span class="ric"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2238D6" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg></span><span><h3>Shift requests</h3></span></div><div class="card6 rolec" data-a="up" data-d="0"><span class="ric"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2238D6" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg></span><span><h3>Matching and booking compliant staff</h3></span></div><div class="card6 rolec" data-a="up" data-d="0"><span class="ric"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2238D6" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg></span><span><h3>Confirmations and reminders</h3></span></div><div class="card6 rolec" data-a="up" data-d="0"><span class="ric"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2238D6" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg></span><span><h3>Last-minute cover</h3></span></div><div class="card6 rolec" data-a="up" data-d="0"><span class="ric"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2238D6" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg></span><span><h3>Client updates</h3></span></div><div class="card6 rolec" data-a="up" data-d="0"><span class="ric"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2238D6" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg></span><span><h3>CRM and rota updates</h3></span></div></div>
+<div class="wrap chap">
+<div class="chap-head">
+<span class="badge6" data-a="up" data-d="0" style="background: #0A0F2C; color: #FFFFFF">Bookings</span>
+<h2 class="H" data-a="up" data-d="0" style="font-size: clamp(28px, 2.8vw, 38px); margin-top: 22px">What your team <span style="color: #8A909C">does</span></h2>
+<p class="S" data-a="up" data-d="0">Shifts filled, staff confirmed, clients updated.</p>
+<div class="mini" data-a="up" data-d="0" style="margin-top: 26px; background: #FFFFFF"><div class="mrow"><span style="width: 20px; height: 20px; flex-shrink: 0; border-radius: 50%; background: #1B7A4A; display: flex; align-items: center; justify-content: center"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg></span><span style="flex: 1">Shift requests</span></div><div class="mrow"><span style="width: 20px; height: 20px; flex-shrink: 0; border-radius: 50%; background: #1B7A4A; display: flex; align-items: center; justify-content: center"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg></span><span style="flex: 1">Matching and booking compliant staff</span></div><div class="mrow"><span style="width: 20px; height: 20px; flex-shrink: 0; border-radius: 50%; background: #1B7A4A; display: flex; align-items: center; justify-content: center"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg></span><span style="flex: 1">Confirmations and reminders</span></div><div class="mrow"><span style="width: 20px; height: 20px; flex-shrink: 0; border-radius: 50%; background: #1B7A4A; display: flex; align-items: center; justify-content: center"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg></span><span style="flex: 1">Last-minute cover</span></div><div class="mrow"><span style="width: 20px; height: 20px; flex-shrink: 0; border-radius: 50%; background: #1B7A4A; display: flex; align-items: center; justify-content: center"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg></span><span style="flex: 1">Client updates</span></div><div class="mrow"><span style="width: 20px; height: 20px; flex-shrink: 0; border-radius: 50%; background: #1B7A4A; display: flex; align-items: center; justify-content: center"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg></span><span style="flex: 1">CRM and rota updates</span></div></div></div>
+<div class="stk"><article class="card6 sh" style="top: 96px">
+<div class="svc6">
+<div><div style="display: flex; align-items: center; gap: 10px"><span style="width: 40px; height: 40px; border-radius: 12px; background: var(--soft); display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2238D6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16v14H4zM4 10h16M8 3v4M16 3v4"></path></svg></span><span style="font-size: 13px; font-weight: 800; color: #2238D6">01</span></div>
+<h3 style="margin: 16px 0 0; font-size: 24px; font-weight: 700; letter-spacing: -.025em">Bookings</h3>
+<p style="margin: 6px 0 0; color: var(--ink2)">Shifts filled, staff confirmed, clients updated.</p>
+</div>
+<div data-a="up" data-d="100"><div class="mini" style="position: relative; overflow: hidden"><div class="mrow" style="animation: c-row 6s ease-out 0.00s infinite both"><span style="width: 46px; font-weight: 700; color: var(--ink3)">07:00</span><span style="flex: 1">Ward cover</span><span class="pill ok">Filled</span></div><div class="mrow" style="animation: c-row 6s ease-out 0.35s infinite both"><span style="width: 46px; font-weight: 700; color: var(--ink3)">08:00</span><span style="flex: 1">Care assistant</span><span class="pill ok">Confirmed</span></div><div class="mrow" style="animation: c-row 6s ease-out 0.70s infinite both"><span style="width: 46px; font-weight: 700; color: var(--ink3)">14:00</span><span style="flex: 1">Night nurse</span><span class="pill info matching"></span></div><div class="mrow" style="animation: c-row 6s ease-out 1.05s infinite both"><span style="width: 46px; font-weight: 700; color: var(--ink3)">20:00</span><span style="flex: 1">Late cover</span><span class="pill info">Updated</span></div><span aria-hidden="true" style="position: absolute; top: 0; bottom: 0; left: 0; width: 40%; background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,.7), rgba(255,255,255,0)); animation: c-sweep 3.2s ease-in-out infinite"></span></div></div>
+</div>
+</article></div>
 </div>
 </section>
 <section id="standards" class="sec" style="background: #FFFFFF">
 <div class="wrap">
-<h2 class="H" data-a="up" data-d="0" style="">How we keep standards</h2><div class="g-roles" style="margin-top: 44px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr))"><div class="card6 rolec" data-a="up" data-d="0"><span class="ric"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2238D6" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg></span><span><h3>Checklists built around your processes</h3></span></div><div class="card6 rolec" data-a="up" data-d="0"><span class="ric"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2238D6" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg></span><span><h3>Second-person checks</h3></span></div><div class="card6 rolec" data-a="up" data-d="0"><span class="ric"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2238D6" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg></span><span><h3>An independent audit and quality manager</h3></span></div><div class="card6 rolec" data-a="up" data-d="0"><span class="ric"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2238D6" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg></span><span><h3>ISO 9001 processes</h3></span></div></div>
+<p class="k" data-a="up" data-d="0">Quality</p><h2 class="H" data-a="up" data-d="0" style="">How we keep standards</h2><div class="g-nums" style="margin-top: 44px"><article class="card6 rcard" data-a="up" data-d="0"><span class="rnum">01</span><h3>Checklists built around your processes</h3></article><article class="card6 rcard" data-a="up" data-d="0"><span class="rnum">02</span><h3>Second-person checks</h3></article><article class="card6 rcard" data-a="up" data-d="0"><span class="rnum">03</span><h3>An independent audit and quality manager</h3></article><article class="card6 rcard" data-a="up" data-d="0"><span class="rnum">04</span><h3>ISO 9001 processes</h3></article></div>
 </div>
 </section>
 <section id="sectors" class="sec" style="background: var(--s1)">
@@ -872,7 +909,96 @@ font-family:'Plus Jakarta Sans',system-ui,sans-serif;color:var(--ink);background
 </a></div></div>
 </div>
 </section>
-<section id="faq" class="sec" style="background: #FFFFFF">
+<section id="how" class="sec">
+<div class="wrap">
+<div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap">
+<div><p class="k" data-a="up" data-d="0">How it works</p><h2 class="H" data-a="up" data-d="0" style="max-width: 860px">From first call to a working team in 4 to 6 weeks</h2></div>
+
+</div>
+<div class="seg" aria-hidden="true" style="margin-top: 52px"><div class="sg" data-i="0" style="animation: sg-o0 8s ease-in-out infinite; --ring: rgba(47,75,255,.35)">
+<span class="sgf" style="background: #E0E6FF; animation: sg-f0 8s cubic-bezier(.65,0,.35,1) infinite"></span>
+<span style="position: relative; width: 32px; height: 32px; border-radius: 50%; background: #2F4BFF; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 800; flex-shrink: 0">1</span>
+<span style="position: relative; line-height: 1.2; min-width: 0"><span style="display: block; font-size: 14px; font-weight: 800; color: #0B0D12; white-space: nowrap">Call</span><span style="display: block; font-size: 12px; font-weight: 600; color: #5A6170; white-space: nowrap">Week 0</span></span>
+<span style="position: relative; margin-left: auto; color: #9CA3AF; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"></path></svg></span>
+</div><div class="sg" data-i="1" style="animation: sg-o1 8s ease-in-out infinite; --ring: rgba(124,58,237,.35)">
+<span class="sgf" style="background: #EDE9FE; animation: sg-f1 8s cubic-bezier(.65,0,.35,1) infinite"></span>
+<span style="position: relative; width: 32px; height: 32px; border-radius: 50%; background: #7C3AED; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 800; flex-shrink: 0">2</span>
+<span style="position: relative; line-height: 1.2; min-width: 0"><span style="display: block; font-size: 14px; font-weight: 800; color: #0B0D12; white-space: nowrap">Agree</span><span style="display: block; font-size: 12px; font-weight: 600; color: #5A6170; white-space: nowrap">Weeks 1 to 2</span></span>
+<span style="position: relative; margin-left: auto; color: #9CA3AF; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"></path></svg></span>
+</div><div class="sg" data-i="2" style="animation: sg-o2 8s ease-in-out infinite; --ring: rgba(22,163,74,.35)">
+<span class="sgf" style="background: #DCFCE7; animation: sg-f2 8s cubic-bezier(.65,0,.35,1) infinite"></span>
+<span style="position: relative; width: 32px; height: 32px; border-radius: 50%; background: #16A34A; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 800; flex-shrink: 0">3</span>
+<span style="position: relative; line-height: 1.2; min-width: 0"><span style="display: block; font-size: 14px; font-weight: 800; color: #0B0D12; white-space: nowrap">Train together</span><span style="display: block; font-size: 12px; font-weight: 600; color: #5A6170; white-space: nowrap">Weeks 3 to 5</span></span>
+<span style="position: relative; margin-left: auto; color: #9CA3AF; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"></path></svg></span>
+</div><div class="sg" data-i="3" style="animation: sg-o3 8s ease-in-out infinite; --ring: rgba(245,158,11,.4)">
+<span class="sgf" style="background: #FEF3C7; animation: sg-f3 8s cubic-bezier(.65,0,.35,1) infinite"></span>
+<span style="position: relative; width: 32px; height: 32px; border-radius: 50%; background: #F59E0B; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 800; flex-shrink: 0">4</span>
+<span style="position: relative; line-height: 1.2; min-width: 0"><span style="display: block; font-size: 14px; font-weight: 800; color: #0B0D12; white-space: nowrap">Go live</span><span style="display: block; font-size: 12px; font-weight: 600; color: #5A6170; white-space: nowrap">Week 6</span></span>
+
+</div></div>
+<div class="g-how6" style="margin-top: 22px">
+<article class="card6 sh h6t" data-a="up" data-d="0" style="padding: 12px; display: flex; flex-direction: column">
+<div class="hv" style="background: linear-gradient(160deg, #EEF2FF, #F8FAFF); padding: 12px">
+<div style="display: flex; justify-content: space-between; font-size: 11px; font-weight: 800; color: #2238D6"><span>BOOK A CALL</span><span style="color: var(--ink3)">30 min</span></div>
+<div style="margin-top: 10px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px"><span style="height: 26px; border-radius: 8px; border: 1px solid rgba(47,75,255,.25); background: #FFFFFF; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; ">09:00</span><span style="height: 26px; border-radius: 8px; border: 1px solid rgba(47,75,255,.25); background: #FFFFFF; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; animation: h-slot 6s ease infinite">10:30</span><span style="height: 26px; border-radius: 8px; border: 1px solid rgba(47,75,255,.25); background: #FFFFFF; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; ">11:30</span><span style="height: 26px; border-radius: 8px; border: 1px solid rgba(47,75,255,.25); background: #FFFFFF; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; ">13:00</span><span style="height: 26px; border-radius: 8px; border: 1px solid rgba(47,75,255,.25); background: #FFFFFF; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; ">14:30</span><span style="height: 26px; border-radius: 8px; border: 1px solid rgba(47,75,255,.25); background: #FFFFFF; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; ">16:00</span></div>
+<div style="position: absolute; left: 12px; right: 12px; bottom: 12px; display: flex; align-items: center; gap: 8px; padding: 8px 10px; border-radius: 10px; background: #FFFFFF; border: 1px solid var(--line); font-size: 12px; font-weight: 700; animation: h-conf 6s ease-out infinite both"><span style="width: 16px; height: 16px; border-radius: 50%; background: #22C55E; display: flex; align-items: center; justify-content: center"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg></span>Call booked · Tue 10:30</div>
+</div>
+<div style="padding: 16px 8px 10px">
+<div style="display: flex; align-items: center; gap: 8px"><span style="width: 8px; height: 8px; border-radius: 50%; background: #2F4BFF"></span><span style="font-size: 13px; font-weight: 800; color: var(--ink3)">Step 1 · Week 0</span></div>
+<h3 style="margin: 8px 0 0; font-size: 22px; font-weight: 800; letter-spacing: -.02em">Call</h3>
+<p style="margin: 6px 0 0; color: var(--ink2)">Tell us the work. We suggest a team and a plan.</p>
+</div>
+</article><article class="card6 sh h6t" data-a="up" data-d="100" style="padding: 12px; display: flex; flex-direction: column">
+<div class="hv" style="background: linear-gradient(160deg, #F5F3FF, #FBFAFF); padding: 14px; display: flex; justify-content: center">
+<div style="position: relative; width: 78%; height: 100%; border-radius: 10px; background: #FFFFFF; border: 1px solid var(--line); box-shadow: 0 10px 24px -16px rgba(16,24,64,.35); padding: 12px">
+<div style="font-size: 10px; font-weight: 800; color: #7C3AED">SERVICE AGREEMENT</div>
+<div style="margin-top: 8px; height: 5px; width: 90%; border-radius: 3px; background: #ECEEF3"></div><div style="margin-top: 5px; height: 5px; width: 75%; border-radius: 3px; background: #ECEEF3"></div><div style="margin-top: 5px; height: 5px; width: 82%; border-radius: 3px; background: #ECEEF3"></div>
+<svg width="120" height="34" viewBox="0 0 120 34" style="position: absolute; left: 12px; bottom: 16px"><path d="M4 24c8-12 14-18 18-13s-8 16-3 15 11-20 18-17-5 18 2 15 10-13 15-11 2 8 7 6 9-10 14-8 4 7 9 5 13-8 18-10" fill="none" stroke="#7C3AED" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="260" style="animation: h-sign 6s ease-in-out infinite"></path></svg>
+<span style="position: absolute; right: 10px; bottom: 14px; font-size: 10px; font-weight: 900; letter-spacing: .08em; color: #15803D; border: 2px solid #15803D; padding: 3px 7px; border-radius: 6px; animation: h-agreed 6s cubic-bezier(.23,1,.32,1) infinite both">AGREED</span>
+</div>
+</div>
+<div style="padding: 16px 8px 10px">
+<div style="display: flex; align-items: center; gap: 8px"><span style="width: 8px; height: 8px; border-radius: 50%; background: #7C3AED"></span><span style="font-size: 13px; font-weight: 800; color: var(--ink3)">Step 2 · Weeks 1 to 2</span></div>
+<h3 style="margin: 8px 0 0; font-size: 22px; font-weight: 800; letter-spacing: -.02em">Agree</h3>
+<p style="margin: 6px 0 0; color: var(--ink2)">One simple agreement. We recruit and set up securely.</p>
+</div>
+</article><article class="card6 sh h6t" data-a="up" data-d="200" style="padding: 12px; display: flex; flex-direction: column">
+<div class="hv" style="background: linear-gradient(160deg, #ECFDF5, #F7FEFB); padding: 12px; display: flex; flex-direction: column; gap: 8px">
+<div style="flex: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 6px">
+<div style="position: relative; border-radius: 8px; background: #0B0D12; overflow: hidden; display: flex; align-items: flex-end; padding: 6px"><span style="position: absolute; inset: 0; background: radial-gradient(60% 70% at 50% 40%, #3B4A7A, #0B0D12)"></span><span style="position: relative; font-size: 9px; font-weight: 700; color: #FFFFFF; background: rgba(0,0,0,.5); padding: 2px 6px; border-radius: 4px">Your staff · UK</span></div>
+<div style="position: relative; border-radius: 8px; background: #0B0D12; overflow: hidden; display: flex; align-items: flex-end; padding: 6px"><span style="position: absolute; inset: 0; background: radial-gradient(60% 70% at 50% 40%, #2F6B4F, #0B0D12)"></span><span style="position: relative; font-size: 9px; font-weight: 700; color: #FFFFFF; background: rgba(0,0,0,.5); padding: 2px 6px; border-radius: 4px">Your team · Sri Lanka</span></div>
+</div>
+<div style="font-size: 10px; font-weight: 800; color: #15803D; display: flex; justify-content: space-between"><span>SHADOWING YOUR PROCESS</span><span>Week 3</span></div>
+<div style="height: 6px; border-radius: 999px; background: #D1FAE5; overflow: hidden"><div style="height: 100%; border-radius: 999px; background: #16A34A; animation: h-learn 6s cubic-bezier(.65,0,.35,1) infinite"></div></div>
+</div>
+<div style="padding: 16px 8px 10px">
+<div style="display: flex; align-items: center; gap: 8px"><span style="width: 8px; height: 8px; border-radius: 50%; background: #16A34A"></span><span style="font-size: 13px; font-weight: 800; color: var(--ink3)">Step 3 · Weeks 3 to 5</span></div>
+<h3 style="margin: 8px 0 0; font-size: 22px; font-weight: 800; letter-spacing: -.02em">Train together</h3>
+<p style="margin: 6px 0 0; color: var(--ink2)">Your team learns your way of working.</p>
+</div>
+</article><article class="card6 sh h6t" data-a="up" data-d="300" style="padding: 12px; display: flex; flex-direction: column">
+<div class="hv" style="background: #FFFFFF; padding: 12px; display: flex; flex-direction: column">
+<div style="display: flex; justify-content: space-between; align-items: center; font-size: 11px; font-weight: 800"><span style="color: #B45309">WEEK 1 REPORT</span><span style="display: inline-flex; align-items: center; gap: 5px; color: #15803D"><span style="width: 6px; height: 6px; border-radius: 50%; background: #22C55E; animation: h-live 1.6s ease-out infinite"></span>Live</span></div>
+<div style="margin-top: 8px; display: grid; grid-template-columns: 1fr 1fr; gap: 6px"><div style="border-radius: 8px; background: #DCFCE7; padding: 6px 8px"><div style="font-size: 9px; font-weight: 700; color: #15803D">Targets</div><div style="font-size: 14px; font-weight: 800; color: #0B0D12">On track</div></div><div style="border-radius: 8px; background: #E0E6FF; padding: 6px 8px"><div style="font-size: 9px; font-weight: 700; color: #2238D6">Quality</div><div style="font-size: 14px; font-weight: 800; color: #0B0D12">Checked</div></div></div>
+<div style="flex: 1; margin-top: 8px; display: flex; align-items: flex-end; gap: 4px"><span style="flex: 1; height: 45%; border-radius: 3px; background: #FDE68A; transform-origin: bottom; animation: h-up 2.6s ease-in-out 0.00s infinite"></span><span style="flex: 1; height: 60%; border-radius: 3px; background: #FCD34D; transform-origin: bottom; animation: h-up 2.6s ease-in-out 0.15s infinite"></span><span style="flex: 1; height: 55%; border-radius: 3px; background: #FBBF24; transform-origin: bottom; animation: h-up 2.6s ease-in-out 0.30s infinite"></span><span style="flex: 1; height: 75%; border-radius: 3px; background: #F59E0B; transform-origin: bottom; animation: h-up 2.6s ease-in-out 0.45s infinite"></span><span style="flex: 1; height: 85%; border-radius: 3px; background: #22C55E; transform-origin: bottom; animation: h-up 2.6s ease-in-out 0.60s infinite"></span><span style="flex: 1; height: 95%; border-radius: 3px; background: #16A34A; transform-origin: bottom; animation: h-up 2.6s ease-in-out 0.75s infinite"></span></div>
+</div>
+<div style="padding: 16px 8px 10px">
+<div style="display: flex; align-items: center; gap: 8px"><span style="width: 8px; height: 8px; border-radius: 50%; background: #F59E0B"></span><span style="font-size: 13px; font-weight: 800; color: var(--ink3)">Step 4 · Week 6</span></div>
+<h3 style="margin: 8px 0 0; font-size: 22px; font-weight: 800; letter-spacing: -.02em">Go live</h3>
+<p style="margin: 6px 0 0; color: var(--ink2)">Targets set, reports weekly.</p>
+</div>
+</article>
+</div>
+<div data-a="up" data-d="200" style="margin-top: 28px; border-radius: 22px; padding: clamp(20px, 3vw, 28px) clamp(20px, 3vw, 32px); background: linear-gradient(120deg, #EEF2FF 0%, #F5F3FF 100%); border: 1px solid rgba(47,75,255,.18); display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap">
+<div style="display: flex; align-items: center; gap: 16px">
+<span style="width: 52px; height: 52px; border-radius: 16px; background: #2F4BFF; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 12px 24px -12px rgba(47,75,255,.8)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16v14H4zM4 10h16M8 3v4M16 3v4"></path></svg></span>
+<div><div style="font-size: clamp(19px, 1.8vw, 22px); font-weight: 800; letter-spacing: -.02em">Step 1 takes 30 minutes.</div><div style="margin-top: 2px; font-size: 15px; color: var(--ink2)">No obligation. The exact timeline depends on your team size and roles.</div></div>
+</div>
+<a class="btn btn-accent" href="#contact" style="min-height: 60px; padding: 0 32px; font-size: 18px; box-shadow: 0 16px 32px -16px rgba(47,75,255,.9)">Book a call <svg class="arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"></path></svg></a>
+</div>
+</div>
+</section>
+<section id="faq" class="sec" style="background: var(--s1)">
 <div class="wrap" style="max-width: 860px">
 <div style="text-align: center"><p class="k" data-a="up" data-d="0">FAQs</p><h2 class="H" data-a="up" data-d="0">Common questions</h2><p class="sub" data-a="up" data-d="0" style="margin-left: auto; margin-right: auto">Something else? <a href="#contact">Ask us on a call.</a></p></div>
 <div data-a="up" data-d="0" style="margin-top: 44px; text-align: left">
@@ -985,6 +1111,7 @@ uniform vec4 uShape;
 uniform vec4 uExtra;
 uniform float uTheme;
 uniform vec3 uTint[16];
+uniform float uClouds;
 
 #define BEAM uTint[0]
 #define LEFT uTint[1]
@@ -1186,9 +1313,12 @@ void main() {
   vec2 toLens = frag - uLens.xy;
   float lens = exp(-dot(toLens, toLens) / sq(uLens.z)) * uLens.w;
   col *= 1.0 + 0.35 * lens * hug;
+  /* Clouds-only mode (pages other than home): drop the beam and its landing glow, keep the drifting fog */
+  col *= 1.0 - uClouds;
   float fogAmount = uAmount.y * uAtmosphere;
   float near = exp(-adx / 150.0);
   float envelope = near * (0.3 + 0.4 * exp(-hp / 50.0) + 1.2 * exp(-p.y / 120.0));
+  envelope = mix(envelope, 0.1 + 0.6 * exp(-hp / 240.0), uClouds);
   if (fogAmount > 0.001 && h > -2.0 && envelope * max(0.25, 6.0 * exp(-adx / 50.0)) > 0.002) {
     vec2 fq = vec2(dx / 1.7, h) / 85.0 + vec2(t * 0.012, -t * 0.03) + uExtra.zw;
     vec2 fw = vec2(fbm(fq * 1.3 + vec2(1.7, 9.2) + t * 0.03), fbm(fq * 1.3 + vec2(8.3, 2.8) - t * 0.025));
@@ -1197,11 +1327,11 @@ void main() {
     float lit = exp(-adx / 50.0);
     float fogMask = smoothstep(-2.0, 20.0, h);
     float reached = smoothstep(front + 80.0, front - 40.0, p.y);
-    vec3 fog = (HAZE * 0.45 + BEAM * 6.0 * lit * reached) * density * envelope * fogMask;
+    vec3 fog = (HAZE * 0.45 + BEAM * 6.0 * lit * reached * (1.0 - uClouds) + mix(LAVENDER, BEAM, 0.55) * 0.9 * uClouds) * density * envelope * fogMask;
     float surfaceLit = exp(-adx / (layerLen * 1.3)) * exp(-outline / 28.0) * hugWide * flowMask * washMask * min(bloom, 1.0);
-    fog += sideK * 2.2 * surfaceLit * (smoothstep(0.38, 0.72, cloud) - 0.35) * fogMask;
+    fog += sideK * 2.2 * surfaceLit * (smoothstep(0.38, 0.72, cloud) - 0.35) * fogMask * (1.0 - uClouds);
     float smoke = smoothstep(0.3, 0.75, cloud);
-    fog += BEAM * 0.35 * exp(-adx / (22.0 * beamWidth)) * (0.35 + 0.9 * smoke) * fogMask * top * drop;
+    fog += BEAM * 0.35 * exp(-adx / (22.0 * beamWidth)) * (0.35 + 0.9 * smoke) * fogMask * top * drop * (1.0 - uClouds);
     col += fog * fogAmount * (1.0 + 1.2 * lens) * mix(1.0, 0.45, uTheme);
   }
 
@@ -1231,7 +1361,7 @@ void main() {
   }
 
   float dustAmount = uAmount.z;
-  if (dustAmount > 0.001) {
+  if (dustAmount > 0.001 && uClouds < 0.5) {
     float dustLp = log(max(psi, 1.0) / (120.0 * flare * flare)) * 2.2;
     vec2 flowCell = vec2(dustLp / 1.1, (along + t * 0.22) / 0.06);
     vec2 cellId = floor(flowCell) + vec2(sideSign * 131.0, 0.0);
@@ -1332,7 +1462,7 @@ function createLaserFlow(container, canvas, getSurface, getSettings) {
   var program = gl.createProgram();
   gl.attachShader(program, vsh); gl.attachShader(program, fsh); gl.linkProgram(program);
   if (!gl.getProgramParameter(program, gl.LINK_STATUS)) return null;
-  var names = ['uResolution','uDpr','uScale','uTime','uBeamX','uSurface','uRadius','uIntro','uPour','uRun','uLens','uReveal','uRevealMap','uRevealInfo','uAtmosphere','uAmount','uShape','uExtra','uTheme','uTint'];
+  var names = ['uResolution','uDpr','uScale','uTime','uBeamX','uSurface','uRadius','uIntro','uPour','uRun','uLens','uReveal','uRevealMap','uRevealInfo','uAtmosphere','uAmount','uShape','uExtra','uTheme','uTint','uClouds'];
   var U = {}; names.forEach(function (n) { U[n] = gl.getUniformLocation(program, n); });
   var vao = gl.createVertexArray(), buffer = gl.createBuffer();
   gl.bindVertexArray(vao); gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
@@ -1441,6 +1571,7 @@ function createLaserFlow(container, canvas, getSurface, getSettings) {
     gl.uniform4f(U.uShape, s.beamWidth, s.flare, s.spread, s.spill);
     gl.uniform4f(U.uExtra, s.pulse, s.dots, 34.34 + seed * 7.31, 11.58 + seed * 3.17);
     gl.uniform1f(U.uTheme, 0);
+    gl.uniform1f(U.uClouds, s.clouds ? 1 : 0);
     gl.uniform3fv(U.uTint, st.tints);
     gl.bindVertexArray(vao); gl.drawArrays(gl.TRIANGLES, 0, 3); gl.bindVertexArray(null);
   }
@@ -1557,7 +1688,7 @@ class Component extends DCLogic {
       color: p.laserColor || '#3847ff', palette: p.auroraBeam === false ? 'classic' : 'aurora', beamPosition: 0.62, surfaceLevel: 1,
       intensity: p.intensity ?? 1.15, beamWidth: 1.5, flare: 1.5, spread: 1.5, spill: 1,
       fog: p.fog ?? 0.2, dust: 1.6, streaks: 1.5, dots: 1, pulse: 1.5,
-      speed: p.speed ?? 1.5, seed: 3, mouseInteraction: true, intro: true
+      speed: p.speed ?? 1.5, seed: 3, mouseInteraction: true, intro: !CCMS_PAGE.clouds, clouds: !!CCMS_PAGE.clouds
     };
   }
   componentDidMount() {

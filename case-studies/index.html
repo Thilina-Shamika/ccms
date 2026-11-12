@@ -45,7 +45,7 @@
  ]
 }
 </script>
-<script>window.CCMS_PAGE = {"industry": 0, "faqCount": 0};</script>
+<script>window.CCMS_PAGE = {"industry": 0, "faqCount": 0, "clouds": true};</script>
 <script src="../vendor/react.js"></script>
 <script src="../vendor/react-dom.js"></script>
 <script src="../support.js"></script>
@@ -752,7 +752,7 @@ font-family:'Plus Jakarta Sans',system-ui,sans-serif;color:var(--ink);background
 <section id="top" data-ccms="hero" style="position: relative; overflow: hidden; background: #0A0F2C; color: #FFFFFF">
 <canvas data-ccms="hero-canvas" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; display: block; pointer-events: none; z-index: 0"></canvas>
 <div class="{{stickCls}}" aria-label="Quick links"><a href="../" aria-label="CCMS home" style="display: inline-flex"><img src="../assets/d7fee95ddd0788962b6253f583f3de89.png" alt="CCMS" width="87" height="21" style="height: 21px; width: auto; display: block"></a><div class="ndd"><a class="sl" href="../recruitment-process-outsourcing/">RPO <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></a><div class="ddm"><a href="../recruitment-process-outsourcing/">RPO overview</a><a href="../industries/healthcare-recruitment/">Healthcare recruitment</a><a href="../industries/education-recruitment/">Education recruitment</a><a href="../industries/construction-recruitment/">Construction recruitment</a></div></div><div class="ndd"><a class="sl" href="../recruitment-process-outsourcing/#services">Services <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></a><div class="ddm"><a href="../services/compliance/">Compliance</a><a href="../services/bookings/">Bookings</a><a href="../services/payroll/">Payroll</a><a href="../services/finance/">Finance</a><a href="../services/resourcing/">Resourcing</a><a href="../services/umbrella-checks/">Umbrella checks</a></div></div><div class="ndd"><a class="sl" href="../#industries">Other industries <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></a><div class="ddm"><a href="../industries/care-and-health/">Care and Health</a><a href="../industries/property-facilities-security/">Property, Facilities and Security</a><a href="../industries/payroll-and-finance/">Payroll and Finance</a></div></div><a class="sl" href="../digital/">Digital</a><a class="sl" href="../why-sri-lanka/">Why Sri Lanka</a><a class="sl" href="../case-studies/" aria-current="page">Case studies</a><a class="btn btn-white" href="#contact" style="min-height: 42px; padding: 0 18px; font-size: 15px">Book a call</a></div>
-<div class="{{mbarCls}}" aria-label="Quick actions"><a class="btn" href="../#plan" style="background: rgba(255,255,255,.1); color: #FFFFFF; border: 1px solid rgba(255,255,255,.2)">Get a team plan</a><a class="btn btn-white" href="#contact">Book a call</a></div>
+<div class="{{mbarCls}}" aria-label="Quick actions"><a class="btn" href="#plan" style="background: rgba(255,255,255,.1); color: #FFFFFF; border: 1px solid rgba(255,255,255,.2)">Get a team plan</a><a class="btn btn-white" href="#contact">Book a call</a></div>
 <header style="position: relative; z-index: 4">
 <nav aria-label="Main" class="wrap" style="height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px">
 <a href="../" aria-label="CCMS home" style="text-decoration: none; min-height: 44px; display: inline-flex; align-items: center"><img src="../assets/d7fee95ddd0788962b6253f583f3de89.png" alt="CCMS" width="103" height="25" style="display: block; height: 25px; width: auto"><span class="tagl">Where quality matters.</span></a>
@@ -771,27 +771,51 @@ font-family:'Plus Jakarta Sans',system-ui,sans-serif;color:var(--ink);background
 </div>
 </sc-if>
 </header>
-<div class="wrap" style="position: relative; z-index: 2; padding-top: 56px">
-<nav aria-label="Breadcrumb" class="hero-in"><ol class="crumbs"><li><a href="../">Home</a></li><li aria-current="page">Case studies</li></ol></nav>
+<div class="wrap" style="position: relative; z-index: 2; padding-top: 72px">
 <p class="hero-in" style="margin: 0; font-size: 13px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #AEB8FF">Case studies</p>
 <div class="g-hero" style="margin-top: 20px">
-<h1 class="hero-in" style="margin: 0; font-size: clamp(38px, 5vw, 66px); line-height: 1.02; letter-spacing: -.05em; font-weight: 800; animation-delay: 60ms">Results our clients see</h1>
+<h1 class="hero-in" style="margin: 0; font-size: clamp(42px, 5.6vw, 78px); line-height: 1; letter-spacing: -.05em; font-weight: 800; animation-delay: 60ms">Results our clients see</h1>
 <div class="hero-in" style="animation-delay: 140ms">
 <p style="margin: 0; font-size: 17px; line-height: 1.6; color: #C9D0EE">Real results for UK recruitment agencies, from audit-ready compliance files to bookings teams that grew from 2 to 50+ people in a year.</p>
 <div style="margin-top: 26px; display: flex; gap: 10px; flex-wrap: wrap">
-<a class="btn btn-white" href="#contact">Book a call <svg class="arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"></path></svg></a><a class="btn btn-line" href="#stories">Read the stories</a>
+<a class="btn btn-white" href="#contact">Book a call <svg class="arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"></path></svg></a>
+<a class="btn btn-line" href="#stories">Read the stories</a>
+</div>
+<div class="ghero-proof" style="margin-top: 28px">
+<div aria-hidden="true" style="display: flex"><span style="width: 34px; height: 34px; border-radius: 50%; margin-left: 0; background: #E3E8FF; border: 2px solid #0A0F2C; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; color: #0A0F2C">UK</span><span style="width: 34px; height: 34px; border-radius: 50%; margin-left: -10px; background: #CFE9DC; border: 2px solid #0A0F2C; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; color: #0A0F2C"></span><span style="width: 34px; height: 34px; border-radius: 50%; margin-left: -10px; background: #F3E1C9; border: 2px solid #0A0F2C; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; color: #0A0F2C"></span><span style="width: 34px; height: 34px; border-radius: 50%; margin-left: -10px; background: #DCD6F7; border: 2px solid #0A0F2C; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; color: #0A0F2C">20+</span></div>
+<div style="line-height: 1.35"><div style="font-size: 15px; font-weight: 700; color: #FFFFFF">20+ UK clients</div><div style="font-size: 14px; color: #C9D0EE">Most came by referral</div></div>
+<span aria-hidden="true" style="width: 1px; height: 30px; background: rgba(255,255,255,.18)"></span>
+<div style="line-height: 1.35"><div style="font-size: 15px; font-weight: 700; color: #FFFFFF">200+ people</div><div style="font-size: 14px; color: #C9D0EE">in Sri Lanka</div></div>
 </div>
 </div>
 </div>
 </div>
-<div class="wrap" style="position: relative; z-index: 1; margin-top: 72px; padding-bottom: 0">
-<div data-ccms="hero-surface" class="hero-in hero-hook" style="animation-delay: 220ms">
+<div class="wrap" style="position: relative; z-index: 1; margin-top: 88px; padding-bottom: 0">
+<div data-ccms="hero-surface" id="plan" class="hero-in hero-hook" style="animation-delay: 220ms">
 <div class="hh-left">
-<div class="hh-eye">Proof</div>
-<h2 style="margin: 14px 0 0; font-size: clamp(28px, 3vw, 40px); line-height: 1.08; letter-spacing: -.04em; font-weight: 800">Proven in UK healthcare recruitment, where compliance can't slip.</h2>
-<dl class="hh-proof"><div><dt>10,702</dt><dd>nurses resourced for one agency</dd></div><div><dt>1,300+</dt><dd>shifts booked every week</dd></div><div><dt>25 of 26</dt><dd>Novello nurses rated us 10/10</dd></div></dl>
+<div class="hh-eye">Free team plan <span aria-hidden="true">/</span> 30 seconds</div>
+<h2 style="margin: 14px 0 0; font-size: clamp(30px, 3.2vw, 44px); line-height: 1.05; letter-spacing: -.04em; font-weight: 800">See what your team could look like.</h2>
+<p style="margin: 14px 0 0; font-size: 17px; line-height: 1.6; color: #C9D0EE; max-width: 42ch">Pick your agency type and the roles you need. We'll email you a team plan with the roles, the set-up and a timeline.</p>
+<dl class="hh-proof">
+<div><dt>4 to 6 weeks</dt><dd>from first call to a working team</dd></div>
+<div><dt>1 in 20</dt><dd>candidates we interview are hired</dd></div>
+<div><dt>8 of 10</dt><dd>of our first hires are still with us</dd></div>
+</dl>
 </div>
-<div class="hh-card"><div style="font-size: 13px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--ink3)">Case studies</div><div class="hh-list" style="margin-top: 6px"><div><span>Novello Healthcare<small>52 NHS-compliant nurses cleared in a 12-week trial.</small></span></div><div><span>Nursing agency partnership<small>10,702 nurses resourced for one agency.</small></span></div><div><span>Bookings team<small>A bookings team grown from 2 to 50+ people in one year.</small></span></div><div><span>Bullhorn data clean-up<small>1,000+ candidate files cleaned and migrated in under 2.5 months.</small></span></div><div><span>Compliance teams<small>Dedicated compliance teams for a nursing agency.</small></span></div></div></div>
+<div class="hh-card">
+<div style="position: relative"><label class="vh" for="hh-ind">Your industry</label><select id="hh-ind" class="hh-sel" value="{{industryValue}}" onChange="{{pickIndustry}}"><sc-for list="{{industryOptions}}" as="o" hint-placeholder-count="12"><option value="{{o.value}}">{{o.label}}</option></sc-for></select><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0B0D12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="position: absolute; right: 12px; top: 13px; pointer-events: none"><path d="m6 9 6 6 6-6"></path></svg></div>
+<div class="hr-grid"><sc-for list="{{roles}}" as="r" hint-placeholder-count="5"><div class="hr-row"><span>{{r.name}}</span><span class="hr-st"><button class="hr-b" type="button" onClick="{{r.dec}}" aria-label="{{r.decLabel}}">−</button><b aria-live="polite">{{r.count}}</b><button class="hr-b plus" type="button" onClick="{{r.inc}}" aria-label="{{r.incLabel}}">+</button></span></div></sc-for></div>
+<div class="hr-res">
+<div><div class="hr-k">Your team</div><div class="hr-v">{{total}} <small>{{totalLabel}}</small></div><div class="hr-s">Live in 4 to 6 weeks</div></div>
+<div><div class="hr-k">How they work</div><div class="hr-w">Only for you, in your systems, on UK hours</div><div class="hr-s">Managed by CCMS, every day</div></div>
+</div>
+<sc-if value="{{heroNotSent}}" hint-placeholder-val="{{true}}">
+<form onSubmit="{{heroSend}}" novalidate="" class="inl" style="margin-top: 12px"><label class="vh" for="h-email">Work email</label><input id="h-email" name="email" type="email" autocomplete="email" placeholder="Your work email" required=""><button class="btn btn-accent" type="button" onClick="{{heroSend}}">Email me the plan</button></form>
+</sc-if>
+<sc-if value="{{heroSent}}" hint-placeholder-val="{{false}}">
+<div role="status" style="margin-top: 12px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; animation: ccms-in 260ms var(--ease) both"><span class="lead-ok"><i><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg></i>Your plan is on its way.</span><a class="btn btn-accent" href="#contact" style="min-height: 46px">Talk it through <svg class="arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"></path></svg></a></div>
+</sc-if>
+</div>
 </div>
 </div>
 </section>
@@ -935,6 +959,7 @@ uniform vec4 uShape;
 uniform vec4 uExtra;
 uniform float uTheme;
 uniform vec3 uTint[16];
+uniform float uClouds;
 
 #define BEAM uTint[0]
 #define LEFT uTint[1]
@@ -1136,9 +1161,12 @@ void main() {
   vec2 toLens = frag - uLens.xy;
   float lens = exp(-dot(toLens, toLens) / sq(uLens.z)) * uLens.w;
   col *= 1.0 + 0.35 * lens * hug;
+  /* Clouds-only mode (pages other than home): drop the beam and its landing glow, keep the drifting fog */
+  col *= 1.0 - uClouds;
   float fogAmount = uAmount.y * uAtmosphere;
   float near = exp(-adx / 150.0);
   float envelope = near * (0.3 + 0.4 * exp(-hp / 50.0) + 1.2 * exp(-p.y / 120.0));
+  envelope = mix(envelope, 0.1 + 0.6 * exp(-hp / 240.0), uClouds);
   if (fogAmount > 0.001 && h > -2.0 && envelope * max(0.25, 6.0 * exp(-adx / 50.0)) > 0.002) {
     vec2 fq = vec2(dx / 1.7, h) / 85.0 + vec2(t * 0.012, -t * 0.03) + uExtra.zw;
     vec2 fw = vec2(fbm(fq * 1.3 + vec2(1.7, 9.2) + t * 0.03), fbm(fq * 1.3 + vec2(8.3, 2.8) - t * 0.025));
@@ -1147,11 +1175,11 @@ void main() {
     float lit = exp(-adx / 50.0);
     float fogMask = smoothstep(-2.0, 20.0, h);
     float reached = smoothstep(front + 80.0, front - 40.0, p.y);
-    vec3 fog = (HAZE * 0.45 + BEAM * 6.0 * lit * reached) * density * envelope * fogMask;
+    vec3 fog = (HAZE * 0.45 + BEAM * 6.0 * lit * reached * (1.0 - uClouds) + mix(LAVENDER, BEAM, 0.55) * 0.9 * uClouds) * density * envelope * fogMask;
     float surfaceLit = exp(-adx / (layerLen * 1.3)) * exp(-outline / 28.0) * hugWide * flowMask * washMask * min(bloom, 1.0);
-    fog += sideK * 2.2 * surfaceLit * (smoothstep(0.38, 0.72, cloud) - 0.35) * fogMask;
+    fog += sideK * 2.2 * surfaceLit * (smoothstep(0.38, 0.72, cloud) - 0.35) * fogMask * (1.0 - uClouds);
     float smoke = smoothstep(0.3, 0.75, cloud);
-    fog += BEAM * 0.35 * exp(-adx / (22.0 * beamWidth)) * (0.35 + 0.9 * smoke) * fogMask * top * drop;
+    fog += BEAM * 0.35 * exp(-adx / (22.0 * beamWidth)) * (0.35 + 0.9 * smoke) * fogMask * top * drop * (1.0 - uClouds);
     col += fog * fogAmount * (1.0 + 1.2 * lens) * mix(1.0, 0.45, uTheme);
   }
 
@@ -1181,7 +1209,7 @@ void main() {
   }
 
   float dustAmount = uAmount.z;
-  if (dustAmount > 0.001) {
+  if (dustAmount > 0.001 && uClouds < 0.5) {
     float dustLp = log(max(psi, 1.0) / (120.0 * flare * flare)) * 2.2;
     vec2 flowCell = vec2(dustLp / 1.1, (along + t * 0.22) / 0.06);
     vec2 cellId = floor(flowCell) + vec2(sideSign * 131.0, 0.0);
@@ -1282,7 +1310,7 @@ function createLaserFlow(container, canvas, getSurface, getSettings) {
   var program = gl.createProgram();
   gl.attachShader(program, vsh); gl.attachShader(program, fsh); gl.linkProgram(program);
   if (!gl.getProgramParameter(program, gl.LINK_STATUS)) return null;
-  var names = ['uResolution','uDpr','uScale','uTime','uBeamX','uSurface','uRadius','uIntro','uPour','uRun','uLens','uReveal','uRevealMap','uRevealInfo','uAtmosphere','uAmount','uShape','uExtra','uTheme','uTint'];
+  var names = ['uResolution','uDpr','uScale','uTime','uBeamX','uSurface','uRadius','uIntro','uPour','uRun','uLens','uReveal','uRevealMap','uRevealInfo','uAtmosphere','uAmount','uShape','uExtra','uTheme','uTint','uClouds'];
   var U = {}; names.forEach(function (n) { U[n] = gl.getUniformLocation(program, n); });
   var vao = gl.createVertexArray(), buffer = gl.createBuffer();
   gl.bindVertexArray(vao); gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
@@ -1391,6 +1419,7 @@ function createLaserFlow(container, canvas, getSurface, getSettings) {
     gl.uniform4f(U.uShape, s.beamWidth, s.flare, s.spread, s.spill);
     gl.uniform4f(U.uExtra, s.pulse, s.dots, 34.34 + seed * 7.31, 11.58 + seed * 3.17);
     gl.uniform1f(U.uTheme, 0);
+    gl.uniform1f(U.uClouds, s.clouds ? 1 : 0);
     gl.uniform3fv(U.uTint, st.tints);
     gl.bindVertexArray(vao); gl.drawArrays(gl.TRIANGLES, 0, 3); gl.bindVertexArray(null);
   }
@@ -1507,7 +1536,7 @@ class Component extends DCLogic {
       color: p.laserColor || '#3847ff', palette: p.auroraBeam === false ? 'classic' : 'aurora', beamPosition: 0.62, surfaceLevel: 1,
       intensity: p.intensity ?? 1.15, beamWidth: 1.5, flare: 1.5, spread: 1.5, spill: 1,
       fog: p.fog ?? 0.2, dust: 1.6, streaks: 1.5, dots: 1, pulse: 1.5,
-      speed: p.speed ?? 1.5, seed: 3, mouseInteraction: true, intro: true
+      speed: p.speed ?? 1.5, seed: 3, mouseInteraction: true, intro: !CCMS_PAGE.clouds, clouds: !!CCMS_PAGE.clouds
     };
   }
   componentDidMount() {
