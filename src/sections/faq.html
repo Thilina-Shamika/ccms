@@ -1,0 +1,20 @@
+<section id="faq" class="sec" style="background: var(--s1)">
+<div class="wrap" style="max-width: 860px">
+<div style="text-align: center"><p class="k" data-a="up" data-d="0">FAQs</p><h2 class="H" data-a="up" data-d="60" style="">Common questions</h2><p class="sub" data-a="up" data-d="120" style="margin-left: auto; margin-right: auto">Something else? <a href="#contact">Ask us on a call.</a></p></div>
+<div data-a="up" data-d="100" style="margin-top: 44px; text-align: left">
+<sc-for list="{{faqs}}" as="f" hint-placeholder-count="8">
+<div style="border-top: 1px solid var(--line2)">
+<h3 style="margin: 0"><button class="faqbtn" type="button" onClick="{{f.toggle}}" aria-expanded="{{f.expanded}}"><span>{{f.q}}</span><span class="faqicon" aria-hidden="true" style="background: {{f.iconBg}}; transform: {{f.iconRot}}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="{{f.iconColor}}" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></span></button></h3>
+<sc-if value="{{f.open}}" hint-placeholder-val="{{false}}"><p style="margin: 0; padding: 0 52px 24px 0; color: var(--ink2); animation: ccms-in 260ms var(--ease) both">{{f.a}}</p></sc-if>
+</div>
+</sc-for>
+<div style="border-top: 1px solid var(--line2)"></div>
+</div>
+<div data-a="up" data-d="0" style="margin-top: 48px; border-radius: 24px; padding: clamp(22px, 3vw, 32px); background: #FFFFFF; border: 1px solid var(--line); box-shadow: 0 1px 2px rgba(11,13,18,.04), 0 24px 50px -34px rgba(16,24,64,.35); text-align: left">
+<div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap"><span style="display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: 999px; background: #F5F3FF; color: #6D28D9; font-size: 13px; font-weight: 800"><span style="width: 8px; height: 8px; border-radius: 50%; background: #F43F5E; animation: lv 1.6s ease-in-out infinite"></span>Live online · Monthly</span><span style="font-size: 14px; color: var(--ink3); font-weight: 600">30 minutes</span></div>
+<div style="margin-top: 14px; font-size: clamp(22px, 2.2vw, 28px); font-weight: 800; letter-spacing: -.03em; line-height: 1.15">Prefer to see it first? Join our monthly explainer.</div>
+<p style="margin: 8px 0 0; color: var(--ink2)">See how a UK team runs from Kandy, day to day, and ask anything in the live Q&amp;A.</p>
+<div style="margin-top: 18px"><sc-if value="{{explNotSent}}" hint-placeholder-val="{{true}}"><form onSubmit="{{sendExpl}}" class="inl"><label class="vh" for="expl-email">Work email</label><input id="expl-email" name="email" type="email" autocomplete="email" placeholder="Your work email" required=""><button class="btn btn-accent" type="button" onClick="{{sendExpl}}">Save my seat</button></form></sc-if><sc-if value="{{explSent}}" hint-placeholder-val="{{false}}"><div role="status" class="lead-ok"><i><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg></i>You're in. We'll email the joining link.</div></sc-if></div>
+</div>
+</div>
+</section>

@@ -1,0 +1,14 @@
+<div class="hh-card">
+<div style="position: relative"><label class="vh" for="hh-ind">Your industry</label><select id="hh-ind" class="hh-sel" value="{{industryValue}}" onChange="{{pickIndustry}}"><sc-for list="{{industryOptions}}" as="o" hint-placeholder-count="12"><option value="{{o.value}}">{{o.label}}</option></sc-for></select><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0B0D12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="position: absolute; right: 12px; top: 13px; pointer-events: none"><path d="m6 9 6 6 6-6"></path></svg></div>
+<div class="hr-grid"><sc-for list="{{roles}}" as="r" hint-placeholder-count="5"><div class="hr-row"><span>{{r.name}}</span><span class="hr-st"><button class="hr-b" type="button" onClick="{{r.dec}}" aria-label="{{r.decLabel}}">−</button><b aria-live="polite">{{r.count}}</b><button class="hr-b plus" type="button" onClick="{{r.inc}}" aria-label="{{r.incLabel}}">+</button></span></div></sc-for></div>
+<div class="hr-res">
+<div><div class="hr-k">Your team</div><div class="hr-v">{{total}} <small>{{totalLabel}}</small></div><div class="hr-s">Live in 4 to 6 weeks</div></div>
+<div><div class="hr-k">How they work</div><div class="hr-w">Only for you, in your systems, on UK hours</div><div class="hr-s">Managed by CCMS, every day</div></div>
+</div>
+<sc-if value="{{heroNotSent}}" hint-placeholder-val="{{true}}">
+<form onSubmit="{{heroSend}}" novalidate="" class="inl" style="margin-top: 12px"><label class="vh" for="h-email">Work email</label><input id="h-email" name="email" type="email" autocomplete="email" placeholder="Your work email" required=""><button class="btn btn-accent" type="button" onClick="{{heroSend}}">Email me the plan</button></form>
+</sc-if>
+<sc-if value="{{heroSent}}" hint-placeholder-val="{{false}}">
+<div role="status" style="margin-top: 12px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; animation: ccms-in 260ms var(--ease) both"><span class="lead-ok"><i><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg></i>Your plan is on its way.</span><a class="btn btn-accent" href="#contact" style="min-height: 46px">Talk it through <svg class="arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"></path></svg></a></div>
+</sc-if>
+</div>

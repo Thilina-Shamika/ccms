@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://thilina-shamika.github.io/ccms/sitemap.xml

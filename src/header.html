@@ -1,0 +1,20 @@
+<div class="{{stickCls}}" aria-label="Quick links"><a href="#top" aria-label="CCMS home" style="display: inline-flex"><img src="./assets/d7fee95ddd0788962b6253f583f3de89.png" alt="CCMS" width="87" height="21" style="height: 21px; width: auto; display: block"></a><a class="sl" href="#rpo">Services</a><a class="sl" href="#how">How it works</a><a class="sl" href="#build">Team plan</a><a class="btn btn-white" href="#contact" style="min-height: 42px; padding: 0 18px; font-size: 15px">Book a call</a></div>
+<div class="{{mbarCls}}" aria-label="Quick actions"><a class="btn" href="#build" style="background: rgba(255,255,255,.1); color: #FFFFFF; border: 1px solid rgba(255,255,255,.2)">Get a team plan</a><a class="btn btn-white" href="#contact">Book a call</a></div>
+<header style="position: relative; z-index: 4">
+<nav aria-label="Main" class="wrap" style="height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px">
+<a href="#top" aria-label="CCMS home" style="text-decoration: none; min-height: 44px; display: inline-flex; align-items: center"><img src="./assets/d7fee95ddd0788962b6253f583f3de89.png" alt="CCMS" width="103" height="25" style="display: block; height: 25px; width: auto"></a>
+<div class="navlinks" style="display: flex; gap: 30px">
+<a class="navlink" href="#industries">Industries</a><a class="navlink" href="#rpo">RPO</a><a class="navlink" href="#rpo">Services</a><a class="navlink" href="#digital">Digital</a><a class="navlink" href="#people">Our story</a><a class="navlink" href="#safety">Security</a>
+</div>
+<div style="display: flex; align-items: center; gap: 10px">
+<a class="btn btn-white navcta" href="#contact" style="min-height: 42px; padding: 0 18px; font-size: 15px">Book a call</a>
+<button class="burger" type="button" onClick="{{toggleMenu}}" aria-expanded="{{menuExpanded}}" aria-label="Open menu" style="width: 46px; height: 46px; border-radius: 999px; border: 1px solid rgba(255,255,255,.25); background: rgba(255,255,255,.06); color: #FFFFFF; align-items: center; justify-content: center; cursor: pointer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 8h16M4 16h16"></path></svg></button>
+</div>
+</nav>
+<sc-if value="{{menuOpen}}" hint-placeholder-val="{{false}}">
+<div class="mobilemenu" style="margin: 0 16px 12px; border-radius: 20px; background: #FFFFFF; padding: 8px 20px; display: flex; flex-direction: column; box-shadow: 0 24px 60px rgba(0,0,0,.35); animation: ccms-in 220ms var(--ease) both">
+<a href="#industries" onClick="{{closeMenu}}" style="text-decoration: none; color: #0E1116; font-size: 17px; font-weight: 700; padding: 15px 0; border-bottom: 1px solid #EEF0F3">Industries</a><a href="#rpo" onClick="{{closeMenu}}" style="text-decoration: none; color: #0E1116; font-size: 17px; font-weight: 700; padding: 15px 0; border-bottom: 1px solid #EEF0F3">RPO and services</a><a href="#digital" onClick="{{closeMenu}}" style="text-decoration: none; color: #0E1116; font-size: 17px; font-weight: 700; padding: 15px 0; border-bottom: 1px solid #EEF0F3">Digital</a><a href="#people" onClick="{{closeMenu}}" style="text-decoration: none; color: #0E1116; font-size: 17px; font-weight: 700; padding: 15px 0; border-bottom: 1px solid #EEF0F3">Our story</a><a href="#safety" onClick="{{closeMenu}}" style="text-decoration: none; color: #0E1116; font-size: 17px; font-weight: 700; padding: 15px 0; border-bottom: 1px solid #EEF0F3">Security</a>
+<a class="btn btn-accent" href="#contact" onClick="{{closeMenu}}" style="margin: 10px 0 12px; min-height: 52px">Book a call</a>
+</div>
+</sc-if>
+</header>
