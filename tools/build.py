@@ -575,6 +575,99 @@ def build_digital():
              crumbs=[('Digital', path)], service=('Software development, website development and SEO', intro), plan=False)
 
 
+def text_section(id_, blocks, bg='#FFFFFF'):
+    body = ''.join(f'<h2 style="margin: 36px 0 0; font-size: 24px; font-weight: 800; letter-spacing: -.02em">{esc(h)}</h2>' +
+                   ''.join(f'<p style="margin: 12px 0 0; font-size: 17px; line-height: 1.7; color: var(--ink2)">{esc(p)}</p>' for p in ps)
+                   for h, ps in blocks)
+    return f'<section id="{id_}" class="sec" style="background: {bg}">\n<div class="wrap" style="max-width: 820px">\n{body}\n</div>\n</section>\n'
+
+
+FOUNDER = 'Danu, our founder, has worked in UK healthcare recruitment since 2011, rising from recruiter to operations director. In 2016 he moved to Sri Lanka to set up an offshore team for a UK agency. He saw what most offshore providers got wrong: they sold volume, when agencies needed quality. So he built CCMS to do it properly, and we have grown by referral ever since.'
+
+
+def build_our_story():
+    path = 'our-story/'
+    intro = "We've never chased volume. We built CCMS on one idea: do fewer things, and do them properly."
+    timeline = list_card('Our story', [('2011', 'Danu starts in UK healthcare recruitment', None),
+                                       ('2016', 'Moves to Sri Lanka to build an offshore team for a UK agency', None),
+                                       ('Today', '200+ people, 20+ UK clients, grown by referral', None)])
+    founder = sec('founder', '<div class="founder"><div class="ph5 has-img" style="min-height: 360px; border-radius: 22px" role="img" aria-label="The CCMS team in Sri Lanka"><img class="phi" src="%%R%%assets/d45bde67a2d819b341e5acb1c7721081.jpg" alt="" loading="lazy"></div><div>' +
+                  head('Founder', 'Founder-led since day one', FOUNDER) + '</div></div>')
+    why = read('sections', 'why.html')
+    cards = why[why.index('<div class="g-ans"'):why.index('<div class="g-nums"')]
+    reasons = sec('why', head('Why CCMS', 'Better, not just more.',
+                             "That's why most of our clients came by referral, and why many have given us more work without being asked.") +
+                  cards.replace('style="margin-top: 48px"', 'style="margin-top: 44px"') +
+                  stat_cards([('200+', 'people'), ('20+', 'UK clients'), ('10,702', 'nurses resourced for one client'), ('1,300+', 'shifts booked every week')], 16), 'var(--s1)')
+    h = hero([('Home', '%%R%%'), ('Our story', None)], 'Our story', 'Built by a recruiter, for recruiters', intro,
+             [btn_call(), btn_line('Meet the founder', '#founder')],
+             hook(hook_left('Since 2011', 'In UK healthcare recruitment since 2011', None), timeline))
+    add_page(path, 'Our Story | CCMS', describe(intro + ' ' + FOUNDER), h, founder + reasons,
+             crumbs=[('Our story', path)], plan=False)
+
+
+def build_careers():
+    path = 'careers/'
+    intro = "Our office sits outside the busy outsourcing hubs, so our people aren't poached by the next call centre down the road. They build long careers with us."
+    points = ''.join(role_card(t, d) for t, d in [
+        ('Careers, not stopovers', 'It is why 8 of our first 10 hires are still with us.'),
+        ('Training from day one', 'We invest in careers and training, and train every new starter on the systems, processes and tone of the team they join.'),
+        ('Attitude first', 'We hire for attitude first, then skills. Every candidate is tested on spoken and written English.')])
+    body = sec('life', head('Life at CCMS', 'A place to build a career', None) +
+               f'<div class="g-roles" style="margin-top: 44px">{points}</div>' +
+               stat_cards([('200+', 'people'), ('8 of 10', 'first hires still with us'), ('1 in 20', 'candidates hired')], 16, 'repeat(auto-fit, minmax(200px, 1fr))'), 'var(--s1)')
+    people = read('sections', 'people.html')
+    photos = people[people.index('<div class="g-kph">'):people.rindex('</div>\n</section>')]
+    body += sec('team', head('Our team', 'Our team in Sri Lanka') + f'<div style="margin-top: 44px">{photos}</div>')
+    h = hero([('Home', '%%R%%'), ('Careers', None)], 'Careers', 'Careers at CCMS', intro,
+             [f'<a class="btn btn-white" href="%%R%%contact/">Get in touch {ARROW_UP}</a>', btn_line('Life at CCMS', '#life')],
+             hook(hook_left('Join us', 'Careers, not stopovers', 'We interview around 20 people for every one we hire, and our managers are measured on keeping teams stable.', [('200+', 'people'), ('8 of 10', 'first hires still with us')]),
+                  list_card('Teams we hire for', [(s['name'], s['short'], None) for s in SERVICES[:5]])))
+    add_page(path, 'Careers | CCMS', describe(intro), h, body, crumbs=[('Careers', path)], plan=False)
+
+
+def build_contact():
+    path = 'contact/'
+    intro = 'A 30-minute call, no obligation. You leave with a suggested team, a timeline and clear next steps.'
+    rows = [('A real person replies within one UK working day.', None, None),
+            ('Founder-led, from the very first call.', None, None),
+            ('UK GDPR protected', None, None)]
+    h = hero([('Home', '%%R%%'), ('Contact', None)], 'Contact', 'Tell us what you need. We\'ll show you your team.', intro,
+             [btn_call(), btn_line('Get a team plan', '%%R%%#plan')],
+             hook(hook_left('Book a call', 'Book your 30-minute call', 'Tell us a little about your business below. It takes a minute.', None),
+                  list_card('What to expect', rows)))
+    add_page(path, 'Contact CCMS | Book a Call', describe(intro), h, '', crumbs=[('Contact', path)], plan=False)
+
+
+def build_privacy():
+    path = 'privacy/'
+    intro = 'How CCMS Ltd uses the details you give us on this website.'
+    blocks = [
+        ('Who we are', ['CCMS Ltd builds and manages dedicated back office teams for UK businesses, with an operations centre in Sri Lanka.']),
+        ('What we collect', ['When you book a call or ask for a team plan, we ask for your name, work email, company and, if you choose, your phone number, plus details about the team you need.']),
+        ('How we use it', ['We use these details only to arrange and prepare for your call and to send the team plan you asked for. We do not sell your details or share them for marketing.']),
+        ('Your rights', ['Under UK GDPR you can ask to see, correct or delete the details we hold about you at any time. Contact us and we will reply within one UK working day.']),
+        ('Client data', ['Every client signs a UK GDPR data agreement (IDTA) before their team starts work. Client teams work on secure company equipment in a controlled office and see only what each task needs.']),
+    ]
+    h = hero([('Home', '%%R%%'), ('Privacy', None)], 'Privacy', 'Privacy policy', intro, [btn_line('Cookie policy', '%%R%%cookies/')],
+             hook(hook_left('UK GDPR', 'Your details are only used to arrange your call', None),
+                  list_card('On this page', [(b[0], None, None) for b in blocks])))
+    add_page(path, 'Privacy Policy | CCMS', describe(intro), h, text_section('policy', blocks), crumbs=[('Privacy', path)], plan=False)
+
+
+def build_cookies():
+    path = 'cookies/'
+    intro = 'This website does not use cookies for tracking or advertising.'
+    blocks = [
+        ('Cookies on this website', ['This website does not set cookies for tracking, analytics or advertising.']),
+        ('Fonts', ['Our fonts are loaded from Google Fonts, which receives your IP address so it can send the font files. Google Fonts does not set cookies on this website.']),
+        ('Changes', ['If we add analytics or other cookies in future, we will update this page and ask for your consent first.']),
+    ]
+    h = hero([('Home', '%%R%%'), ('Cookies', None)], 'Cookies', 'Cookie policy', intro, [btn_line('Privacy policy', '%%R%%privacy/')],
+             hook(hook_left('Cookies', 'No tracking cookies', None), list_card('On this page', [(b[0], None, None) for b in blocks])))
+    add_page(path, 'Cookie Policy | CCMS', describe(intro), h, text_section('policy', blocks), crumbs=[('Cookies', path)], plan=False)
+
+
 def write_extras():
     urls = [p['path'] for p in PAGES]
     with open(os.path.join(ROOT, 'sitemap.xml'), 'w') as f:
@@ -607,6 +700,11 @@ def main():
     build_why_sri_lanka()
     build_case_studies()
     build_digital()
+    build_our_story()
+    build_careers()
+    build_contact()
+    build_privacy()
+    build_cookies()
     for p in PAGES:
         render(p)
     write_extras()
