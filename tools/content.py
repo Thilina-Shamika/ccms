@@ -214,12 +214,12 @@ GROUPS = [
 ]
 
 RPO_REASONS = [
-    ('We own the outcome', 'We agree the targets with you, check the quality ourselves, and answer for the results.'),
-    ('Built by a recruiter', 'In UK healthcare recruitment since 2011, from recruiter to operations director.'),
-    ('Dedicated, not shared', 'Your team works only for you, in your CRM, on UK hours.'),
-    ('Quality first', '1 in 20 hired.'),
-    ('You stay in control', 'Weekly reports and agreed targets.'),
-    ('Founder-led, on purpose', 'Every new client is treated like a new start-up, whatever its size.'),
+    ('We own the outcome', 'We agree the targets with you, check the quality ourselves, and answer for the results.', 'Targets agreed upfront'),
+    ('Built by a recruiter', 'In UK healthcare recruitment since 2011, from recruiter to operations director.', 'Since 2011'),
+    ('Dedicated, not shared', 'Your team works only for you, in your CRM, on UK hours.', 'Your CRM, UK hours'),
+    ('Quality first', 'We interview around 20 people for every one we hire.', '1 in 20 hired'),
+    ('You stay in control', 'Agreed targets, reported back to you every week.', 'Weekly reports'),
+    ('Founder-led, on purpose', 'Every new client is treated like a new start-up, whatever its size.', 'Grown by referral'),
 ]
 
 CASE_STUDIES = [

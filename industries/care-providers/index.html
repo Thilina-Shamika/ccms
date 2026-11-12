@@ -802,6 +802,44 @@ font-family:'Plus Jakarta Sans',system-ui,sans-serif;color:var(--ink);background
 .founder{display:grid;grid-template-columns:5fr 7fr;gap:48px;align-items:center}
 @media (max-width:900px){.founder{grid-template-columns:1fr;gap:28px}}
 .cs-quote{margin:16px 0 0;padding-left:16px;border-left:3px solid #2F4BFF;font-size:17px;font-weight:600;color:var(--ink)}
+.fgrid{display:grid;gap:16px}
+.fg3{grid-template-columns:repeat(3,1fr)}
+.fg2{grid-template-columns:repeat(2,1fr)}
+.fg3.big .flead{grid-column:span 2;grid-row:span 2}
+.fg3.wide .flead{grid-column:span 2}
+.fcard{position:relative;display:flex;flex-direction:column;padding:26px;border-radius:22px}
+.fcard .fic{width:44px;height:44px;border-radius:13px;background:var(--soft);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.fcard h3{margin:18px 0 0;font-size:20px;font-weight:700;letter-spacing:-.02em;line-height:1.25;color:var(--ink)}
+.fcard p{margin:8px 0 0;color:var(--ink2)}
+.fcard .ftag{align-self:flex-start;margin-top:auto;transform:translateY(8px);padding:5px 11px;border-radius:999px;background:#E7F5EC;color:#1B7A4A;font-size:13px;font-weight:700}
+.fcard p+.ftag,.fcard h3+.ftag{margin-top:18px}
+.flead{overflow:hidden;color:#FFFFFF;background-color:#0A0F2C;background-image:radial-gradient(70% 90% at 90% 0%,rgba(47,75,255,.45),rgba(47,75,255,0) 70%),radial-gradient(rgba(255,255,255,.07) 1px,transparent 1.2px);background-size:auto,18px 18px;box-shadow:0 30px 60px -36px rgba(10,15,44,.7)}
+.flead .fic{background:rgba(255,255,255,.1)}
+.flead h3{color:#FFFFFF;font-size:clamp(24px,2.4vw,32px);letter-spacing:-.03em}
+.flead p{color:#C9D0EE;font-size:17px;max-width:46ch}
+.flead .ftag{background:rgba(134,239,172,.14);color:#BBF7D0;transform:none;margin-top:18px}
+.fvis{margin-top:auto;padding-top:24px}
+.fvis{display:flex;flex-direction:column;gap:8px}
+.fvis>.fvh{display:flex;justify-content:space-between;align-items:center;font-size:12px;font-weight:800;letter-spacing:.06em;color:#AEB8FF;margin-top:8px}
+.flive{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:999px;background:rgba(134,239,172,.12);color:#BBF7D0;letter-spacing:0;font-weight:700}
+.flive i{width:7px;height:7px;border-radius:50%;background:#4ADE80;animation:f-pulse 1.8s ease-in-out infinite}
+.frow{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 14px;border-radius:14px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);font-size:15px;font-weight:600;color:#E4E8FA}
+.frow b{font-size:13px;color:#86EFAC}
+.fchk{justify-content:flex-start;animation:f-in 4s var(--ease) infinite both}
+.ftk{width:20px;height:20px;border-radius:50%;background:#1B7A4A;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+.fbar{height:6px;border-radius:999px;background:rgba(255,255,255,.12);overflow:hidden;margin-top:4px}
+.fbar i{display:block;height:100%;width:82%;border-radius:999px;background:linear-gradient(90deg,#7D8FFF,#22C55E);transform-origin:left;animation:f-grow 4s var(--ease) infinite}
+@keyframes f-pulse{0%,100%{opacity:1}50%{opacity:.35}}
+@keyframes f-in{0%{opacity:.35;transform:translateX(-4px)}12%,85%{opacity:1;transform:none}100%{opacity:1}}
+@keyframes f-grow{0%{transform:scaleX(.2)}45%,100%{transform:scaleX(1)}}
+@media (max-width:900px){.fg3{grid-template-columns:1fr 1fr}.fg3.big .flead,.fg3.wide .flead{grid-column:span 2;grid-row:auto}}
+@media (max-width:600px){.fg3,.fg2{grid-template-columns:1fr}.fg3.big .flead,.fg3.wide .flead{grid-column:auto}}
+@media (prefers-reduced-motion: reduce){.fchk,.fbar i,.flive i{animation:none}}
+.fsplit{grid-template-columns:1.15fr 1fr}
+.fstack{display:flex;flex-direction:column;gap:12px}
+.fstack .fcard{flex:1;flex-direction:row;align-items:center;gap:16px;padding:16px 20px}
+.fstack .fcard h3{margin:0;font-size:18px}
+@media (max-width:760px){.fsplit{grid-template-columns:1fr}}
 </style>
 </helmet>
 <div class="c">
@@ -883,7 +921,7 @@ font-family:'Plus Jakarta Sans',system-ui,sans-serif;color:var(--ink);background
 </section>
 <section id="roles" class="sec" style="background: #FFFFFF">
 <div class="wrap">
-<p class="k" data-a="up" data-d="0">Your team</p><h2 class="H" data-a="up" data-d="0" style="">What your team can handle</h2><div class="g-ans" style="margin-top: 44px"><article class="card6 rcard" data-a="up" data-d="0"><span class="rnum">01</span><h3>Recruitment admin</h3></article><article class="card6 rcard" data-a="up" data-d="0"><span class="rnum">02</span><h3>Rotas and scheduling</h3></article><article class="card6 rcard" data-a="up" data-d="0"><span class="rnum">03</span><h3>Staff compliance and training</h3></article><article class="card6 rcard" data-a="up" data-d="0"><span class="rnum">04</span><h3>Payroll</h3></article><article class="card6 rcard" data-a="up" data-d="0"><span class="rnum">05</span><h3>Invoicing and finance</h3></article><article class="card6 rcard" data-a="up" data-d="0"><span class="rnum">06</span><h3>Call handling</h3></article></div><div class="cta-band" data-a="up" data-d="0" style="margin-top: 16px; background-color: #0A0F2C; background-image: radial-gradient(60% 120% at 85% 50%, rgba(47,75,255,.35), rgba(47,75,255,0) 70%), radial-gradient(rgba(255,255,255,.07) 1px, transparent 1.2px); background-size: auto, 18px 18px">
+<p class="k" data-a="up" data-d="0">Your team</p><h2 class="H" data-a="up" data-d="0" style="">What your team can handle</h2><div class="fgrid fsplit" style="margin-top: 44px"><article class="fcard flead" data-a="up" data-d="0"><span class="fic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4 6v6c0 5 3.4 8.4 8 9 4.6-.6 8-4 8-9V6zM9 12l2 2 4-4"></path></svg></span><h3>Recruitment admin</h3><div class="fvis" aria-hidden="true"><div class="fvh"><span>YOUR TEAM · TODAY</span><span class="flive"><i></i>UK hours</span></div><div class="frow fchk" style="animation-delay: 0.0s"><span class="ftk"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg></span><span>Recruitment admin</span></div><div class="frow fchk" style="animation-delay: 0.5s"><span class="ftk"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg></span><span>Rotas and scheduling</span></div><div class="frow fchk" style="animation-delay: 1.0s"><span class="ftk"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg></span><span>Staff compliance and training</span></div><div class="frow fchk" style="animation-delay: 1.5s"><span class="ftk"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg></span><span>Payroll</span></div></div></article><div class="fstack"><article class="fcard card6 sh h6t" data-a="up" data-d="0"><span class="fic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2238D6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"></path></svg></span><h3>Rotas and scheduling</h3></article><article class="fcard card6 sh h6t" data-a="up" data-d="0"><span class="fic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2238D6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18M7 15l4-4 3 3 5-6"></path></svg></span><h3>Staff compliance and training</h3></article><article class="fcard card6 sh h6t" data-a="up" data-d="0"><span class="fic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2238D6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.6 6.6 19.5l1.2-6L3.3 9.3l6.1-.7z"></path></svg></span><h3>Payroll</h3></article><article class="fcard card6 sh h6t" data-a="up" data-d="0"><span class="fic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2238D6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20zM12 6v6l4 2"></path></svg></span><h3>Invoicing and finance</h3></article><article class="fcard card6 sh h6t" data-a="up" data-d="0"><span class="fic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2238D6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zM14 2v6h6M9 15l2 2 4-4"></path></svg></span><h3>Call handling</h3></article></div></div><div class="cta-band" data-a="up" data-d="0" style="margin-top: 16px; background-color: #0A0F2C; background-image: radial-gradient(60% 120% at 85% 50%, rgba(47,75,255,.35), rgba(47,75,255,0) 70%), radial-gradient(rgba(255,255,255,.07) 1px, transparent 1.2px); background-size: auto, 18px 18px">
 <div style="position: relative; flex: 1 1 380px">
 <div style="font-size: 13px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: #AEB8FF">The rules you work to</div>
 <div style="margin-top: 10px; font-size: clamp(20px, 2vw, 26px); font-weight: 700; letter-spacing: -.02em; line-height: 1.3">CQC inspection readiness, mandatory training records and your care policies.</div>

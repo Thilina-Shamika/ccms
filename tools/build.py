@@ -317,10 +317,58 @@ def svc_section(id_, h2, sub, roles=None, side='', after='', bg='#FFFFFF', badge
             + (f'<div class="wrap">{after}</div>\n' if after else '') + '</section>\n')
 
 
-def numbered_cards(items, cols='g-ans'):
-    return f'<div class="{cols}" style="margin-top: 44px">' + ''.join(
-        f'<article class="card6 rcard" data-a="up" data-d="0"><span class="rnum">0{i + 1}</span><h3>{esc(t)}</h3>' + (f'<p>{esc(d)}</p>' if d else '') + '</article>'
-        for i, (t, d) in enumerate(items)) + '</div>'
+ICONS = [
+    'M12 3 4 6v6c0 5 3.4 8.4 8 9 4.6-.6 8-4 8-9V6zM9 12l2 2 4-4',
+    'M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z',
+    'M3 3v18h18M7 15l4-4 3 3 5-6',
+    'm12 3 2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.6 6.6 19.5l1.2-6L3.3 9.3l6.1-.7z',
+    'M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20zM12 6v6l4 2',
+    'M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zM14 2v6h6M9 15l2 2 4-4',
+    'M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM23 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8',
+    'M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zM12 6a6 6 0 1 0 0 12 6 6 0 0 0 0-12zM12 10a2 2 0 1 0 0 4 2 2 0 0 0 0-4z',
+]
+TICK = '<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg>'
+
+
+def icon(i, color):
+    return f'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="{color}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{ICONS[i % len(ICONS)]}"></path></svg>'
+
+
+def feature_grid(items, visual='checklist'):
+    """Bento grid: a dark lead card with a small mock-up, then icon cards. items: (title, text or None, tag or None)."""
+    n = len(items)
+    if n >= 6 and n % 3 == 0:
+        lay = 'fg3 big'
+    elif (n + 1) % 3 == 0:
+        lay = 'fg3 wide'
+    elif n == 4:
+        lay = 'fg2'
+    else:
+        lay = 'fg3'
+    if visual == 'report':
+        vis = ('<div class="fvis" aria-hidden="true"><div class="fvh"><span>YOUR TEAM · THIS WEEK</span><span class="flive"><i></i>Live</span></div>'
+               '<div class="frow"><span>Targets</span><b>On track</b></div><div class="frow"><span>Quality</span><b>Checked</b></div>'
+               '<div class="frow"><span>Weekly report</span><b>Sent</b></div><div class="fbar"><i></i></div></div>')
+    else:
+        vis = ('<div class="fvis" aria-hidden="true"><div class="fvh"><span>YOUR TEAM · TODAY</span><span class="flive"><i></i>UK hours</span></div>' +
+               ''.join(f'<div class="frow fchk" style="animation-delay: {i * 0.5:.1f}s"><span class="ftk">{TICK}</span><span>{esc(t)}</span></div>' for i, (t, _, _) in enumerate(items[:4])) +
+               '</div>')
+    split = all(not d and not tag for _, d, tag in items[1:])
+    cards = []
+    for i, (t, d, tag) in enumerate(items):
+        lead = i == 0
+        body = (f'<span class="fic">{icon(i, "#FFFFFF" if lead else "#2238D6")}</span><h3>{esc(t)}</h3>' +
+                (f'<p>{esc(d)}</p>' if d else '') +
+                (f'<span class="ftag">{esc(tag)}</span>' if tag else '') + (vis if lead else ''))
+        cls = 'fcard flead' if lead else 'fcard card6 sh h6t'
+        cards.append(f'<article class="{cls}" data-a="up" data-d="0">{body}</article>')
+    if split:
+        return f'<div class="fgrid fsplit" style="margin-top: 44px">{cards[0]}<div class="fstack">' + ''.join(cards[1:]) + '</div></div>'
+    return f'<div class="fgrid {lay}" style="margin-top: 44px">' + ''.join(cards) + '</div>'
+
+
+def numbered_cards(items, cols=None):
+    return feature_grid([(t, d, None) for t, d in items])
 
 
 def svc_rows():
@@ -453,8 +501,7 @@ def build_home():
 def build_rpo():
     path = 'recruitment-process-outsourcing/'
     intro = 'Your consultants should spend their day placing candidates and winning clients. CCMS gives you a dedicated back office team that handles compliance, bookings, payroll, finance and resourcing. The team works only for you, in your CRM, on UK hours.'
-    reasons = ''.join(f'<article class="card6 rcard" data-a="up" data-d="0"><span class="rnum">0{i + 1}</span><h3>{esc(t)}</h3><p>{esc(x)}</p></article>' for i, (t, x) in enumerate(RPO_REASONS))
-    why = sec('why', head(None, 'Why agencies choose CCMS') + f'<div class="g-ans" style="margin-top: 44px">{reasons}</div>', 'var(--s1)')
+    why = sec('why', head('Why CCMS', 'Why agencies <span style="color: #8A909C">choose CCMS</span>') + feature_grid(RPO_REASONS, 'report'), 'var(--s1)')
     services = (f'<section id="services" class="sec" style="background: #FFFFFF">\n<div class="wrap chap">\n<div class="chap-head">\n'
                 f'<span class="badge6" data-a="up" data-d="0" style="background: #0A0F2C; color: #FFFFFF">RPO</span>\n'
                 f'<h2 class="H" data-a="up" data-d="0" style="font-size: clamp(32px, 3.4vw, 46px); margin-top: 22px">Six services. <span style="color: #8A909C">One dedicated team.</span></h2>\n'
@@ -543,7 +590,7 @@ def build_why_sri_lanka():
              '</div>' + clock.replace('class="hh-card"', 'class="card6 sh" data-a="up" data-d="0" style="padding: 24px"') + '</div>')
     s2 = sec('hiring', head('Hiring', 'We interview 20 people for every one we hire',
                             'We hire for attitude first, then skills. Every candidate is tested on spoken and written English. Then we train them on your systems, processes and tone before they go live.') +
-             numbered_cards([('Attitude first', None), ('English tested', None), ('Trained your way', None)]), 'var(--s1)')
+             numbered_cards([('Attitude first', 'We hire for attitude first, then skills.'), ('English tested', 'Every candidate is tested on spoken and written English.'), ('Trained your way', 'We train them on your systems, processes and tone before they go live.')]), 'var(--s1)')
     people = read('sections', 'people.html')
     photos = people[people.index('<div class="g-kph">'):people.rindex('</div>\n</section>')]
     s3 = sec('careers', '<div class="g-kandy"><div>' + head('Careers', 'Careers, not stopovers',
