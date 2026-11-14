@@ -172,8 +172,16 @@ def results_section(bg='#FFFFFF'):
 
 
 def proof_section(line, bg='#FFFFFF'):
-    body = (head('Proof', esc(line), h2_style='max-width: 900px; font-size: clamp(30px, 3.4vw, 46px)') + stat_cards(RESULT_STATS) +
-            f'<div class="proofl" data-a="up" data-d="0"><div><b>Most of our clients came by referral.</b> <span style="color: var(--ink2)">Many have added work without being asked.</span></div><a class="lk" href="%%R%%case-studies/" style="color:#2238D6">See all case studies {ARROW}</a></div>')
+    """Dark proof panel: two-tone headline, results in frosted tiles, referral line."""
+    first, _, rest = line.partition(', ')
+    h2 = esc(first) + (', <span style="color: #AEB8FF">' + esc(rest) + '</span>' if rest else '')
+    colours = ['#8FA2FF', '#C4B5FD', '#86EFAC', '#FCD34D']
+    tiles = ''.join(f'<div class="pp-t"><b style="color: {colours[i]}">{esc(n)}</b><span>{esc(l)}</span></div>' for i, (n, l) in enumerate(RESULT_STATS))
+    body = f'''<div class="pp" data-a="up" data-d="0">
+<div class="pp-top"><span class="pp-k">Proof</span><h2>{h2}</h2></div>
+<div class="pp-g">{tiles}</div>
+<div class="pp-foot"><div><b>Most of our clients came by referral.</b> <span>Many have added work without being asked.</span></div><a class="btn btn-white" href="%%R%%case-studies/">See all case studies {ARROW_UP}</a></div>
+</div>'''
     return sec('proof', body, bg)
 
 

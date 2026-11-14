@@ -844,6 +844,18 @@ font-family:'Plus Jakarta Sans',system-ui,sans-serif;color:var(--ink);background
 .g-pain.g-pain3{grid-template-columns:repeat(3,1fr);gap:16px}
 @media (max-width:860px){.g-pain.g-pain3{grid-template-columns:1fr 1fr}}
 @media (max-width:560px){.g-pain.g-pain3{grid-template-columns:1fr}}
+.pp{position:relative;overflow:hidden;border-radius:28px;padding:clamp(26px,4vw,52px);color:#FFFFFF;background-color:#0A0F2C;background-image:radial-gradient(55% 80% at 100% 0%,rgba(47,75,255,.45),rgba(47,75,255,0) 70%),radial-gradient(45% 70% at 0% 100%,rgba(34,197,94,.16),rgba(34,197,94,0) 70%),radial-gradient(rgba(255,255,255,.07) 1px,transparent 1.2px);background-size:auto,auto,18px 18px;box-shadow:0 40px 80px -50px rgba(10,15,44,.8)}
+.pp-k{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:#AEB8FF}
+.pp-k::before{content:"";width:18px;height:2px;border-radius:2px;background:#8FA2FF}
+.pp h2{margin:16px 0 0;max-width:900px;font-size:clamp(28px,3.4vw,46px);line-height:1.08;letter-spacing:-.045em;font-weight:800;color:#FFFFFF;text-wrap:balance}
+.pp-g{margin-top:36px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.pp-t{padding:20px;border-radius:18px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);transition:transform 300ms var(--ease),background-color 300ms ease}
+.pp-t b{display:block;font-size:clamp(30px,3vw,44px);font-weight:800;letter-spacing:-.055em;line-height:1}
+.pp-t span{display:block;margin-top:10px;font-size:14px;line-height:1.45;color:#C9D0EE}
+.pp-foot{margin-top:28px;padding-top:24px;border-top:1px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.pp-foot b{font-size:17px}.pp-foot span{color:#C9D0EE}
+@media (hover:hover) and (pointer:fine){.pp-t:hover{transform:translateY(-3px);background:rgba(255,255,255,.1)}}
+@media (max-width:860px){.pp-g{grid-template-columns:1fr 1fr}}
 </style>
 </helmet>
 <div class="c">
@@ -936,7 +948,11 @@ font-family:'Plus Jakarta Sans',system-ui,sans-serif;color:var(--ink);background
 </section>
 <section id="proof" class="sec" style="background: #FFFFFF">
 <div class="wrap">
-<p class="k" data-a="up" data-d="0">Proof</p><h2 class="H" data-a="up" data-d="0" style="max-width: 900px; font-size: clamp(30px, 3.4vw, 46px)">Proven in UK healthcare recruitment, where compliance can't slip. Now bringing the same standards to security companies.</h2><div class="g-nums" style="margin-top: 40px"><div class="card6" data-a="up" data-d="0" style="padding: 24px"><div style="font-size: clamp(32px, 3.2vw, 46px); font-weight: 800; letter-spacing: -.055em; line-height: 1; color: var(--ink)">10,702</div><div style="margin-top: 10px; color: var(--ink2)">nurses resourced for one agency</div></div><div class="card6" data-a="up" data-d="0" style="padding: 24px"><div style="font-size: clamp(32px, 3.2vw, 46px); font-weight: 800; letter-spacing: -.055em; line-height: 1; color: var(--ink)">1,300+</div><div style="margin-top: 10px; color: var(--ink2)">shifts booked every week</div></div><div class="card6" data-a="up" data-d="0" style="padding: 24px"><div style="font-size: clamp(32px, 3.2vw, 46px); font-weight: 800; letter-spacing: -.055em; line-height: 1; color: var(--ink)">2 to 50+</div><div style="margin-top: 10px; color: var(--ink2)">bookings team grown in a year</div></div><div class="card6" data-a="up" data-d="0" style="padding: 24px"><div style="font-size: clamp(32px, 3.2vw, 46px); font-weight: 800; letter-spacing: -.055em; line-height: 1; color: var(--ink)">1,000+</div><div style="margin-top: 10px; color: var(--ink2)">candidate files cleaned and migrated in under 2.5 months</div></div></div><div class="proofl" data-a="up" data-d="0"><div><b>Most of our clients came by referral.</b> <span style="color: var(--ink2)">Many have added work without being asked.</span></div><a class="lk" href="../../case-studies/" style="color:#2238D6">See all case studies <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a></div>
+<div class="pp" data-a="up" data-d="0">
+<div class="pp-top"><span class="pp-k">Proof</span><h2>Proven in UK healthcare recruitment, <span style="color: #AEB8FF">where compliance can't slip. Now bringing the same standards to security companies.</span></h2></div>
+<div class="pp-g"><div class="pp-t"><b style="color: #8FA2FF">10,702</b><span>nurses resourced for one agency</span></div><div class="pp-t"><b style="color: #C4B5FD">1,300+</b><span>shifts booked every week</span></div><div class="pp-t"><b style="color: #86EFAC">2 to 50+</b><span>bookings team grown in a year</span></div><div class="pp-t"><b style="color: #FCD34D">1,000+</b><span>candidate files cleaned and migrated in under 2.5 months</span></div></div>
+<div class="pp-foot"><div><b>Most of our clients came by referral.</b> <span>Many have added work without being asked.</span></div><a class="btn btn-white" href="../../case-studies/">See all case studies <svg class="arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"></path></svg></a></div>
+</div>
 </div>
 </section>
 <section id="faq" class="sec" style="background: var(--s1)">
