@@ -84,7 +84,7 @@ def header(current, plan_href):
 <header style="position: relative; z-index: 4">
 <nav aria-label="Main" class="wrap" style="height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px">
 <a href="%%R%%" aria-label="CCMS home" style="text-decoration: none; min-height: 44px; display: inline-flex; align-items: center"><img src="%%R%%{LOGO}" alt="CCMS" width="103" height="25" style="display: block; height: 25px; width: auto"><span class="tagl">Where quality matters.</span></a>
-<div class="navlinks" style="display: flex; gap: 26px">
+<div class="navlinks" style="display: flex; gap: 22px; margin-left: 28px">
 {nav_links('navlink', current)}
 </div>
 <div style="display: flex; align-items: center; gap: 10px">

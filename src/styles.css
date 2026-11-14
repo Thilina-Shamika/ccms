@@ -24,7 +24,7 @@ font-family:'Plus Jakarta Sans',system-ui,sans-serif;color:var(--ink);background
 .arrow{transition:transform 200ms var(--ease)}
 @media (hover:hover) and (pointer:fine){a:hover .arrow,button:hover .arrow{transform:translateX(3px)}}
 .tlink{font-weight:700;font-size:16px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;min-height:44px}
-.navlink{text-decoration:none;color:#C9D0EE !important;font-size:15px;font-weight:500;transition:color 200ms ease}
+.navlink{text-decoration:none;color:#C9D0EE !important;font-size:14px;font-weight:500;transition:color 200ms ease}
 @media (hover:hover){.navlink:hover{color:#FFFFFF !important}}
 .burger{display:none !important}
 @media (max-width:960px){.navlinks{display:none !important}.navcta{display:none !important}.burger{display:inline-flex !important}}
@@ -627,6 +627,7 @@ font-family:'Plus Jakarta Sans',system-ui,sans-serif;color:var(--ink);background
 .tagl{margin-left:14px;padding-left:14px;border-left:1px solid rgba(255,255,255,.18);font-size:13px;font-weight:600;color:#AEB8FF;white-space:nowrap}
 @media (max-width:1100px){.tagl{display:none}}
 .navlinks{align-items:center}
+.ndd>button.navlink{font-size:14px}
 .ndd{position:relative;display:inline-flex;align-items:center}
 .ndd>button{display:inline-flex;align-items:center;gap:5px;background:none;border:0;padding:6px 0;font:inherit;cursor:pointer}
 .ndd>button svg{opacity:.7;transition:transform 200ms var(--ease)}
