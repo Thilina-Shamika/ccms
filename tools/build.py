@@ -533,17 +533,20 @@ def rpo_reasons_bento():
         '<div class="rb-rep">' + ''.join(f'<div><span>{esc(a)}</span><span class="pill {c}">{esc(b)}</span></div>' for a, b, c in [('Targets', 'On track', 'ok'), ('Quality', 'Checked', 'info'), ('Weekly report', 'Sent', 'ok')]) + '</div>',
         '<div class="rb-ref"><div class="rb-av"><span>UK</span><span></span><span></span><span>20+</span></div><span>Most clients came by referral</span></div>',
     ]
-    tiles = []
+    grads = ['linear-gradient(160deg, #EEF2FF, #F8FAFF)', 'radial-gradient(120% 140% at 100% 0%, #2A3A9E 0%, #0A0F2C 60%)',
+             'linear-gradient(160deg, #ECFDF3, #F8FFFB)', 'linear-gradient(160deg, #F5F3FF, #FAFAFF)',
+             'linear-gradient(160deg, #FFFBEB, #FFFDF6)', 'linear-gradient(160deg, #FDF2F8, #FFF8FC)']
+    cards = []
     for i, ((t, d, tag), (path, col, bg)) in enumerate(zip(RPO_REASONS, icons)):
         dark = i == 1
-        tiles.append(f'''<div class="sc rb-{i}{" sv-dark" if dark else ""}" data-a="up" data-d="0">
-<div class="sv-top"><div class="sch"><span class="scic" style="background: {bg}">{sc_icon(path, col)}</span>{esc(t)}</div><span class="pill {"ok" if not dark else "rb-pd"}">{esc(tag)}</span></div>
-<p class="sv-p">{esc(d)}</p>
-<div class="rb-v">{vis[i]}</div>
-</div>''')
-    return sec('why', head('Why CCMS', 'Why agencies <span style="color: #8A909C">choose CCMS</span>') +
-               f'<div class="rb" style="margin-top: 44px">{"".join(tiles)}</div>', '#F4F6FA',
-               '; background-image: linear-gradient(rgba(47,75,255,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(47,75,255,.05) 1px, transparent 1px); background-size: 48px 48px')
+        v = (f'<div class="vis3 rv{" rv-dark" if dark else ""}" style="background: {grads[i]}">'
+             f'<div class="rv-h"><span class="scic" style="background: {bg}">{sc_icon(path, col)}</span>'
+             f'<span class="pill {"rb-pd" if dark else "ok"}">{esc(tag)}</span></div>'
+             f'<div class="rv-b">{vis[i]}</div></div>')
+        cards.append(_ans_card('%02d' % (i + 1), (i % 3) * 100, v, esc(t), esc(d)))
+    return sec('why', '<div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 32px; flex-wrap: wrap">'
+               '<div><p class="k" data-a="up" data-d="0">Why CCMS</p><h2 class="H" data-a="up" data-d="60" style="max-width: 860px">Why agencies <span style="color: #8A909C">choose CCMS</span></h2></div></div>'
+               f'<div class="g-ans rv-g" style="margin-top: 52px">{"".join(cards)}</div>', 'var(--s1)')
 
 
 def build_rpo():
