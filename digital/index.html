@@ -771,6 +771,21 @@ font-family:'Plus Jakarta Sans',system-ui,sans-serif;color:var(--ink);background
 .flist.short .fnum{font-size:clamp(36px,3.4vw,48px)}
 @media (hover:hover) and (pointer:fine){.fitem:hover::before{width:100%}.fitem:hover .fnum{color:#2F4BFF;-webkit-text-stroke-color:#2F4BFF}}
 @media (max-width:760px){.flist{grid-template-columns:1fr}.fitem{gap:16px;padding:24px 0}}
+#why.why6{background-color:#F6F7FB;background-image:radial-gradient(48% 38% at 0% 0%,rgba(47,75,255,.12),rgba(47,75,255,0) 70%),radial-gradient(42% 36% at 100% 22%,rgba(124,58,237,.10),rgba(124,58,237,0) 70%),radial-gradient(40% 30% at 50% 100%,rgba(34,197,94,.08),rgba(34,197,94,0) 70%),radial-gradient(rgba(14,17,22,.07) 1px,transparent 1.2px);background-size:auto,auto,auto,20px 20px}
+#why .rcard{overflow:hidden;padding:24px 24px 0;box-shadow:0 1px 2px rgba(11,13,18,.04),0 18px 40px -30px rgba(16,24,64,.35)}
+#why .rcard::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:linear-gradient(90deg,var(--rc,#2F4BFF),transparent 85%)}
+#why .rtop{display:flex;align-items:center;justify-content:space-between}
+#why .ric6{width:46px;height:46px;border-radius:14px;background:var(--rcs,#EEF1FF);display:flex;align-items:center;justify-content:center;transition:transform 300ms var(--ease)}
+#why .rcard .rnum{font-size:30px;font-weight:800;letter-spacing:-.05em;color:transparent;-webkit-text-stroke:1.2px var(--rc,#2F4BFF);opacity:.45}
+#why .rcard h3{margin-top:18px}
+#why .rcard>p{margin-bottom:20px}
+#why .rproof{margin:auto -24px 0;padding:14px 24px;border-top:1px solid var(--line);background:linear-gradient(180deg,var(--rcs,#EEF1FF),#FFFFFF);color:var(--rc,#1B7A4A)}
+#why .rproof span{background:var(--rc,#1B7A4A)}
+#why .rproof svg{stroke:#FFFFFF}
+@media (hover:hover) and (pointer:fine){#why .rcard:hover .ric6{transform:scale(1.08) rotate(-4deg)}}
+#why .g-nums .card6{position:relative;overflow:hidden}
+#why .g-nums .card6::after{content:"";position:absolute;right:-30px;top:-30px;width:110px;height:110px;border-radius:50%;background:radial-gradient(closest-side,rgba(47,75,255,.10),rgba(47,75,255,0))}
+#why .wtable{padding:clamp(16px,2.4vw,28px);border-radius:24px;background:#FFFFFF;border:1px solid var(--line);box-shadow:0 1px 2px rgba(11,13,18,.04),0 24px 50px -34px rgba(16,24,64,.35)}
 </style>
 </helmet>
 <div class="c">
