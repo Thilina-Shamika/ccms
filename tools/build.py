@@ -586,30 +586,38 @@ def sc_icon(path, colour):
     return f'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="{colour}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{path}"></path></svg>'
 
 
+SEG_COLOURS = [('#2F4BFF', '#E0E6FF', 'rgba(47,75,255,.35)'), ('#7C3AED', '#EDE9FE', 'rgba(124,58,237,.35)'),
+               ('#16A34A', '#DCFCE7', 'rgba(22,163,74,.35)'), ('#F59E0B', '#FEF3C7', 'rgba(245,158,11,.4)')]
+SV_STANDARDS = [('Checklists', 'Built around your processes'), ('Second check', 'By another team member'),
+                ('Independent audit', 'Quality manager review'), ('ISO 9001', 'Documented processes')]
+
+
 def service_bento(sv, mock):
-    """What your team does: lead card, numbered task list and the standards line."""
-    arrow = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg>'
-    rows = ''.join(f'<li><span class="td-i">{i + 1:02d}</span><span class="td-t">{esc(t)}</span><span class="td-c">{arrow}</span></li>' for i, t in enumerate(sv['does']))
-    icons = ['M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zM14 2v6h6M9 15l2 2 4-4',
-             'M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM17 11l2 2 4-4',
-             'M11 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14zM21 21l-5-5',
-             'M12 3 4 6v6c0 5 3.4 8.4 8 9 4.6-.6 8-4 8-9V6zM9 12l2 2 4-4']
-    steps = ''.join(f'<li><span class="td-dot">{sc_icon(icons[i], "#2F4BFF")}</span><span class="td-sn">{i + 1:02d}</span><b>{esc(t)}</b></li>' for i, t in enumerate(STANDARDS))
-    inner = f'''<div class="td">
-<div class="td-lead" data-a="up" data-d="0">
-<span class="td-k">Your {esc(sv['name'].lower())} team</span>
-<div class="td-n">{len(sv['does'])}<small>tasks handled<br>for you</small></div>
-<p>{esc(sv['short'])} Your team works only for you, in your systems.</p>
-<div class="td-chips"><span>UK hours</span><span>Only for you</span><span>Your systems</span></div>
-</div>
-<ol class="td-list" data-a="up" data-d="0">{rows}</ol>
-</div>
-<div class="td-std" data-a="up" data-d="0">
-<div class="td-sh"><span>How we keep standards</span><span class="td-iso">ISO 9001 certified</span></div>
-<ol class="td-steps">{steps}</ol>
-</div>'''
-    return sec('does', head('What your team does', 'What your team does <span style="color: #8A909C">and how we keep standards</span>', h2_style='max-width: 900px') +
-               f'<div style="margin-top: 44px">{inner}</div>')
+    """What your team does: homepage-style task cards and the homepage stepper for standards."""
+    tick = 'M5 12l5 5 9-10'
+    cards = []
+    for i, t in enumerate(sv['does']):
+        fg, bg, _ = SEG_COLOURS[i % 4]
+        cards.append(f'<div class="card6 sh h6t svt" data-a="up" data-d="0"><span class="svt-ic" style="background: {bg}">{sc_icon(tick, fg)}</span>'
+                     f'<span class="svt-n">{i + 1:02d}</span><b class="svt-t">{esc(t)}</b></div>')
+    chev = '<span style="position: relative; margin-left: auto; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"></path></svg></span>'
+    segs = []
+    for i, (t, d) in enumerate(SV_STANDARDS):
+        fg, bg, ring = SEG_COLOURS[i]
+        segs.append(f'<div class="sg" data-i="{i}" style="animation: sg-o{i} 8s ease-in-out infinite; --ring: {ring}">'
+                    f'<span class="sgf" style="background: {bg}; animation: sg-f{i} 8s cubic-bezier(.65,0,.35,1) infinite"></span>'
+                    f'<span class="sv-sgn" style="background: {fg}">{i + 1}</span>'
+                    f'<span class="sv-sgl"><span>{esc(t)}</span><span>{esc(d)}</span></span>{chev if i < 3 else ""}</div>')
+    n = len(sv['does'])
+    cols = 4 if n % 4 == 0 else 3
+    inner = (f'<div class="svt-g svt-g{cols}">{"".join(cards)}</div>\n'
+             f'<div class="sv-stdw" data-a="up" data-d="0">\n'
+             f'<div class="sv-stdh"><b>How we keep standards</b><span class="pill info">ISO 9001 certified</span></div>\n'
+             f'<div class="seg sv-std">{"".join(segs)}</div>\n</div>')
+    top = (f'<div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap">'
+           f'<div><p class="k" data-a="up" data-d="0">What your team does</p><h2 class="H" data-a="up" data-d="0" style="max-width: 860px">What your team does <span style="color: #8A909C">and how we keep standards</span></h2></div>'
+           f'<div class="sv-meta" data-a="up" data-d="0"><span class="pill ok">{n} tasks</span><span class="pill info">UK hours</span><span class="pill wait">Only for you</span></div></div>')
+    return sec('does', top + f'<div style="margin-top: 44px">{inner}</div>')
 
 
 def build_service(sv, mocks):
