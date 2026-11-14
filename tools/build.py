@@ -642,25 +642,52 @@ def build_group(g):
 def build_why_sri_lanka():
     path = 'why-sri-lanka/'
     intro = "We didn't pick Sri Lanka from a spreadsheet. Our founder moved here in 2016 to build a team for a UK healthcare recruitment agency. What he found was people who wanted careers, not just jobs. That is still why we are here."
-    clock = ('<div class="hh-card"><div style="font-size: 13px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--ink3)">Time difference</div>'
-             '<div class="clk" style="margin-top: 12px"><div><span>UK summer</span><b>+4.5 hrs</b></div><div><span>UK winter</span><b>+5.5 hrs</b></div></div>'
-             '<div class="hh-list" style="margin-top: 8px"><div><span>Early starts, evenings and weekends</span></div><div><span>Up to 24/7, where you need it</span></div></div></div>')
-    s1 = sec('time', '<div class="g-kandy"><div>' + head('UK time', 'A team that works on UK time',
+    GRID_BG = '; background-image: linear-gradient(rgba(47,75,255,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(47,75,255,.05) 1px, transparent 1px); background-size: 48px 48px'
+    # 1. UK time: time-zone mock-up
+    hours = ''.join(f'<span>{h:02d}</span>' for h in (0, 6, 12, 18, 24))
+    tz = f'''<div class="sc tz" data-a="up" data-d="0">
+<div class="sv-top"><div class="sch"><span class="scic" style="background: #EEF1FF">{sc_icon('M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20zM12 6v6l4 2', '#2238D6')}</span>Your working day, covered</div><span class="pill ok">UK hours</span></div>
+<div class="tz-clocks"><div><span>Your office · UK</span><b>09:00</b><i>Your day starts</i></div><span class="tz-arr" aria-hidden="true">{ARROW}</span><div class="tz-sl"><span>Your team · Sri Lanka</span><b>13:30</b><i>Already at their desks</i></div></div>
+<div class="tz-row"><span class="tz-l">UK day</span><div class="tz-track"><i class="tz-day" style="left: 37.5%; width: 35.4%"></i><i class="tz-now"></i></div></div>
+<div class="tz-row"><span class="tz-l">Extra cover</span><div class="tz-track"><i class="tz-ext" style="left: 25%; width: 12.5%"></i><i class="tz-ext" style="left: 72.9%; width: 20.8%"></i></div></div>
+<div class="tz-hrs" aria-hidden="true">{hours}</div>
+<div class="tz-pills"><span class="pill info">+4.5 hrs in summer</span><span class="pill info">+5.5 hrs in winter</span><span class="pill wait">Early starts</span><span class="pill wait">Evenings and weekends</span><span class="pill ok">Up to 24/7</span></div>
+</div>'''
+    s1 = sec('time', '<div class="g-kandy"><div>' + head('UK time', 'A team that works <span style="color: #8A909C">on UK time</span>',
              'Sri Lanka is 4.5 hours ahead of the UK in summer and 5.5 hours in winter. Your team starts when your day starts. Need early starts, evenings, weekends or round-the-clock cover? We can work up to 24/7, where you need it.') +
-             '</div>' + clock.replace('class="hh-card"', 'class="card6 sh" data-a="up" data-d="0" style="padding: 24px"') + '</div>')
-    s2 = sec('hiring', head('Hiring', 'We interview 20 people for every one we hire',
-                            'We hire for attitude first, then skills. Every candidate is tested on spoken and written English. Then we train them on your systems, processes and tone before they go live.') +
-             numbered_cards([('Attitude first', 'We hire for attitude first, then skills.'), ('English tested', 'Every candidate is tested on spoken and written English.'), ('Trained your way', 'We train them on your systems, processes and tone before they go live.')]), 'var(--s1)')
+             '</div>' + tz + '</div>', '#F4F6FA', GRID_BG)
+    # 2. Hiring: the homepage 1-in-20 mock-up beside the three steps
+    ans = read('sections', 'answer.html')
+    art = ans[ans.index('<article class="card6 sh h6t"'):]
+    vis = art[art.index('<div class="vis3"'):art.index('<div style="padding', art.index('<div class="vis3"'))].rstrip()
+    steps = [('Attitude first', 'We hire for attitude first, then skills.'),
+             ('English tested', 'Every candidate is tested on spoken and written English.'),
+             ('Trained your way', 'We train them on your systems, processes and tone before they go live.')]
+    step_cards = ''.join(f'<div class="sc hs-step" data-a="up" data-d="0"><span class="hs-n">0{i + 1}</span><div><b>{esc(t)}</b><p>{esc(d)}</p></div></div>' for i, (t, d) in enumerate(steps))
+    s2 = sec('hiring', head('Hiring', 'We interview 20 people <span style="color: #8A909C">for every one we hire</span>', h2_style='max-width: 900px') +
+             f'<div class="hs" style="margin-top: 44px"><div class="card6 sh hs-vis" data-a="up" data-d="0">{vis}<p>Of every 20 people we interview, one joins your team.</p></div><div class="hs-steps">{step_cards}</div></div>', 'var(--s1)')
+    # 3. Careers: photos and coloured stats
     people = read('sections', 'people.html')
     photos = people[people.index('<div class="g-kph">'):people.rindex('</div>\n</section>')]
-    s3 = sec('careers', '<div class="g-kandy"><div>' + head('Careers', 'Careers, not stopovers',
+    stats = [('200+', 'people', '#2F4BFF'), ('8 of 10', 'first hires still with us', '#16A34A'), ('1 in 20', 'candidates hired', '#7C3AED')]
+    stat_html = '<div class="cs3">' + ''.join(f'<div class="card6" data-a="up" data-d="0"><b style="color: {c}">{esc(n)}</b><span>{esc(l)}</span></div>' for n, l, c in stats) + '</div>'
+    s3 = sec('careers', '<div class="g-kandy"><div>' + head('Careers', 'Careers, <span style="color: #8A909C">not stopovers</span>',
              "Our office sits outside the busy outsourcing hubs, so our people aren't poached by the next call centre down the road. They build long careers with us. It is why 8 of our first 10 hires are still with us.") +
-             '</div>' + photos + '</div>' + stat_cards([('200+', 'people'), ('8 of 10', 'first hires still with us'), ('1 in 20', 'candidates hired')], cols='repeat(auto-fit, minmax(200px, 1fr))'))
-    s4 = sec('data', head('Security', "Your data is safe. Your work doesn't stop.") + feature_grid([(x, None, None) for x in ['Controlled office access', 'No personal devices', 'Backup power and internet', 'UK GDPR agreements (IDTA)', 'Quality checked independently', 'ISO 9001, Cyber Essentials (in progress)']]), 'var(--s1)')
-    s5 = sec('founder', '<div class="founder"><div class="ph5 has-img" style="min-height: 360px; border-radius: 22px" role="img" aria-label="The CCMS team in Sri Lanka"><img class="phi" src="%%R%%assets/d45bde67a2d819b341e5acb1c7721081.jpg" alt="" loading="lazy"></div><div>' +
-             head('Our story', 'Founder-led since day one',
-                  'Danu, our founder, has worked in UK healthcare recruitment since 2011, rising from recruiter to operations director. In 2016 he moved to Sri Lanka to set up an offshore team for a UK agency. He saw what most offshore providers got wrong: they sold volume, when agencies needed quality. So he built CCMS to do it properly, and we have grown by referral ever since.') +
-             '</div></div>')
+             stat_html + '</div>' + photos + '</div>')
+    # 4. Data: the homepage Security bento under the brief's heading
+    safety = home_section('safety', 'data')
+    safety = re.sub(r'<h2 class="H"[^>]*>.*?</h2>', '<h2 class="H" data-a="up" data-d="0">Your data is safe. <span style="color: #8A909C">Your work doesn\'t stop.</span></h2>', safety, count=1, flags=re.S)
+    safety = re.sub(r'<a class="lk"[^>]*href="%%R%%why-sri-lanka/#data"[^>]*>.*?</a>', '', safety, count=1, flags=re.S)
+    s4 = safety
+    # 5. Founder: dark panel with photo and timeline
+    timeline = [('2011', 'Starts in UK healthcare recruitment'), ('Recruiter to operations director', 'Learns the pressure of audits, Mondays and Friday payroll'), ('2016', 'Moves to Sri Lanka to build a team for a UK agency'), ('Today', 'CCMS, grown by referral')]
+    tl = ''.join(f'<li><b>{esc(a)}</b><span>{esc(b)}</span></li>' for a, b in timeline)
+    s5 = sec('founder', f'''<div class="fd" data-a="up" data-d="0">
+<div class="fd-ph"><img src="%%R%%assets/d45bde67a2d819b341e5acb1c7721081.jpg" alt="The CCMS team in Sri Lanka" loading="lazy"><span class="wb-eye">Our team in Sri Lanka</span></div>
+<div class="fd-tx"><span class="pp-k">Our story</span><h2>Founder-led <span style="color: #AEB8FF">since day one</span></h2>
+<p>Danu, our founder, has worked in UK healthcare recruitment since 2011, rising from recruiter to operations director. In 2016 he moved to Sri Lanka to set up an offshore team for a UK agency. He saw what most offshore providers got wrong: they sold volume, when agencies needed quality. So he built CCMS to do it properly, and we have grown by referral ever since.</p>
+<ol class="fd-tl">{tl}</ol></div>
+</div>''')
     band = sec('meet', f'''<div class="cta-band" data-a="up" data-d="0" style="background-color: #0A0F2C; background-image: radial-gradient(60% 120% at 85% 50%, rgba(47,75,255,.35), rgba(47,75,255,0) 70%), radial-gradient(rgba(255,255,255,.07) 1px, transparent 1.2px); background-size: auto, 18px 18px">
 <div style="position: relative; flex: 1 1 380px">
 <div style="font-size: clamp(24px, 2.6vw, 34px); font-weight: 800; letter-spacing: -.03em; line-height: 1.1">Meet the team behind your team.</div>
