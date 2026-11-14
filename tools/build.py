@@ -552,11 +552,18 @@ def build_recruitment(r):
 def build_service(sv, mocks):
     path = 'services/%s/' % sv['slug']
     faqs = [HOME_FAQS[i] for i in sv['faqs']]
-    does = '<div class="mini" data-a="up" data-d="0" style="margin-top: 26px; background: #FFFFFF">' + ''.join(
-        f'<div class="mrow"><span style="width: 20px; height: 20px; flex-shrink: 0; border-radius: 50%; background: #1B7A4A; display: flex; align-items: center; justify-content: center"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg></span><span style="flex: 1">{esc(d)}</span></div>' for d in sv['does']) + '</div>'
-    body = (svc_section('does', 'What your team <span style="color: #8A909C">does</span>', esc(sv['short']), [(sv['name'], sv['name'])], side=does, badge=sv['name'], bg='var(--s1)', links=False) +
-            sec('standards', head('Quality', 'How we keep standards') + numbered_cards([(t, None) for t in STANDARDS], 'g-nums')) +
-            sec('sectors', head('Who we work with', 'For healthcare, education and construction agencies') + '<div style="margin-top: 44px">' + recruitment_cards() + '</div>', 'var(--s1)') +
+    tiles = ''.join(f'<div class="svd-t"><span class="ftk">{TICK}</span>{esc(d)}</div>' for d in sv['does'])
+    does = sec('does', head('What your team does', 'What your team <span style="color: #8A909C">does</span>', esc(sv['short'])) + f'''<div class="svd" style="margin-top: 44px">
+<div class="svd-m card6 sh" data-a="up" data-d="0"><div class="svd-h"><span>{esc(sv['name'])} · your team</span><span class="svd-live"><i></i>UK hours</span></div>{mocks[sv['name']]}<p>Your team works only for you, in your systems, on UK hours.</p></div>
+<div class="svd-g" data-a="up" data-d="0">{tiles}</div>
+</div>''', 'var(--s1)')
+    std_tiles = ''.join(f'<div class="pp-t pp-s"><span class="pp-n">0{i + 1}</span><b>{esc(t)}</b></div>' for i, t in enumerate(STANDARDS))
+    standards = sec('standards', f'''<div class="pp" data-a="up" data-d="0">
+<div class="pp-top"><span class="pp-k">Quality</span><h2>How we keep <span style="color: #AEB8FF">standards</span></h2></div>
+<div class="pp-g">{std_tiles}</div>
+</div>''')
+    body = (does + standards +
+            sec('sectors', head('Who we work with', 'For healthcare, education <span style="color: #8A909C">and construction agencies</span>') + '<div style="margin-top: 44px">' + recruitment_cards() + '</div>', 'var(--s1)') +
             faq_section(faqs))
     card = '<div class="hh-card">' + mocks[sv['name']] + '</div>'
     h = hero([('Home', '%%R%%'), ('Services', '%%R%%recruitment-process-outsourcing/#services'), (sv['name'], None)],

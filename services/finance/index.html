@@ -834,6 +834,27 @@ font-family:'Plus Jakarta Sans',system-ui,sans-serif;color:var(--ink);background
 .pp-foot b{font-size:17px}.pp-foot span{color:#C9D0EE}
 @media (hover:hover) and (pointer:fine){.pp-t:hover{transform:translateY(-3px);background:rgba(255,255,255,.1)}}
 @media (max-width:860px){.pp-g{grid-template-columns:1fr 1fr}}
+.svd{display:grid;grid-template-columns:5fr 7fr;gap:16px;align-items:stretch}
+.svd-m{padding:22px;display:flex;flex-direction:column}
+.svd-h{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:13px;font-weight:800;letter-spacing:.04em;color:var(--ink3);margin-bottom:14px}
+.svd-live{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:999px;background:#E7F5EC;color:#1B7A4A;letter-spacing:0}
+.svd-live i{width:7px;height:7px;border-radius:50%;background:#22C55E;animation:svd-pulse 1.8s ease-in-out infinite}
+@keyframes svd-pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.svd-m .mini{flex:1;font-size:15px}
+.svd-m p{margin:16px 0 0;font-size:15px;color:var(--ink2)}
+.svd-g{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-content:start}
+.svd-t{display:flex;align-items:center;gap:12px;min-height:64px;padding:16px 18px;border-radius:16px;background:#FFFFFF;border:1px solid var(--line);font-size:16px;font-weight:600;color:var(--ink);transition:transform 300ms var(--ease),box-shadow 300ms var(--ease)}
+.svd-t .ftk{width:24px;height:24px;border-radius:50%;background:#1B7A4A;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+@media (hover:hover) and (pointer:fine){.svd-t:hover{transform:translateY(-2px);box-shadow:0 18px 36px -26px rgba(16,24,64,.4)}}
+.pp-s{display:flex;flex-direction:column;gap:14px}
+.pp-n{font-size:13px;font-weight:800;color:#8FA2FF}
+.pp-s b{font-size:clamp(18px,1.6vw,21px);font-weight:700;letter-spacing:-.02em;line-height:1.3;color:#FFFFFF}
+@media (max-width:900px){.svd{grid-template-columns:1fr}}
+@media (max-width:520px){.svd-g{grid-template-columns:1fr}}
+@media (prefers-reduced-motion: reduce){.svd-live i{animation:none}}
+.svd-t:last-child:nth-child(odd){grid-column:span 2}
+@media (max-width:520px){.svd-t:last-child:nth-child(odd){grid-column:auto}}
+@media (max-width:520px){.svd-m{padding:16px}.svd-m .mini{font-size:12.5px;padding:12px}}
 </style>
 </helmet>
 <div class="c">
@@ -884,31 +905,24 @@ font-family:'Plus Jakarta Sans',system-ui,sans-serif;color:var(--ink);background
 </div>
 </section>
 <section id="does" class="sec" style="background: var(--s1)">
-<div class="wrap chap">
-<div class="chap-head">
-<span class="badge6" data-a="up" data-d="0" style="background: #0A0F2C; color: #FFFFFF">Finance</span>
-<h2 class="H" data-a="up" data-d="0" style="font-size: clamp(28px, 2.8vw, 38px); margin-top: 22px">What your team <span style="color: #8A909C">does</span></h2>
-<p class="S" data-a="up" data-d="0">Invoices out, cash in, books clean.</p>
-<div class="mini" data-a="up" data-d="0" style="margin-top: 26px; background: #FFFFFF"><div class="mrow"><span style="width: 20px; height: 20px; flex-shrink: 0; border-radius: 50%; background: #1B7A4A; display: flex; align-items: center; justify-content: center"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg></span><span style="flex: 1">Client invoicing</span></div><div class="mrow"><span style="width: 20px; height: 20px; flex-shrink: 0; border-radius: 50%; background: #1B7A4A; display: flex; align-items: center; justify-content: center"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg></span><span style="flex: 1">Credit control</span></div><div class="mrow"><span style="width: 20px; height: 20px; flex-shrink: 0; border-radius: 50%; background: #1B7A4A; display: flex; align-items: center; justify-content: center"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg></span><span style="flex: 1">Ledgers</span></div><div class="mrow"><span style="width: 20px; height: 20px; flex-shrink: 0; border-radius: 50%; background: #1B7A4A; display: flex; align-items: center; justify-content: center"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg></span><span style="flex: 1">Bank reconciliations</span></div><div class="mrow"><span style="width: 20px; height: 20px; flex-shrink: 0; border-radius: 50%; background: #1B7A4A; display: flex; align-items: center; justify-content: center"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg></span><span style="flex: 1">Month-end support</span></div><div class="mrow"><span style="width: 20px; height: 20px; flex-shrink: 0; border-radius: 50%; background: #1B7A4A; display: flex; align-items: center; justify-content: center"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg></span><span style="flex: 1">Management reporting</span></div></div></div>
-<div class="stk"><article class="card6 sh" style="top: 96px">
-<div class="svc6">
-<div><div style="display: flex; align-items: center; gap: 10px"><span style="width: 40px; height: 40px; border-radius: 12px; background: var(--soft); display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2238D6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M21 19H3"></path></svg></span><span style="font-size: 13px; font-weight: 800; color: #2238D6">01</span></div>
-<h3 style="margin: 16px 0 0; font-size: 24px; font-weight: 700; letter-spacing: -.025em">Finance</h3>
-<p style="margin: 6px 0 0; color: var(--ink2)">Invoices out, cash in, books clean.</p>
+<div class="wrap">
+<p class="k" data-a="up" data-d="0">What your team does</p><h2 class="H" data-a="up" data-d="0" style="">What your team <span style="color: #8A909C">does</span></h2><p class="S" data-a="up" data-d="0">Invoices out, cash in, books clean.</p><div class="svd" style="margin-top: 44px">
+<div class="svd-m card6 sh" data-a="up" data-d="0"><div class="svd-h"><span>Finance · your team</span><span class="svd-live"><i></i>UK hours</span></div><div class="mini" style="background: #FFFFFF"><div style="display: flex; justify-content: space-between; font-weight: 700"><span>Cash collected</span><span class="pill ok" style="animation: c-pop 6s ease-out infinite">Reconciled</span></div><svg viewBox="0 0 260 90" style="margin-top: 10px; width: 100%; height: auto; display: block"><defs><linearGradient id="cfg" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#2F4BFF" stop-opacity=".28"></stop><stop offset="1" stop-color="#2F4BFF" stop-opacity="0"></stop></linearGradient></defs><polygon points="0,82 30,76 60,78 90,62 120,58 150,44 180,46 210,28 240,18 260,8 260,90 0,90" fill="url(#cfg)" style="animation: c-area 6s ease-in-out infinite"></polygon><polyline points="0,82 30,76 60,78 90,62 120,58 150,44 180,46 210,28 240,18 260,8" fill="none" stroke="#2F4BFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="420" style="animation: c-fin 6s ease-in-out infinite"></polyline><circle cx="260" cy="8" r="4" fill="#22C55E" style="animation: c-pop 6s ease-out infinite"></circle></svg></div><p>Your team works only for you, in your systems, on UK hours.</p></div>
+<div class="svd-g" data-a="up" data-d="0"><div class="svd-t"><span class="ftk"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg></span>Client invoicing</div><div class="svd-t"><span class="ftk"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg></span>Credit control</div><div class="svd-t"><span class="ftk"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg></span>Ledgers</div><div class="svd-t"><span class="ftk"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg></span>Bank reconciliations</div><div class="svd-t"><span class="ftk"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg></span>Month-end support</div><div class="svd-t"><span class="ftk"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg></span>Management reporting</div></div>
 </div>
-<div data-a="up" data-d="100"><div class="mini" style="background: #FFFFFF"><div style="display: flex; justify-content: space-between; font-weight: 700"><span>Cash collected</span><span class="pill ok" style="animation: c-pop 6s ease-out infinite">Reconciled</span></div><svg viewBox="0 0 260 90" style="margin-top: 10px; width: 100%; height: auto; display: block"><defs><linearGradient id="cfg" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#2F4BFF" stop-opacity=".28"></stop><stop offset="1" stop-color="#2F4BFF" stop-opacity="0"></stop></linearGradient></defs><polygon points="0,82 30,76 60,78 90,62 120,58 150,44 180,46 210,28 240,18 260,8 260,90 0,90" fill="url(#cfg)" style="animation: c-area 6s ease-in-out infinite"></polygon><polyline points="0,82 30,76 60,78 90,62 120,58 150,44 180,46 210,28 240,18 260,8" fill="none" stroke="#2F4BFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="420" style="animation: c-fin 6s ease-in-out infinite"></polyline><circle cx="260" cy="8" r="4" fill="#22C55E" style="animation: c-pop 6s ease-out infinite"></circle></svg></div></div>
-</div>
-</article></div>
 </div>
 </section>
 <section id="standards" class="sec" style="background: #FFFFFF">
 <div class="wrap">
-<p class="k" data-a="up" data-d="0">Quality</p><h2 class="H" data-a="up" data-d="0" style="">How we keep standards</h2><div class="flist short"><article class="fitem" data-a="up" data-d="0"><span class="fnum" aria-hidden="true">01</span><div><h3>Checklists built around your processes</h3></div></article><article class="fitem" data-a="up" data-d="0"><span class="fnum" aria-hidden="true">02</span><div><h3>Second-person checks</h3></div></article><article class="fitem" data-a="up" data-d="0"><span class="fnum" aria-hidden="true">03</span><div><h3>An independent audit and quality manager</h3></div></article><article class="fitem" data-a="up" data-d="0"><span class="fnum" aria-hidden="true">04</span><div><h3>ISO 9001 processes</h3></div></article></div>
+<div class="pp" data-a="up" data-d="0">
+<div class="pp-top"><span class="pp-k">Quality</span><h2>How we keep <span style="color: #AEB8FF">standards</span></h2></div>
+<div class="pp-g"><div class="pp-t pp-s"><span class="pp-n">01</span><b>Checklists built around your processes</b></div><div class="pp-t pp-s"><span class="pp-n">02</span><b>Second-person checks</b></div><div class="pp-t pp-s"><span class="pp-n">03</span><b>An independent audit and quality manager</b></div><div class="pp-t pp-s"><span class="pp-n">04</span><b>ISO 9001 processes</b></div></div>
+</div>
 </div>
 </section>
 <section id="sectors" class="sec" style="background: var(--s1)">
 <div class="wrap">
-<p class="k" data-a="up" data-d="0">Who we work with</p><h2 class="H" data-a="up" data-d="0" style="">For healthcare, education and construction agencies</h2><div style="margin-top: 44px"><div class="g-cards3"><a class="card6 sh h6t cs-card" data-a="up" data-d="0" href="../../industries/healthcare-recruitment/">
+<p class="k" data-a="up" data-d="0">Who we work with</p><h2 class="H" data-a="up" data-d="0" style="">For healthcare, education <span style="color: #8A909C">and construction agencies</span></h2><div style="margin-top: 44px"><div class="g-cards3"><a class="card6 sh h6t cs-card" data-a="up" data-d="0" href="../../industries/healthcare-recruitment/">
 <div class="cs-img" style="height:220px"><img src="../../assets/ed3e8c66f268d39a0f6e8cb060b92af4.jpg" alt="" loading="lazy" style="object-position:center 35%"><span class="cs-chip"><i style="background:#2F4BFF"></i>Recruitment</span></div>
 <div style="display:flex;flex-direction:column;flex:1;padding:22px 14px 10px">
 <h3 class="cs-t" style="font-size:clamp(22px,2vw,26px);margin-top:0">Healthcare recruitment</h3>
