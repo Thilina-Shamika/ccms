@@ -586,38 +586,64 @@ def sc_icon(path, colour):
     return f'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="{colour}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{path}"></path></svg>'
 
 
-SEG_COLOURS = [('#2F4BFF', '#E0E6FF', 'rgba(47,75,255,.35)'), ('#7C3AED', '#EDE9FE', 'rgba(124,58,237,.35)'),
-               ('#16A34A', '#DCFCE7', 'rgba(22,163,74,.35)'), ('#F59E0B', '#FEF3C7', 'rgba(245,158,11,.4)')]
-SV_STANDARDS = [('Checklists', 'Built around your processes'), ('Second check', 'By another team member'),
-                ('Independent audit', 'Quality manager review'), ('ISO 9001', 'Documented processes')]
+TICK9 = '<svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg>'
+
+
+def _ans_card(n, delay, vis, title, text):
+    return (f'<article class="card6 sh h6t" data-a="up" data-d="{delay}" style="padding: 12px; display: flex; flex-direction: column">\n{vis}\n'
+            f'<div style="padding: 18px 12px 14px">\n<div style="font-size: 13px; font-weight: 800; color: #2238D6">{n}</div>\n'
+            f'<h3 style="margin: 8px 0 0; font-size: 21px; font-weight: 700; letter-spacing: -.02em">{title}</h3>\n'
+            f'<p style="margin: 6px 0 0; color: var(--ink2)">{text}</p>\n</div>\n</article>')
 
 
 def service_bento(sv, mock):
-    """What your team does: homepage-style task cards and the homepage stepper for standards."""
-    tick = 'M5 12l5 5 9-10'
-    cards = []
-    for i, t in enumerate(sv['does']):
-        fg, bg, _ = SEG_COLOURS[i % 4]
-        cards.append(f'<div class="card6 sh h6t svt" data-a="up" data-d="0"><span class="svt-ic" style="background: {bg}">{sc_icon(tick, fg)}</span>'
-                     f'<span class="svt-n">{i + 1:02d}</span><b class="svt-t">{esc(t)}</b></div>')
-    chev = '<span style="position: relative; margin-left: auto; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"></path></svg></span>'
-    segs = []
-    for i, (t, d) in enumerate(SV_STANDARDS):
-        fg, bg, ring = SEG_COLOURS[i]
-        segs.append(f'<div class="sg" data-i="{i}" style="animation: sg-o{i} 8s ease-in-out infinite; --ring: {ring}">'
-                    f'<span class="sgf" style="background: {bg}; animation: sg-f{i} 8s cubic-bezier(.65,0,.35,1) infinite"></span>'
-                    f'<span class="sv-sgn" style="background: {fg}">{i + 1}</span>'
-                    f'<span class="sv-sgl"><span>{esc(t)}</span><span>{esc(d)}</span></span>{chev if i < 3 else ""}</div>')
-    n = len(sv['does'])
-    cols = 4 if n % 4 == 0 else 3
-    inner = (f'<div class="svt-g svt-g{cols}">{"".join(cards)}</div>\n'
-             f'<div class="sv-stdw" data-a="up" data-d="0">\n'
-             f'<div class="sv-stdh"><b>How we keep standards</b><span class="pill info">ISO 9001 certified</span></div>\n'
-             f'<div class="seg sv-std">{"".join(segs)}</div>\n</div>')
-    top = (f'<div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap">'
-           f'<div><p class="k" data-a="up" data-d="0">What your team does</p><h2 class="H" data-a="up" data-d="0" style="max-width: 860px">What your team does <span style="color: #8A909C">and how we keep standards</span></h2></div>'
-           f'<div class="sv-meta" data-a="up" data-d="0"><span class="pill ok">{n} tasks</span><span class="pill info">UK hours</span><span class="pill wait">Only for you</span></div></div>')
-    return sec('does', top + f'<div style="margin-top: 44px">{inner}</div>')
+    """What your team does: three cards in the homepage 'We build your team' style."""
+    bars = ['#2F4BFF', '#7C3AED', '#15803D', '#B45309']
+    rows = ''.join(
+        f'<div class="svv-row"><span style="width: 4px; height: 16px; border-radius: 2px; background: {bars[i % 4]}; flex-shrink: 0"></span>'
+        f'<span style="flex: 1; min-width: 0">{esc(t)}</span>'
+        f'<span class="svv-ok" style="animation: a-on 6s cubic-bezier(.23,1,.32,1) {0.4 + i * 0.5:.1f}s infinite both">{TICK9}</span></div>'
+        for i, t in enumerate(sv['does']))
+    v1 = (f'<div class="vis3 svv" style="background: #FFFFFF; display: flex; flex-direction: column">'
+          f'<div style="display: flex; align-items: center; justify-content: space-between; gap: 10px; height: 34px; padding: 0 14px; border-bottom: 1px solid var(--line); font-size: 12px; font-weight: 700; flex-shrink: 0">'
+          f'<span>Your {esc(sv["name"].lower())} team</span><span style="display: inline-flex; align-items: center; gap: 6px; color: #15803D; white-space: nowrap">'
+          f'<span style="width: 7px; height: 7px; border-radius: 50%; background: #22C55E; animation: v-live 1.6s ease-out infinite"></span>Live · UK hours</span></div>'
+          f'<div style="flex: 1; padding: 4px 14px 8px">{rows}</div></div>')
+
+    checks = [('Checklists', '#E0E6FF', '#2F4BFF', 'M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zM14 2v6h6M9 15l2 2 4-4'),
+              ('Second check', '#EDE9FE', '#7C3AED', 'M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM17 11l2 2 4-4'),
+              ('Independent audit', '#DCFCE7', '#15803D', 'M11 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14zM21 21l-5-5')]
+    crow = ''.join(
+        f'<div style="display: flex; align-items: center; gap: 8px; padding: 6px 8px; border-radius: 10px; background: #FFFFFF; border: 1px solid var(--line); font-size: 13px; font-weight: 600">'
+        f'<span style="width: 24px; height: 24px; border-radius: 7px; background: {bg}; display: flex; align-items: center; justify-content: center; flex-shrink: 0">'
+        f'<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="{fg}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{d}"></path></svg></span>'
+        f'<span style="flex: 1; min-width: 0; line-height: 1.25">{t}</span>'
+        f'<span style="width: 16px; height: 16px; border-radius: 50%; background: #22C55E; display: flex; align-items: center; justify-content: center; flex-shrink: 0; animation: a-on 6s cubic-bezier(.23,1,.32,1) {0.6 + i * 0.9:.1f}s infinite both">{TICK9}</span></div>'
+        for i, (t, bg, fg, d) in enumerate(checks))
+    v2 = (f'<div class="vis3 svv" style="background: linear-gradient(160deg, #F5F3FF, #FAFAFF); padding: 16px; display: flex; gap: 16px; align-items: center">'
+          f'<div style="position: relative; width: 84px; height: 84px; flex-shrink: 0">'
+          f'<svg viewBox="0 0 64 64" width="84" height="84" style="transform: rotate(-90deg)"><circle cx="32" cy="32" r="28" fill="none" stroke="#E5E8F0" stroke-width="6"></circle>'
+          f'<circle cx="32" cy="32" r="28" fill="none" stroke="url(#svg-ag)" stroke-width="6" stroke-linecap="round" stroke-dasharray="176" style="animation: a-ring 6s cubic-bezier(.65,0,.35,1) infinite"></circle>'
+          f'<defs><linearGradient id="svg-ag" x1="0" x2="1"><stop offset="0" stop-color="#7C3AED"></stop><stop offset="1" stop-color="#22C55E"></stop></linearGradient></defs></svg>'
+          f'<span style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; line-height: 1.1"><b style="font-size: 15px">Checked</b><span style="font-size: 10px; color: var(--ink3)">twice</span></span></div>'
+          f'<div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 7px">{crow}</div></div>')
+
+    heights = [50, 70, 60, 85, 75, 95, 65, 80]
+    cols = ['#C7D2FE', '#A5B4FC', '#818CF8', '#2F4BFF', '#2F4BFF', '#22C55E', '#A5B4FC', '#818CF8']
+    barh = ''.join(f'<span style="flex: 1; height: {h}%; border-radius: 3px; background: {c}; transform-origin: bottom; animation: a-bar 2.8s ease-in-out {i * 0.16:.2f}s infinite"></span>'
+                   for i, (h, c) in enumerate(zip(heights, cols)))
+    v3 = (f'<div class="vis3 svv" style="background: linear-gradient(160deg, #EEF2FF, #F8FAFF); padding: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 14px">'
+          f'<div style="display: flex; justify-content: space-between; font-size: 12px; font-weight: 700; color: var(--ink3)"><span>Processes</span><span style="color: #2238D6">Certified</span></div>'
+          f'<div style="display: flex; align-items: center; gap: 16px"><div style="flex-shrink: 0; width: 76px; height: 76px; border-radius: 18px; background: #FFFFFF; border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; animation: s-float 6s ease-in-out infinite">{ISO_BADGE}</div>'
+          f'<div style="display: flex; gap: 6px; flex-wrap: wrap"><span class="pill info" style="animation: a-chip 6s ease-out 0s infinite both">Documented</span><span class="pill ok" style="animation: a-chip 6s ease-out 0.15s infinite both">Audited</span><span class="pill wait" style="animation: a-chip 6s ease-out 0.3s infinite both">Every task</span></div></div>'
+          f'<div style="display: flex; align-items: flex-end; gap: 4px; height: 44px">{barh}</div></div>')
+
+    cards = (_ans_card('01', 0, v1, 'What your team does', esc(sv['short']) + ' Your team works only for you, in your systems.') +
+             _ans_card('02', 100, v2, 'Second-person checks', 'Checklists built around your processes, and an independent audit and quality manager reviewing the work.') +
+             _ans_card('03', 200, v3, 'ISO 9001 processes', 'Every task follows documented, audited processes.'))
+    top = ('<div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 32px; flex-wrap: wrap">'
+           '<div><p class="k" data-a="up" data-d="0">What your team does</p><h2 class="H" data-a="up" data-d="60" style="max-width: 860px">What your team does <span style="color: #8A909C">and how we keep standards</span></h2></div></div>')
+    return sec('does', top + f'<div class="g-ans" style="margin-top: 52px">{cards}</div>', 'var(--s1)')
 
 
 def build_service(sv, mocks):
@@ -625,7 +651,7 @@ def build_service(sv, mocks):
     faqs = [HOME_FAQS[i] for i in sv['faqs']]
     does = service_bento(sv, mocks[sv['name']])
     body = (does +
-            sec('sectors', head('Who we work with', 'For healthcare, education <span style="color: #8A909C">and construction agencies</span>') + '<div style="margin-top: 44px">' + recruitment_cards() + '</div>', 'var(--s1)') +
+            sec('sectors', head('Who we work with', 'For healthcare, education <span style="color: #8A909C">and construction agencies</span>') + '<div style="margin-top: 44px">' + recruitment_cards() + '</div>') +
             faq_section(faqs))
     card = '<div class="hh-card">' + mocks[sv['name']] + '</div>'
     h = hero([('Home', '%%R%%'), ('Services', '%%R%%recruitment-process-outsourcing/#services'), (sv['name'], None)],
