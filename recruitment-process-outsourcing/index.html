@@ -713,10 +713,10 @@ font-family:'Plus Jakarta Sans',system-ui,sans-serif;color:var(--ink);background
 .hh-card .inl input{flex:1 1 140px}.hh-card .inl .btn{min-height:52px;padding:0 20px}
 .hh-sel{width:100%;min-height:46px;appearance:none;-webkit-appearance:none;border:1px solid rgba(14,17,22,.18);border-radius:12px;background:#F6F7FB;padding:0 40px 0 14px;font:inherit;font-size:15px;font-weight:700;color:var(--ink);cursor:pointer}
 .hh-sel:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(47,75,255,.18)}
-.hr-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px 14px;margin-top:10px}
+.hr-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 14px;margin-top:10px}
 @media (max-width:420px){.hr-grid{grid-template-columns:1fr}}
 .hr-row{display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:40px;border-bottom:1px solid var(--line);font-size:14px;font-weight:600}
-.hr-row>span:first-child{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.hr-row>span:first-child{min-width:0;line-height:1.25;padding:4px 0}
 .hr-st{display:inline-flex;align-items:center;gap:2px;flex-shrink:0}
 .hr-st b{width:22px;text-align:center;font-size:15px;font-variant-numeric:tabular-nums}
 .hr-b{width:28px;height:28px;border-radius:999px;border:1px solid var(--line2);background:#FFFFFF;color:var(--ink);font:inherit;font-size:15px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform 140ms var(--ease)}
@@ -851,6 +851,9 @@ font-family:'Plus Jakarta Sans',system-ui,sans-serif;color:var(--ink);background
 @media (hover:hover) and (pointer:fine){.wb-t:hover{transform:translateY(-4px);box-shadow:0 1px 2px rgba(11,13,18,.04),0 28px 54px -30px rgba(16,24,64,.35)}.wb-photo:hover img{transform:scale(1.04)}}
 @media (max-width:1000px){.wbento{grid-template-columns:1fr 1fr;grid-template-areas:"p p" "a b" "c c" "d e" "f f"}}
 @media (max-width:600px){.wbento{grid-template-columns:1fr;grid-template-areas:"p" "a" "b" "c" "d" "e" "f"}.wb-photo{min-height:460px}}
+.g-pain.g-pain3{grid-template-columns:repeat(3,1fr);gap:16px}
+@media (max-width:860px){.g-pain.g-pain3{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.g-pain.g-pain3{grid-template-columns:1fr}}
 </style>
 </helmet>
 <div class="c">

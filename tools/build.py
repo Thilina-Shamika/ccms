@@ -10,7 +10,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(__file__))
 from content import (BASE_URL, TEAM_STATS, RESULT_STATS, PROOF_LINE, HOME_FAQS, SERVICES, STANDARDS,
-                     RECRUITMENT, SECTORS, GROUPS, RPO_REASONS, CASE_STUDIES)
+                     RECRUITMENT, SECTORS, GROUPS, RPO_REASONS, CASE_STUDIES, PAIN_MOCKS)
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC = os.path.join(ROOT, 'src')
@@ -196,9 +196,46 @@ def faq_section(faqs, bg='var(--s1)', title='Common questions'):
 '''
 
 
-def pain_section(pains, bg='#FFFFFF'):
-    cards = ''.join(f'<article class="card6 pcard" data-a="up" data-d="0"><span class="pcn">0{i + 1}</span><h3>{esc(p)}</h3></article>' for i, p in enumerate(pains))
-    return sec('story', head(None, 'Sound familiar?') + f'<div class="g-ans" style="margin-top: 44px">{cards}</div>', bg)
+AV = ['#DCFCE7', '#E0E7FF', '#FCE7F3']
+PV_TICK = '<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg>'
+
+
+def pain_mock(spec):
+    """Homepage pain-card mock-ups (classes pv, pv1 to pv4 in styles.css) filled with this pain's details."""
+    kind = spec[0]
+    sw = lambda a, b, ca='pv1-a', cb='pv1-b': f'<span class="pv-sw"><span class="{ca}">{esc(a)}</span><span class="{cb}">{esc(b)}</span></span>'
+    if kind == 'list':
+        _, head_, a, b, rows = spec
+        out = f'<div class="pv-h">{esc(head_)}<span class="pv-tag pv1-c">{sw(a, b)}</span></div>'
+        for i, (av, name, sub, tag) in enumerate(rows):
+            last = isinstance(tag, tuple)
+            t = f'<span class="pv-tag pv1-c">{sw(*tag)}</span>' if last else f'<span class="pv-tag">{esc(tag)}</span>'
+            out += f'<div class="pv-row{" pv1-r" if last else ""}"><span class="pv-av" style="background:{AV[i % 3]}">{esc(av)}</span><span class="pv-n"><b>{esc(name)}</b><i>{esc(sub)}</i></span>{t}</div>'
+    elif kind == 'inbox':
+        _, head_, rows = spec
+        out = (f'<div class="pv-h">{esc(head_)}<span class="pv3-b"><span>1</span><span>2</span><span>3</span><span>4</span></span></div><div>' +
+               ''.join(f'<div class="pv3-m"><span class="pv3-dot"></span><span class="pv-n"><b>{esc(t)}</b><i>{esc(d)}</i></span><span class="pv3-t">{esc(tm)}</span></div>' for t, d, tm in rows) + '</div>')
+    elif kind == 'audit':
+        _, head_, due, items, pct = spec
+        k = [f'<span class="pv4-k y">{PV_TICK}</span>', f'<span class="pv4-k y">{PV_TICK}</span>', '<span class="pv4-k s"></span>', '<span class="pv4-k e"></span>']
+        out = (f'<div class="pv-h">{esc(head_)}<span class="pv-tag pv-red">{esc(due)}</span></div>' +
+               ''.join(f'<div class="pv4-i{" m" if i == 3 else ""}">{k[i]}{esc(t)}</div>' for i, t in enumerate(items)) +
+               f'<div class="pv4-bars"><div><div class="pv4-bl"><span>Ready</span><span>{esc(pct)}</span></div><div class="pv4-tr"><div class="pv4-fr"></div></div></div><div><div class="pv4-bl"><span>Time left</span></div><div class="pv4-tr"><div class="pv4-ft"></div></div></div></div>')
+    else:
+        _, head_, a, b, legend = spec
+        cells = 'ffffoffffxffffoffofff'
+        out = (f'<div class="pv-h">{esc(head_)}<span class="pv-tag">{sw(a, b, "pv2-n1", "pv2-n2")}</span></div><div class="pv2-g">' +
+               ''.join(f'<span class="pv2-d">{d}</span>' for d in 'MTWTFSS') + ''.join(f'<span class="pv2-c {c}"></span>' for c in cells) +
+               f'</div><div class="pv2-l"><s></s>{esc(legend)}</div>')
+    return f'<div class="pv" aria-hidden="true">{out}</div>'
+
+
+def pain_section(pains, bg='#FFFFFF', recruitment=False):
+    cards = ''.join(f'<div class="card6" data-a="up" data-d="0" style="padding: 14px 14px 20px; background: #FFFBF5; border-color: rgba(180,83,9,.14)">{pain_mock(PAIN_MOCKS[p])}<div style="font-size: 18px; font-weight: 700; letter-spacing: -.01em; line-height: 1.35">{esc(p)}</div></div>' for p in pains)
+    top = (head('Sound familiar?', 'Recruitment is getting harder. <span style="color: #8A909C">Your back office shouldn\'t be.</span>', h2_style='max-width: 980px')
+           if recruitment else head(None, 'Sound familiar?'))
+    return sec('story', top +
+               f'<div class="g-pain g-pain3" style="margin-top: 52px">{cards}</div>', bg)
 
 
 def role_card(name, desc=None, href=None):
@@ -493,7 +530,7 @@ def build_recruitment(r):
     names = {s['slug']: s['name'] for s in SERVICES}
     handle = svc_section('roles', 'What your team <span style="color: #8A909C">can handle</span>', None,
                          [(x[0], names[x[1]]) for x in r['roles']], badge=r['name'], after=rules_box(r['rules']))
-    pains = pain_section(r['pains'], 'var(--s1)')
+    pains = pain_section(r['pains'], 'var(--s1)', recruitment=True)
     proof = results_section() if r['proof'] == 'novello' else proof_section(PROOF_LINE)
     body = pains + handle + proof + faq_section(r['faqs'])
     h = hero([('Home', '%%R%%'), ('RPO', '%%R%%recruitment-process-outsourcing/'), (r['name'], None)],

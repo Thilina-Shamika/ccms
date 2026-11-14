@@ -244,3 +244,46 @@ CASE_STUDIES = [
          text='',
          stats=[]),
 ]
+
+# Mock-ups for the 'Sound familiar?' cards on sector pages, in the homepage pain-card style.
+# list:  (header, tag before, tag after, [(initials, name, detail, tag), ...]); the last row's tag is (before, after)
+# inbox: (header, [(title, detail, time) x4])
+# audit: (header, due tag, [four checklist items], ready %)
+# rota:  (header, open before, open after, legend)
+PAIN_MOCKS = {
+    'Margins squeezed by NHS agency spend cuts': ('list', 'Rate card', 'Under review', 'Client rates: capped', [('CR', 'Client rate', 'NHS framework', 'Capped'), ('PR', 'Pay rate', 'Agency workers', 'Rising'), ('M', 'Your margin', 'Per shift', ('Tight', 'Squeezed'))]),
+    'Framework audits where one missing document costs you the contract': ('audit', 'Framework audit', 'In 6 days', ['Right to work', 'References', 'Enhanced DBS', 'Training records'], '45%'),
+    "New liability for umbrella companies you don't control": ('list', 'Umbrella checks', '2 not verified', '3 not verified', [('UA', 'Umbrella A Ltd', 'PAYE records', 'Not verified'), ('UB', 'Umbrella B Ltd', 'Payroll check', 'Not verified'), ('UC', 'Umbrella C Ltd', 'PAYE records', ('Pending', 'Not verified'))]),
+    'Mark-ups capped under the new DfE framework': ('list', 'DfE supply framework', 'Under review', 'Mark-up: capped', [('CR', 'Charge rate', 'Per day', 'Capped'), ('PR', 'Pay rate', 'Supply teachers', 'Rising'), ('M', 'Your mark-up', 'Per booking', ('Tight', 'Squeezed'))]),
+    'Early-morning cover requests': ('inbox', 'Cover requests', [('Year 3 cover', 'Starts 8:30am', '06:41'), ('TA needed', 'SEN support, all day', '06:52'), ('Cover teacher', 'Maths, KS3', '07:05'), ('Year 6 cover', 'Starts 8:45am', '07:12')]),
+    'Safeguarding checks that slow down registration': ('list', 'New registrations', '2 waiting', '3 waiting', [('JT', 'J. Taylor', 'Enhanced DBS', 'Waiting'), ('RA', 'R. Ahmed', 'Barred list', 'Waiting'), ('LM', 'L. Moore', 'Prohibition check', ('Pending', 'Waiting'))]),
+    'Right to work fines of up to £45,000 per worker': ('list', 'Right to work', '1 missing', '2 missing', [('DK', 'D. Kowalski', 'Share code', 'Checked'), ('SO', 'S. Okafor', 'Follow-up check', 'Due'), ('PN', 'P. Nowak', 'Share code', ('Due', 'Missing'))]),
+    'Expired CSCS cards and tickets': ('list', 'Site cards', '1 expiring', '2 expired', [('MB', 'M. Brown', 'CSCS card', '12 days'), ('KH', 'K. Hughes', 'CPCS ticket', '4 days'), ('AL', 'A. Lewis', 'CSCS card', ('Tomorrow', 'Expired'))]),
+    'New liability for umbrella companies': ('list', 'Umbrella checks', '2 not verified', '3 not verified', [('UA', 'Umbrella A Ltd', 'PAYE records', 'Not verified'), ('UB', 'Umbrella B Ltd', 'Payroll check', 'Not verified'), ('UC', 'Umbrella C Ltd', 'PAYE records', ('Pending', 'Not verified'))]),
+    'Recruiting locally now overseas recruitment has closed': ('inbox', 'New applicants', [('Care assistant', 'Application, local', '09:02'), ('Senior carer', 'Needs DBS', '09:18'), ('Care assistant', 'References to chase', '09:40'), ('Night carer', 'Interview to book', '10:05')]),
+    'Rota gaps before the morning run': ('rota', 'Morning rota', '3 open', '4 open', 'Visit with no carer yet'),
+    'Training records out of date before a CQC inspection': ('audit', 'CQC inspection', 'Due soon', ['Care plans', 'Medication training', 'Moving and handling', 'Safeguarding'], '45%'),
+    'Nurses pulled onto reception and admin': ('inbox', 'Front desk', [('Patient call', 'Reschedule check-up', '08:31'), ('Walk-in', 'Payment query', '08:40'), ('Recall', 'Hygiene appointment', '08:52'), ('Patient call', 'New registration', '09:05')]),
+    'Missed calls and lost bookings': ('inbox', 'Missed calls', [('Missed call', 'New patient enquiry', '09:12'), ('Missed call', 'Booking request', '09:47'), ('Missed call', 'Treatment question', '10:20'), ('Missed call', 'Cancellation', '11:03')]),
+    'Clinician paperwork out of date': ('list', 'Clinician records', '1 expiring', '2 expired', [('AR', 'Dr A. Rao', 'GDC registration', 'Valid'), ('EW', 'E. Wood', 'Indemnity', '6 days'), ('NS', 'N. Shah', 'CPD record', ('Tomorrow', 'Expired'))]),
+    'Funded hours claims and cashflow pressure': ('list', 'Funding claims', '1 late', '2 late', [('SP', 'Spring term', 'Headcount return', 'Sent'), ('ST', 'Stretched hours', 'Claim', 'Pending'), ('AI', 'Adjustments', 'Claim', ('Due', 'Late'))]),
+    "Parents unsure what they're entitled to": ('inbox', 'Parent enquiries', [('Funded hours', 'Am I eligible?', '08:15'), ('30 hours', 'How do I apply?', '09:02'), ('Invoice', 'Why this amount?', '09:30'), ('Visit', 'Can we look round?', '10:10')]),
+    'Staff pulled out of rooms to do admin': ('rota', 'Room ratios', '3 short', '4 short', 'Room below ratio'),
+    "New Renters' Rights Act paperwork and deadlines": ('audit', "Renters' Rights Act", 'Deadline', ['Tenancy terms', 'Written statements', 'Rent increase notices', 'Records updated'], '45%'),
+    'Leaseholders demanding service charge transparency': ('inbox', 'Leaseholder queries', [('Flat 4', 'Service charge breakdown', '09:10'), ('Flat 12', 'Why the increase?', '09:44'), ('Flat 7', 'Reserve fund', '10:21'), ('Flat 2', 'Year-end accounts', '11:02')]),
+    'Queries, repairs and certificates to track across every property': ('list', 'Certificates', '1 expiring', '2 expired', [('GS', 'Gas safety', '14 Park Road', '20 days'), ('EI', 'EICR', '3 Mill Lane', '5 days'), ('FR', 'Fire risk', 'Block B', ('Tomorrow', 'Expired'))]),
+    'Payments arriving late, or not at all': ('list', 'Applications', '1 overdue', '2 overdue', [('A1', 'Application 14', 'Main contractor', 'Paid'), ('A2', 'Application 15', 'Main contractor', 'Due'), ('A3', 'Application 16', 'Main contractor', ('Due', 'Overdue'))]),
+    'Retentions held long after the job ends': ('list', 'Retentions', '2 held', '3 held', [('RA', 'Riverside flats', 'Finished in March', 'Held'), ('RB', 'School extension', 'Finished in May', 'Held'), ('RC', 'Retail unit', 'Finished in June', ('Due', 'Held'))]),
+    'Monthly CIS returns and expiring site cards': ('audit', 'CIS return', 'Due on the 19th', ['Subcontractors verified', 'Deductions checked', 'Site cards in date', 'Return filed'], '45%'),
+    'Constant turnover and onboarding': ('inbox', 'New starters', [('New starter', 'Right to work to check', '07:30'), ('New starter', 'Uniform and site', '08:05'), ('Leaver', 'Shift to cover', '08:40'), ('New starter', 'Payroll set-up', '09:15')]),
+    'Client helpdesk requests piling up': ('inbox', 'Helpdesk', [('Office cleaning', 'Bins not emptied', '08:02'), ('Site A', 'Spill on floor 2', '08:20'), ('Site C', 'Extra clean needed', '08:47'), ('Office cleaning', 'Key holder query', '09:10')]),
+    'Constant turnover, screening and onboarding': ('list', 'BS 7858 screening', '2 open', '3 open', [('OT', 'O. Taylor', 'Five-year history', 'Open'), ('JB', 'J. Bennett', 'References', 'Open'), ('CH', 'C. Hall', 'Credit check', ('Pending', 'Open'))]),
+    'Overtime hours that never get billed': ('list', 'Hours this week', 'Checking', '14 hrs unbilled', [('W', 'Worked', 'From timesheets', '612 hrs'), ('R', 'Rostered', 'From the rota', '598 hrs'), ('B', 'Billed', 'To clients', ('598 hrs', 'Short'))]),
+    'SIA licences close to expiry': ('list', 'SIA licences', '1 expiring', '2 expired', [('DM', 'D. Mason', 'Door supervisor', '30 days'), ('RK', 'R. Khan', 'Security guard', '9 days'), ('TG', 'T. Grant', 'CCTV', ('Tomorrow', 'Expired'))]),
+    'Agencies demanding proof of compliance': ('audit', 'Agency due diligence', 'This week', ['Payroll records', 'Holiday pay', 'Compliance certificates', 'Audit trail'], '45%'),
+    'Timesheet volume at cut-off': ('inbox', 'Timesheets', [('Agency A', '214 timesheets', '15:02'), ('Agency B', '96 timesheets', '15:31'), ('Agency C', 'Late submissions', '16:10'), ('Agency A', 'Corrections', '16:45')]),
+    'Worker queries after every pay run': ('inbox', 'Worker queries', [('J. Reid', 'Where is my overtime?', '09:12'), ('P. Singh', 'Holiday pay looks wrong', '09:40'), ('T. Ward', 'Missing two shifts', '10:05'), ('L. Moss', 'Payslip not received', '10:31')]),
+    'Turning work away for lack of staff': ('inbox', 'New enquiries', [('New client', 'Bookkeeping, monthly', '09:05'), ('New client', 'VAT returns', '10:20'), ('Referral', 'Payroll, 25 staff', '11:40'), ('New client', 'Year-end accounts', '14:15')]),
+    'More quarterly work under Making Tax Digital': ('audit', 'MTD quarterly update', 'Due in 6 days', ['Records up to date', 'Bank feeds reconciled', 'Update prepared', 'Sent for review'], '45%'),
+    'The January self assessment peak': ('list', 'Self assessment', '40 to file', '55 to file', [('SA', 'Records in', 'From clients', '62%'), ('RV', 'Ready for review', 'Partners', '31%'), ('FL', 'Filed', 'With HMRC', ('18%', 'Behind'))]),
+}
