@@ -587,40 +587,29 @@ def sc_icon(path, colour):
 
 
 def service_bento(sv, mock):
-    """Service tasks and standards in the homepage Security bento style."""
-    tick = '<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg>'
-    tasks = ''.join(f'<div class="sv-task"><span style="animation-delay: {i * 0.5:.1f}s">{tick}</span>{esc(t)}</div>' for i, t in enumerate(sv['does']))
-    log = [('Prepared', 'Your team', 'Done'), ('Second check', 'Another team member', 'Verified'), ('Sent', 'To you', 'On time')]
-    log_rows = ''.join(f'<div class="sv-log" style="animation-delay: {i * 0.7:.1f}s"><span>{esc(a)}</span><span style="flex: 1; color: #C9D0EE">{esc(b)}</span><b>{esc(c)}</b></div>' for i, (a, b, c) in enumerate(log))
-    segs = ''.join(f'<span style="animation-delay: {i * 0.05:.2f}s"></span>' for i in range(30))
-    inner = f'''<div class="sv-b">
-<div class="sc sv-mock" data-a="up" data-d="0">
-<div class="sv-top"><div class="sch"><span class="scic" style="background: #EEF1FF">{sc_icon('M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM23 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8', '#2238D6')}</span>{esc(sv['name'])} · your team</div><span class="pill ok">UK hours</span></div>
-<p class="sv-p">{esc(sv['short'])} Your team works only for you, in your systems.</p>
-<div class="sv-mini">{mock}</div>
+    """What your team does: lead card, numbered task list and the standards line."""
+    arrow = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg>'
+    rows = ''.join(f'<li><span class="td-i">{i + 1:02d}</span><span class="td-t">{esc(t)}</span><span class="td-c">{arrow}</span></li>' for i, t in enumerate(sv['does']))
+    icons = ['M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zM14 2v6h6M9 15l2 2 4-4',
+             'M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM17 11l2 2 4-4',
+             'M11 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14zM21 21l-5-5',
+             'M12 3 4 6v6c0 5 3.4 8.4 8 9 4.6-.6 8-4 8-9V6zM9 12l2 2 4-4']
+    steps = ''.join(f'<li><span class="td-dot">{sc_icon(icons[i], "#2F4BFF")}</span><span class="td-sn">{i + 1:02d}</span><b>{esc(t)}</b></li>' for i, t in enumerate(STANDARDS))
+    inner = f'''<div class="td">
+<div class="td-lead" data-a="up" data-d="0">
+<span class="td-k">Your {esc(sv['name'].lower())} team</span>
+<div class="td-n">{len(sv['does'])}<small>tasks handled<br>for you</small></div>
+<p>{esc(sv['short'])} Your team works only for you, in your systems.</p>
+<div class="td-chips"><span>UK hours</span><span>Only for you</span><span>Your systems</span></div>
 </div>
-<div class="sc sv-dark" data-a="up" data-d="0">
-<div class="sch"><span class="scic" style="background: rgba(255,255,255,.1)">{sc_icon('M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM17 11l2 2 4-4', '#FFFFFF')}</span>Second-person checks</div>
-<div class="sv-logs">{log_rows}</div>
+<ol class="td-list" data-a="up" data-d="0">{rows}</ol>
 </div>
-<div class="sc sv-iso" data-a="up" data-d="0">
-<div class="sv-top"><div class="sch"><span class="scic" style="background: #DBEAFE">{sc_icon('M12 3 4 6v6c0 5 3.4 8.4 8 9 4.6-.6 8-4 8-9V6zM9 12l2 2 4-4', '#1E3A8A')}</span>ISO 9001 processes</div><span class="pill info">Certified</span></div>
-<div class="sv-isob"><div class="mini">{ISO_BADGE}</div><p>Every task follows documented, audited processes.</p></div>
-</div>
-<div class="sc sv-does" data-a="up" data-d="0">
-<div class="sv-top"><div class="sch"><span class="scic" style="background: #E7F5EC">{sc_icon('M9 11l3 3 8-8M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11', '#1B7A4A')}</span>What your team does</div><span class="pill ok">{len(sv['does'])} tasks</span></div>
-<div class="sv-tasks">{tasks}</div>
-</div>
-<div class="sc sv-qa" data-a="up" data-d="0">
-<div class="sv-top"><div class="sch"><span class="scic" style="background: #EDE9FE">{sc_icon('M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zM14 2v6h6M9 15l2 2 4-4', '#7C3AED')}</span>Checklists and independent audits</div><span class="pill info">Every team</span></div>
-<p class="sv-p">Checklists built around your processes, and an independent audit and quality manager reviewing the work.</p>
-<div class="sv-segs" aria-hidden="true">{segs}</div>
-<div class="sv-segl"><span>Files reviewed</span><span>Checked against your checklist</span></div>
-</div>
+<div class="td-std" data-a="up" data-d="0">
+<div class="td-sh"><span>How we keep standards</span><span class="td-iso">ISO 9001 certified</span></div>
+<ol class="td-steps">{steps}</ol>
 </div>'''
     return sec('does', head('What your team does', 'What your team does <span style="color: #8A909C">and how we keep standards</span>', h2_style='max-width: 900px') +
-               f'<div style="margin-top: 44px">{inner}</div>', '#F4F6FA',
-               '; background-image: linear-gradient(rgba(47,75,255,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(47,75,255,.05) 1px, transparent 1px); background-size: 48px 48px')
+               f'<div style="margin-top: 44px">{inner}</div>')
 
 
 def build_service(sv, mocks):
