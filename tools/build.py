@@ -516,10 +516,40 @@ def build_home():
              hero_html, body, faqs=HOME_FAQS)
 
 
+def rpo_reasons_bento():
+    """Why agencies choose CCMS, in the homepage Security bento style: one tile per reason, each with a small visual."""
+    tick = '<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg>'
+    icons = [('M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zM12 6a6 6 0 1 0 0 12 6 6 0 0 0 0-12zM12 10a2 2 0 1 0 0 4 2 2 0 0 0 0-4z', '#2238D6', '#EEF1FF'),
+             ('M20 7h-4V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2H4a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1zM10 5h4v2h-4z', '#FFFFFF', 'rgba(255,255,255,.1)'),
+             ('M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z', '#1B7A4A', '#E7F5EC'),
+             ('M3 4h18l-7 8v6l-4 2v-8z', '#7C3AED', '#EDE9FE'),
+             ('M3 3v18h18M7 15l4-4 3 3 5-6', '#B45309', '#FEF3C7'),
+             ('m12 3 2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.6 6.6 19.5l1.2-6L3.3 9.3l6.1-.7z', '#DB2777', '#FCE7F3')]
+    vis = [
+        '<div class="rb-bar"><div class="rb-bl"><span>Weekly target</span><span>Agreed with you</span></div><div class="rb-tr"><i></i><s></s></div><span class="pill ok">On target</span></div>',
+        '<div class="sv-logs">' + ''.join(f'<div class="sv-log" style="animation-delay: {i * 0.7:.1f}s"><span>{esc(a)}</span><span style="flex: 1; color: #C9D0EE">{esc(b)}</span></div>' for i, (a, b) in enumerate([('2011', 'Recruiter, UK healthcare'), ('Then', 'Operations director'), ('2016', 'Moves to Sri Lanka'), ('Today', 'Building CCMS')])) + '</div>',
+        '<div class="sv-tasks rb-one">' + ''.join(f'<div class="sv-task"><span style="animation-delay: {i * 0.5:.1f}s">{tick}</span>{esc(t)}</div>' for i, t in enumerate(['Only your work', 'Your CRM', 'Your hours'])) + '</div>',
+        '<div class="rb-dots" role="img" aria-label="Of 20 people interviewed, 1 is hired">' + ''.join(f'<i{" class=\"on\"" if i == 13 else ""}></i>' for i in range(20)) + '</div><div class="rb-dl"><span>Interviewed</span><span>Hired</span></div>',
+        '<div class="rb-rep">' + ''.join(f'<div><span>{esc(a)}</span><span class="pill {c}">{esc(b)}</span></div>' for a, b, c in [('Targets', 'On track', 'ok'), ('Quality', 'Checked', 'info'), ('Weekly report', 'Sent', 'ok')]) + '</div>',
+        '<div class="rb-ref"><div class="rb-av"><span>UK</span><span></span><span></span><span>20+</span></div><span>Most clients came by referral</span></div>',
+    ]
+    tiles = []
+    for i, ((t, d, tag), (path, col, bg)) in enumerate(zip(RPO_REASONS, icons)):
+        dark = i == 1
+        tiles.append(f'''<div class="sc rb-{i}{" sv-dark" if dark else ""}" data-a="up" data-d="0">
+<div class="sv-top"><div class="sch"><span class="scic" style="background: {bg}">{sc_icon(path, col)}</span>{esc(t)}</div><span class="pill {"ok" if not dark else "rb-pd"}">{esc(tag)}</span></div>
+<p class="sv-p">{esc(d)}</p>
+<div class="rb-v">{vis[i]}</div>
+</div>''')
+    return sec('why', head('Why CCMS', 'Why agencies <span style="color: #8A909C">choose CCMS</span>') +
+               f'<div class="rb" style="margin-top: 44px">{"".join(tiles)}</div>', '#F4F6FA',
+               '; background-image: linear-gradient(rgba(47,75,255,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(47,75,255,.05) 1px, transparent 1px); background-size: 48px 48px')
+
+
 def build_rpo():
     path = 'recruitment-process-outsourcing/'
     intro = 'Your consultants should spend their day placing candidates and winning clients. CCMS gives you a dedicated back office team that handles compliance, bookings, payroll, finance and resourcing. The team works only for you, in your CRM, on UK hours.'
-    why = sec('why', head('Why CCMS', 'Why agencies <span style="color: #8A909C">choose CCMS</span>') + feature_grid(RPO_REASONS, 'report'), 'var(--s1)')
+    why = rpo_reasons_bento()
     services = (f'<section id="services" class="sec" style="background: #FFFFFF">\n<div class="wrap chap">\n<div class="chap-head">\n'
                 f'<span class="badge6" data-a="up" data-d="0" style="background: #0A0F2C; color: #FFFFFF">RPO</span>\n'
                 f'<h2 class="H" data-a="up" data-d="0" style="font-size: clamp(32px, 3.4vw, 46px); margin-top: 22px">Six services. <span style="color: #8A909C">One dedicated team.</span></h2>\n'
