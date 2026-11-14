@@ -645,11 +645,10 @@ def build_our_story():
     founder = sec('founder', '<div class="founder"><div class="ph5 has-img" style="min-height: 360px; border-radius: 22px" role="img" aria-label="The CCMS team in Sri Lanka"><img class="phi" src="%%R%%assets/d45bde67a2d819b341e5acb1c7721081.jpg" alt="" loading="lazy"></div><div>' +
                   head('Founder', 'Founder-led since day one', FOUNDER) + '</div></div>')
     why = read('sections', 'why.html')
-    cards = why[why.index('<div class="g-ans"'):why.index('<div class="g-nums"')]
+    cards = why[why.index('<!--@whybento-->'):why.index('<!--/@whybento-->')]
     reasons = sec('why', head('Why CCMS', 'Better, not just more.',
                              "That's why most of our clients came by referral, and why many have given us more work without being asked.") +
-                  cards.replace('style="margin-top: 48px"', 'style="margin-top: 44px"') +
-                  stat_cards([('200+', 'people'), ('20+', 'UK clients'), ('10,702', 'nurses resourced for one client'), ('1,300+', 'shifts booked every week')], 16), 'var(--s1)')
+                  cards, 'var(--s1)')
     h = hero([('Home', '%%R%%'), ('Our story', None)], 'Our story', 'Built by a recruiter, for recruiters', intro,
              [btn_call(), btn_line('Meet the founder', '#founder')],
              hook(hook_left('Since 2011', 'In UK healthcare recruitment since 2011', None), timeline))
