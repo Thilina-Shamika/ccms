@@ -43,14 +43,14 @@ def page_url(slug):
 
 
 NAV = [
-    ('RPO', 'recruitment-process-outsourcing/', [
+    ('RPO', None, [
         ('RPO overview', 'recruitment-process-outsourcing/'),
         ('Healthcare recruitment', 'industries/healthcare-recruitment/'),
         ('Education recruitment', 'industries/education-recruitment/'),
         ('Construction recruitment', 'industries/construction-recruitment/')]),
-    ('Services', 'recruitment-process-outsourcing/#services',
+    ('Services', None,
      [(s['name'], 'services/%s/' % s['slug']) for s in SERVICES]),
-    ('Other industries', '#industries',
+    ('Other industries', None,
      [(g['name'], 'industries/%s/' % g['slug']) for g in GROUPS]),
     ('Digital', 'digital/', None),
     ('Why Sri Lanka', 'why-sri-lanka/', None),
@@ -63,9 +63,9 @@ def nav_links(cls, current):
     for label, href, sub in NAV:
         cur = ' aria-current="page"' if current and href == current else ''
         if sub:
-            items = ''.join('<a href="%s">%s</a>' % (page_url(h), esc(t)) for t, h in sub)
-            out.append('<div class="ndd"><a class="%s" href="%s"%s>%s %s</a><div class="ddm">%s</div></div>'
-                       % (cls, page_url(href), cur, esc(label), CARET, items))
+            items = ''.join('<a href="%s"%s>%s</a>' % (page_url(h), ' aria-current="page"' if h == current else '', esc(t)) for t, h in sub)
+            out.append('<div class="ndd"><button class="%s" type="button" aria-haspopup="true">%s %s</button><div class="ddm">%s</div></div>'
+                       % (cls, esc(label), CARET, items))
         else:
             out.append('<a class="%s" href="%s"%s>%s</a>' % (cls, page_url(href), cur, esc(label)))
     return ''.join(out)
@@ -77,7 +77,8 @@ def header(current, plan_href):
         subs = ''
         if sub:
             subs = '<div class="mm-s">' + ''.join('<a href="%s" onClick="{{closeMenu}}">%s</a>' % (page_url(h), esc(t)) for t, h in sub) + '</div>'
-        mm.append('<div class="mm-g"><a href="%s" onClick="{{closeMenu}}">%s</a>%s</div>' % (page_url(href), esc(label), subs))
+        head_ = '<div class="mm-h">%s</div>' % esc(label) if sub else '<a href="%s" onClick="{{closeMenu}}">%s</a>' % (page_url(href), esc(label))
+        mm.append('<div class="mm-g">%s%s</div>' % (head_, subs))
     return f'''<div class="{{{{stickCls}}}}" aria-label="Quick links"><a href="%%R%%" aria-label="CCMS home" style="display: inline-flex"><img src="%%R%%{LOGO}" alt="CCMS" width="87" height="21" style="height: 21px; width: auto; display: block"></a>{nav_links('sl', current)}<a class="btn btn-white" href="#contact" style="min-height: 42px; padding: 0 18px; font-size: 15px">Book a call</a></div>
 <div class="{{{{mbarCls}}}}" aria-label="Quick actions"><a class="btn" href="{plan_href}" style="background: rgba(255,255,255,.1); color: #FFFFFF; border: 1px solid rgba(255,255,255,.2)">Get a team plan</a><a class="btn btn-white" href="#contact">Book a call</a></div>
 <header style="position: relative; z-index: 4">
@@ -216,6 +217,13 @@ def rules_box(text):
 </div>
 <a class="btn btn-white" href="#contact" style="position: relative">Book a call {ARROW_UP}</a>
 </div>'''
+
+
+def strip_plan(hero_html):
+    """Hero without the team plan card: keep an empty surface so the clouds still have somewhere to settle."""
+    a = hero_html.index('<div data-ccms="hero-surface"')
+    b = hero_html.rindex('</div>\n</div>')
+    return hero_html[:a] + '<div data-ccms="hero-surface" aria-hidden="true" style="height: 1px"></div>\n' + hero_html[b + len('</div>\n'):]
 
 
 def accent(h1):
@@ -376,7 +384,9 @@ PAGES = []
 
 def add_page(path, title, desc, hero_html, body, crumbs=None, faqs=None, service=None, industry=0, plan=True):
     PAGES.append(dict(path=path, title=title, desc=desc, hero=hero_html, body=body, crumbs=crumbs,
-                      faqs=faqs or [], service=service, industry=industry, plan=True))
+                      faqs=faqs or [], service=service, industry=industry, plan=plan))
+    if not plan:
+        PAGES[-1]['hero'] = strip_plan(hero_html)
 
 
 def render(p):
@@ -471,7 +481,7 @@ def build_rpo():
                 f'<p class="S" data-a="up" data-d="0">Recruitment back office is relationship work, heavy on compliance, with no room for error. It is where we started, and it is what we do best.</p>\n'
                 f'</div>\n{svc_rows()}\n</div>\n</section>\n')
     faqs = HOME_FAQS
-    body = why + services + home_section('outcome') + sectors_section() + results_section() + home_section('how') + faq_section(faqs)
+    body = why + services + sectors_section() + results_section() + faq_section(faqs)
     h = hero([('Home', '%%R%%'), ('RPO', None)], 'Recruitment process outsourcing', 'RPO for UK recruitment agencies', intro,
              [btn_call(), btn_line('See the services', '#services')], plan_hook())
     add_page(path, 'RPO for UK Recruitment Agencies | CCMS', describe(intro), h, body,
@@ -485,7 +495,7 @@ def build_recruitment(r):
                          [(x[0], names[x[1]]) for x in r['roles']], badge=r['name'], after=rules_box(r['rules']))
     pains = pain_section(r['pains'], 'var(--s1)')
     proof = results_section() if r['proof'] == 'novello' else proof_section(PROOF_LINE)
-    body = pains + handle + home_section('outcome') + proof + home_section('how') + faq_section(r['faqs'])
+    body = pains + handle + proof + faq_section(r['faqs'])
     h = hero([('Home', '%%R%%'), ('RPO', '%%R%%recruitment-process-outsourcing/'), (r['name'], None)],
              r['name'] + ' agencies', esc(r['h1']), r['intro'],
              [btn_call(), btn_line('See what your team can handle', '#roles')], plan_hook())
@@ -502,13 +512,13 @@ def build_service(sv, mocks):
     body = (svc_section('does', 'What your team <span style="color: #8A909C">does</span>', esc(sv['short']), [(sv['name'], sv['name'])], side=does, badge=sv['name'], bg='var(--s1)', links=False) +
             sec('standards', head('Quality', 'How we keep standards') + numbered_cards([(t, None) for t in STANDARDS], 'g-nums')) +
             sec('sectors', head('Who we work with', 'For healthcare, education and construction agencies') + '<div style="margin-top: 44px">' + recruitment_cards() + '</div>', 'var(--s1)') +
-            home_section('how') + faq_section(faqs))
+            faq_section(faqs))
     card = '<div class="hh-card">' + mocks[sv['name']] + '</div>'
     h = hero([('Home', '%%R%%'), ('Services', '%%R%%recruitment-process-outsourcing/#services'), (sv['name'], None)],
              'Services', esc(sv['h1']), sv['intro'], [btn_call(), btn_line('What your team does', '#does')],
              hook(hook_left(esc(sv['name']), esc(sv['short'])), card))
     add_page(path, sv['h1'] + ' | CCMS', describe(sv['intro']), h, body,
-             crumbs=[('Services', 'recruitment-process-outsourcing/'), (sv['name'], path)], faqs=faqs,
+             crumbs=[(sv['name'], path)], faqs=faqs,
              service=(sv['h1'], sv['intro']), plan=False)
 
 
@@ -517,7 +527,7 @@ def build_sector(sc):
     g = next(x for x in GROUPS if x['slug'] == sc['group'])
     handle = sec('roles', head('Your team', 'What your team can handle') + numbered_cards([(x, None) for x in sc['roles']]) + rules_box(sc['rules']))
     proof = proof_section(PROOF_LINE + ' Now bringing the same standards to ' + sc['short'] + '.')
-    body = pain_section(sc['pains'], 'var(--s1)') + handle + home_section('outcome') + proof + home_section('how') + faq_section(sc['faqs'])
+    body = pain_section(sc['pains'], 'var(--s1)') + handle + proof + faq_section(sc['faqs'])
     h = hero([('Home', '%%R%%'), (g['name'], page_url('industries/%s/' % g['slug'])), (sc['name'], None)],
              sc['name'], esc(sc['h1']), sc['intro'], [btn_call(), btn_line('See what your team can handle', '#roles')],
              plan_hook())
@@ -533,7 +543,7 @@ def build_group(g):
     cards = ''.join(link_card(page_url('industries/%s/' % s['slug']), imgs[i % 4], g['name'], g['chip'], s['name'], s['intro'], 'Explore ' + s['name'].lower()) for i, s in enumerate(secs))
     grid = 'g-cards2' if len(secs) % 2 == 0 else 'g-cards3'
     body = (sec('sectors', head('Sectors', 'Sectors we support') + f'<div class="{grid}" style="margin-top: 44px">{cards}</div>', 'var(--s1)') +
-            home_section('outcome') + proof_section(PROOF_LINE + ' Now bringing the same standards to ' + g['name'].lower() + '.') + home_section('how'))
+            proof_section(PROOF_LINE + ' Now bringing the same standards to ' + g['name'].lower() + '.'))
     rows = [(s['name'], None, page_url('industries/%s/' % s['slug'])) for s in secs]
     h = hero([('Home', '%%R%%'), (g['name'], None)], 'Other industries', esc(g['name']), g['intro'],
              [btn_call(), btn_line('See the sectors', '#sectors')],
@@ -559,7 +569,7 @@ def build_why_sri_lanka():
     s3 = sec('careers', '<div class="g-kandy"><div>' + head('Careers', 'Careers, not stopovers',
              "Our office sits outside the busy outsourcing hubs, so our people aren't poached by the next call centre down the road. They build long careers with us. It is why 8 of our first 10 hires are still with us.") +
              '</div>' + photos + '</div>' + stat_cards([('200+', 'people'), ('8 of 10', 'first hires still with us'), ('1 in 20', 'candidates hired')], cols='repeat(auto-fit, minmax(200px, 1fr))'))
-    s4 = home_section('safety', 'data')
+    s4 = sec('data', head('Security', "Your data is safe. Your work doesn't stop.") + feature_grid([(x, None, None) for x in ['Controlled office access', 'No personal devices', 'Backup power and internet', 'UK GDPR agreements (IDTA)', 'Quality checked independently', 'ISO 9001, Cyber Essentials (in progress)']]), 'var(--s1)')
     s5 = sec('founder', '<div class="founder"><div class="ph5 has-img" style="min-height: 360px; border-radius: 22px" role="img" aria-label="The CCMS team in Sri Lanka"><img class="phi" src="%%R%%assets/d45bde67a2d819b341e5acb1c7721081.jpg" alt="" loading="lazy"></div><div>' +
              head('Our story', 'Founder-led since day one',
                   'Danu, our founder, has worked in UK healthcare recruitment since 2011, rising from recruiter to operations director. In 2016 he moved to Sri Lanka to set up an offshore team for a UK agency. He saw what most offshore providers got wrong: they sold volume, when agencies needed quality. So he built CCMS to do it properly, and we have grown by referral ever since.') +
@@ -644,11 +654,10 @@ def build_our_story():
                                        ('Today', '200+ people, 20+ UK clients, grown by referral', None)])
     founder = sec('founder', '<div class="founder"><div class="ph5 has-img" style="min-height: 360px; border-radius: 22px" role="img" aria-label="The CCMS team in Sri Lanka"><img class="phi" src="%%R%%assets/d45bde67a2d819b341e5acb1c7721081.jpg" alt="" loading="lazy"></div><div>' +
                   head('Founder', 'Founder-led since day one', FOUNDER) + '</div></div>')
-    why = read('sections', 'why.html')
-    cards = why[why.index('<!--@whybento-->'):why.index('<!--/@whybento-->')]
-    reasons = sec('why', head('Why CCMS', 'Better, not just more.',
-                             "That's why most of our clients came by referral, and why many have given us more work without being asked.") +
-                  cards, 'var(--s1)')
+    reasons = sec('timeline', head('Our story', 'From recruiter to CCMS') + feature_grid([
+        ('2011', 'Danu starts in UK healthcare recruitment, rising from recruiter to operations director.', None),
+        ('2016', 'He moves to Sri Lanka to set up an offshore team for a UK agency.', None),
+        ('Today', '200+ people and 20+ UK clients, grown by referral.', None)]), 'var(--s1)')
     h = hero([('Home', '%%R%%'), ('Our story', None)], 'Our story', 'Built by a recruiter, for recruiters', intro,
              [btn_call(), btn_line('Meet the founder', '#founder')],
              hook(hook_left('Since 2011', 'In UK healthcare recruitment since 2011', None), timeline))
